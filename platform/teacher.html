@@ -1,168 +1,91 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>教师工作台 - 李彦明AI课程</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background: #0f0f1a; color: #e2e8f0; }
-        .card { background: rgba(30, 27, 75, 0.6); border: 1px solid rgba(99, 102, 241, 0.2); }
-        .gradient-text { background: linear-gradient(135deg, #6366f1, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>教师工作台 - 李彦明AI课程</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC',system-ui,sans-serif;background:#0f0f1a;color:#e2e8f0}
+.header{background:rgba(15,23,42,0.95);padding:15px 20px;border-bottom:1px solid rgba(99,102,241,0.2)}
+.header-inner{max-width:800px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.logo{color:#6366f1;font-weight:700}
+.back{color:#94a3b8;text-decoration:none;font-size:0.9em}
+.back:hover{color:#6366f1}
+.container{max-width:800px;margin:0 auto;padding:30px 20px}
+h1{font-size:1.5em;margin-bottom:20px;text-align:center;background:linear-gradient(135deg,#6366f1,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:30px}
+.stat{background:rgba(30,27,75,0.6);border:1px solid rgba(99,102,241,0.2);border-radius:10px;padding:15px;text-align:center}
+.stat .num{font-size:1.8em;font-weight:700;color:#6366f1}
+.stat .label{font-size:0.75em;color:#94a3b8;margin-top:3px}
+.card{background:rgba(30,27,75,0.6);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:20px;margin-bottom:15px}
+.card h3{font-size:1em;margin-bottom:15px;color:#fff}
+.btn{display:block;width:100%;padding:12px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border:none;border-radius:8px;color:#fff;font-size:0.9em;cursor:pointer;margin-bottom:10px}
+.btn:hover{opacity:0.9}
+.btn-secondary{background:rgba(99,102,241,0.2)}
+.table{width:100%;font-size:0.8em}
+.table th,.table td{padding:10px;text-align:left;border-bottom:1px solid rgba(99,102,241,0.1)}
+.table th{color:#94a3b8;font-weight:500}
+.badge{padding:3px 8px;border-radius:10px;font-size:0.75em}
+.badge-green{background:rgba(16,185,129,0.2);color:#10b981}
+.badge-yellow{background:rgba(245,158,11,0.2);color:#f59e0b}
+.badge-red{background:rgba(239,68,68,0.2);color:#ef4444}
+.footer{text-align:center;padding:20px;color:#64748b;font-size:0.8em}
+</style>
 </head>
-<body class="min-h-screen">
-    <div class="max-w-6xl mx-auto px-4 py-8">
-        <div class="text-center mb-8">
-            <h1 class="text-3xl font-bold gradient-text">👨‍🏫 教师工作台</h1>
-            <p class="text-gray-400 mt-2">AI赋能教学，让教育更轻松</p>
-        </div>
+<body>
+<div class="header">
+<div class="header-inner">
+<div class="logo">👨‍🏫 教师工作台</div>
+<a href="/" class="back">← 返回首页</a>
+</div>
+</div>
 
-        <!-- Quick Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <div class="card rounded-xl p-4 text-center">
-                <div class="text-2xl font-bold text-indigo-400">128</div>
-                <div class="text-sm text-gray-400">班级人数</div>
-            </div>
-            <div class="card rounded-xl p-4 text-center">
-                <div class="text-2xl font-bold text-green-400">92%</div>
-                <div class="text-sm text-gray-400">作业完成率</div>
-            </div>
-            <div class="card rounded-xl p-4 text-center">
-                <div class="text-2xl font-bold text-cyan-400">78%</div>
-                <div class="text-sm text-gray-400">平均正确率</div>
-            </div>
-            <div class="card rounded-xl p-4 text-center">
-                <div class="text-2xl font-bold text-amber-400">3</div>
-                <div class="text-sm text-gray-400">待关注学生</div>
-            </div>
-        </div>
+<div class="container">
+<h1>班级学情分析</h1>
+<div class="stats">
+<div class="stat"><div class="num">128</div><div class="label">班级人数</div></div>
+<div class="stat"><div class="num">92%</div><div class="label">完成率</div></div>
+<div class="stat"><div class="num">78%</div><div class="label">正确率</div></div>
+<div class="stat"><div class="num">3</div><div class="label">待关注</div></div>
+</div>
 
-        <!-- AI Question Generator -->
-        <div class="card rounded-2xl p-6 mb-6">
-            <h2 class="text-xl font-bold mb-4">✨ AI智能出题</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                <select class="bg-[rgba(30,27,75,0.8)] border border-[rgba(99,102,241,0.3)] rounded-lg px-4 py-2">
-                    <option>物理</option>
-                    <option>化学</option>
-                    <option>数学</option>
-                    <option>语文</option>
-                    <option>英语</option>
-                </select>
-                <select class="bg-[rgba(30,27,75,0.8)] border border-[rgba(99,102,241,0.3)] rounded-lg px-4 py-2">
-                    <option>基础</option>
-                    <option>中等</option>
-                    <option>困难</option>
-                    <option>竞赛</option>
-                </select>
-                <select class="bg-[rgba(30,27,75,0.8)] border border-[rgba(99,102,241,0.3)] rounded-lg px-4 py-2">
-                    <option>知识点1</option>
-                    <option>知识点2</option>
-                    <option>知识点3</option>
-                </select>
-            </div>
-            <button class="w-full md:w-auto px-8 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg font-medium hover:opacity-90 transition">
-                🤖 生成10道题目
-            </button>
-        </div>
+<div class="card">
+<h3>✨ AI智能出题</h3>
+<button class="btn">📝 生成基础题（10道）</button>
+<button class="btn btn-secondary">📝 生成中等题（10道）</button>
+<button class="btn btn-secondary">📝 生成竞赛题（5道）</button>
+</div>
 
-        <!-- Class Performance -->
-        <div class="card rounded-2xl p-6 mb-6">
-            <h2 class="text-xl font-bold mb-4">📊 班级学情分析</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm">
-                    <thead>
-                        <tr class="text-gray-400 border-b border-[rgba(99,102,241,0.2)]">
-                            <th class="text-left py-2">排名</th>
-                            <th class="text-left py-2">学生</th>
-                            <th class="text-center py-2">正确率</th>
-                            <th class="text-center py-2">学习时长</th>
-                            <th class="text-center py-2">状态</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b border-[rgba(99,102,241,0.1)]">
-                            <td class="py-3">🥇 1</td>
-                            <td>张同学</td>
-                            <td class="text-center text-green-400">95%</td>
-                            <td class="text-center">45分钟</td>
-                            <td class="text-center"><span class="px-2 py-1 bg-green-500/20 rounded text-green-400">优秀</span></td>
-                        </tr>
-                        <tr class="border-b border-[rgba(99,102,241,0.1)]">
-                            <td class="py-3">🥈 2</td>
-                            <td>李同学</td>
-                            <td class="text-center text-green-400">92%</td>
-                            <td class="text-center">42分钟</td>
-                            <td class="text-center"><span class="px-2 py-1 bg-green-500/20 rounded text-green-400">优秀</span></td>
-                        </tr>
-                        <tr class="border-b border-[rgba(99,102,241,0.1)]">
-                            <td class="py-3">🥉 3</td>
-                            <td>王同学</td>
-                            <td class="text-center text-cyan-400">88%</td>
-                            <td class="text-center">38分钟</td>
-                            <td class="text-center"><span class="px-2 py-1 bg-cyan-500/20 rounded text-cyan-400">良好</span></td>
-                        </tr>
-                        <tr class="border-b border-[rgba(99,102,241,0.1)]">
-                            <td class="py-3">4</td>
-                            <td>刘同学</td>
-                            <td class="text-center text-yellow-400">72%</td>
-                            <td class="text-center">25分钟</td>
-                            <td class="text-center"><span class="px-2 py-1 bg-yellow-500/20 rounded text-yellow-400">需关注</span></td>
-                        </tr>
-                        <tr>
-                            <td class="py-3">5</td>
-                            <td>陈同学</td>
-                            <td class="text-center text-red-400">65%</td>
-                            <td class="text-center">20分钟</td>
-                            <td class="text-center"><span class="px-2 py-1 bg-red-500/20 rounded text-red-400">需关注</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<div class="card">
+<h3>📊 学生排名</h3>
+<table class="table">
+<tr><th>排名</th><th>学生</th><th>正确率</th><th>状态</th></tr>
+<tr><td>🥇 1</td><td>张同学</td><td style="color:#10b981">95%</td><td><span class="badge badge-green">优秀</span></td></tr>
+<tr><td>🥈 2</td><td>李同学</td><td style="color:#10b981">92%</td><td><span class="badge badge-green">优秀</span></td></tr>
+<tr><td>🥉 3</td><td>王同学</td><td style="color:#06b6d4">88%</td><td><span class="badge badge-green">良好</span></td></tr>
+<tr><td>4</td><td>刘同学</td><td style="color:#f59e0b">72%</td><td><span class="badge badge-yellow">关注</span></td></tr>
+<tr><td>5</td><td>陈同学</td><td style="color:#ef4444">65%</td><td><span class="badge badge-red">需辅导</span></td></tr>
+</table>
+</div>
 
-        <!-- Export Functions -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <button class="card rounded-xl p-6 text-center hover:border-green-500 transition">
-                <div class="text-3xl mb-2">📄</div>
-                <div class="font-medium">导出成绩单</div>
-                <div class="text-sm text-gray-400 mt-1">生成学生成绩报告</div>
-            </button>
-            <button class="card rounded-xl p-6 text-center hover:border-blue-500 transition">
-                <div class="text-3xl mb-2">📈</div>
-                <div class="font-medium">导出分析报告</div>
-                <div class="text-sm text-gray-400 mt-1">班级学情分析报告</div>
-            </button>
-            <button class="card rounded-xl p-6 text-center hover:border-purple-500 transition">
-                <div class="text-3xl mb-2">📋</div>
-                <div class="font-medium">导出知识点表</div>
-                <div class="text-sm text-gray-400 mt-1">知识点掌握情况表</div>
-            </button>
-        </div>
+<div class="card">
+<h3>💡 AI教学建议</h3>
+<div style="font-size:0.85em;color:#94a3b8;line-height:1.8">
+<p>1. 班级在"牛顿第二定律"错误率较高，建议课堂重点讲解</p>
+<p>2. 张同学、李同学表现优秀，可推荐参加竞赛培训</p>
+<p>3. 刘同学、陈同学需要额外辅导</p>
+</div>
+</div>
 
-        <!-- AI Teaching Tips -->
-        <div class="card rounded-2xl p-6">
-            <h2 class="text-xl font-bold mb-4">💡 AI教学建议</h2>
-            <div class="space-y-3">
-                <div class="p-4 bg-indigo-500/10 rounded-lg">
-                    <div class="font-medium text-indigo-400">1. 重点讲解内容</div>
-                    <div class="text-sm text-gray-400 mt-1">根据数据分析，班级在"牛顿第二定律"和"化学方程式配平"方面错误率较高，建议课堂重点讲解。</div>
-                </div>
-                <div class="p-4 bg-green-500/10 rounded-lg">
-                    <div class="font-medium text-green-400">2. 优秀学生培养</div>
-                    <div class="text-sm text-gray-400 mt-1">张同学、李同学表现优秀，建议推荐参加物理/化学竞赛培训。</div>
-                </div>
-                <div class="p-4 bg-amber-500/10 rounded-lg">
-                    <div class="font-medium text-amber-400">3. 后进生辅导</div>
-                    <div class="text-sm text-gray-400 mt-1">刘同学、陈同学需要额外辅导，建议安排一对一答疑时间。</div>
-                </div>
-            </div>
-        </div>
+<div class="card">
+<h3>📤 导出功能</h3>
+<button class="btn btn-secondary">📄 导出成绩单</button>
+<button class="btn btn-secondary">📈 导出分析报告</button>
+<button class="btn btn-secondary">📋 导出知识点掌握表</button>
+</div>
+</div>
 
-        <div class="text-center mt-8 text-gray-500 text-sm">
-            <p>📞 联系：15684394135</p>
-            <p class="mt-1">© 2026 李彦明 · 全学段AI课程开发者</p>
-        </div>
-    </div>
+<div class="footer">📞 联系：15684394135</div>
 </body>
 </html>
