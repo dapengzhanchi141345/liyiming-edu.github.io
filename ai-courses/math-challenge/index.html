@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI小学数学闯关 - 李彦明全学段AI课程</title>
+<meta name="description" content="李彦明AI小学数学闯关，口算练习，图形探索">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0a0a0f;color:#e8e8f0;min-height:100vh}
+.header{background:linear-gradient(135deg,#1e1b4b,#4c1d95);padding:40px 20px;text-align:center}
+.header h1{color:#fff;font-size:2em}
+.nav{background:#12121a;padding:15px;text-align:center}
+.nav a{color:#ffd93d;text-decoration:none;margin:0 15px;font-weight:bold}
+.container{max-width:800px;margin:0 auto;padding:20px}
+.section{margin:30px 0}
+.section h2{color:#ffd93d;font-size:1.5em;margin-bottom:20px}
+.game-box{background:linear-gradient(145deg,#1e1b4b,#2a1a3e);border-radius:15px;padding:30px;border:1px solid #4c1d95;text-align:center}
+.question{font-size:2em;color:#fff;margin:20px 0}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:20px}
+.option{background:#1e293b;padding:20px;border-radius:10px;cursor:pointer;font-size:1.3em;transition:all 0.3s;border:2px solid transparent}
+.option:hover{border-color:#ffd93d;background:#312e81}
+.option.correct{border-color:#10b981;background:#064e3b}
+.option.wrong{border-color:#ef4444;background:#7f1d1d}
+.score{font-size:1.5em;color:#ffd93d;margin:20px 0}
+.footer{background:#0a0a0f;text-align:center;padding:30px;border-top:1px solid #1e1e3a;margin-top:50px}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>🎮 AI小学数学闯关</h1>
+<p style="color:#a5b4fc;margin-top:10px">李彦明全学段AI课程</p>
+</div>
+<div class="nav">
+<a href="/">首页</a>
+<a href="/ai-courses/">全部课程</a>
+</div>
+<div class="container">
+<div class="section">
+<div class="game-box">
+<h2>🧮 口算闯关</h2>
+<div class="score">得分： <span id="score">0</span></div>
+<div class="question" id="question">加载中...</div>
+<div class="options" id="options"></div>
+<p style="color:#94a3b8;margin-top:20px" id="feedback"></p>
+</div>
+<div style="text-align:center;margin-top:30px">
+<p style="font-size:1.5em;color:#ffd93d;font-weight:bold">¥199/年</p>
+<p style="color:#94a3b8;margin:15px 0">每日练习 + 错题收集 + 进度追踪</p>
+<p style="color:#fff;font-size:1.2em">📞 联系订阅：15684394135</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>📞 联系我们：李彦明 15684394135</p>
+</div>
+<script>
+let score = 0;
+let currentAnswer = 0;
+
+function generateQuestion() {
+    const a = Math.floor(Math.random() * 20) + 1;
+    const b = Math.floor(Math.random() * 20) + 1;
+    const ops = ['+', '-', '×'];
+    const op = ops[Math.floor(Math.random() * ops.length)];
+    
+    let question, answer;
+    if(op === '+') { question = a + ' + ' + b + ' = ?'; answer = a + b; }
+    else if(op === '-') { 
+        if(a < b) { [a, b] = [b, a]; }
+        question = a + ' - ' + b + ' = ?'; 
+        answer = a - b; 
+    }
+    else { question = a + ' × ' + b + ' = ?'; answer = a * b; }
+    
+    currentAnswer = answer;
+    document.getElementById('question').textContent = question;
+    
+    const options = [answer];
+    while(options.length < 4) {
+        const wrong = answer + Math.floor(Math.random() * 10) - 5;
+        if(wrong !== answer && wrong >= 0 && !options.includes(wrong)) {
+            options.push(wrong);
+        }
+    }
+    options.sort(() => Math.random() - 0.5);
+    
+    const optionsDiv = document.getElementById('options');
+    optionsDiv.innerHTML = '';
+    options.forEach(opt => {
+        const btn = document.createElement('div');
+        btn.className = 'option';
+        btn.textContent = opt;
+        btn.onclick = () => checkAnswer(opt, btn);
+        optionsDiv.appendChild(btn);
+    });
+}
+
+function checkAnswer(selected, btn) {
+    const feedback = document.getElementById('feedback');
+    if(selected === currentAnswer) {
+        score += 10;
+        btn.classList.add('correct');
+        feedback.textContent = '✅ 正确！+10分';
+        feedback.style.color = '#10b981';
+    } else {
+        btn.classList.add('wrong');
+        feedback.textContent = '❌ 错误！正确答案是 ' + currentAnswer;
+        feedback.style.color = '#ef4444';
+    }
+    document.getElementById('score').textContent = score;
+    setTimeout(generateQuestion, 1500);
+}
+
+generateQuestion();
+</script>
+</body>
+</html>
