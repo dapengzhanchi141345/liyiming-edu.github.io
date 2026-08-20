@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI数学几何画板 - 李彦明</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); min-height: 100vh; color: #333; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        header { text-align: center; padding: 30px 0; }
+        header h1 { font-size: 2.3em; color: white; }
+        header p { color: rgba(255,255,255,0.8); margin-top: 10px; }
+        .canvas-area { background: white; border-radius: 16px; padding: 30px; margin-top: 20px; text-align: center; }
+        .canvas-placeholder { width: 100%; height: 400px; background: #f8f9fa; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 3em; color: #ddd; }
+        .tools { display: flex; justify-content: center; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .tool { background: white; border: 2px solid #4facfe; color: #4facfe; padding: 8px 20px; border-radius: 20px; cursor: pointer; font-size: 14px; }
+        .tool:hover { background: #4facfe; color: white; }
+        .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 30px; }
+        .feature { background: white; border-radius: 12px; padding: 20px; text-align: center; }
+        .feature .icon { font-size: 2em; margin-bottom: 8px; }
+        .feature h4 { color: #4facfe; font-size: 14px; }
+        .feature p { color: #666; font-size: 12px; margin-top: 5px; }
+        footer { text-align: center; margin-top: 30px; color: rgba(255,255,255,0.7); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📐 AI数学几何画板</h1>
+            <p>函数可视化 · 几何动态演示 · 压轴题拆解</p>
+            <p style="margin-top: 10px; font-size: 14px;">开发者：李彦明 · 15684394135</p>
+        </header>
+
+        <div class="canvas-area">
+            <div class="canvas-placeholder">📊</div>
+            <div class="tools">
+                <span class="tool">📏 画线</span>
+                <span class="tool">⭕ 画圆</span>
+                <span class="tool">📐 画角</span>
+                <span class="tool">📈 函数曲线</span>
+                <span class="tool">🔄 动画演示</span>
+                <span class="tool">🤖 AI讲解</span>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="icon">📈</div>
+                <h4>函数可视化</h4>
+                <p>y=ax²+bx+c 动态演示</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🔺</div>
+                <h4>几何证明</h4>
+                <p>三角形/圆/相似形</p>
+            </div>
+            <div class="feature">
+                <div class="icon">📐</div>
+                <h4>动态变换</h4>
+                <p>平移/旋转/对称</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🤖</div>
+                <h4>AI拆解</h4>
+                <p>压轴题分步引导</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 李彦明 · AI数学几何画板</p>
+            <p style="font-size: 12px; margin-top: 5px;">初高中数学必备工具 · 年费199元</p>
+        </footer>
+    </div>
+</body>
+</html>
