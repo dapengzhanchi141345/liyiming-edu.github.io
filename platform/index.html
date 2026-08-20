@@ -1,800 +1,129 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>李彦明AI课程 - 智能教学平台</title>
-    <meta name="description" content="李彦明AI课程 - 全学段AI智能教学平台，覆盖小学初中高中13学科+竞赛">
-    <meta name="keywords" content="AI课程,物理实验,化学助手,数学几何,作文批改,竞赛辅导,李彦明">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * { font-family: 'Noto Sans SC', sans-serif; }
-        :root {
-            --primary: #6366f1;
-            --secondary: #8b5cf6;
-            --accent: #06b6d4;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-        }
-        body { background: #0f0f1a; color: #e2e8f0; }
-        .gradient-text { background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .card { background: rgba(30, 27, 75, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(99, 102, 241, 0.2); }
-        .card:hover { border-color: var(--primary); transform: translateY(-2px); transition: all 0.3s; }
-        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
-        .btn-primary:hover { opacity: 0.9; transform: scale(1.02); }
-        .stat-card { background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.1)); }
-        .progress-ring { transform: rotate(-90deg); }
-        .progress-ring-circle { transition: stroke-dashoffset 0.5s; }
-        .message { max-width: 80%; padding: 12px 16px; border-radius: 12px; margin: 8px 0; }
-        .message-user { background: linear-gradient(135deg, var(--primary), var(--secondary)); margin-left: auto; }
-        .message-ai { background: rgba(30, 27, 75, 0.8); border: 1px solid rgba(99, 102, 241, 0.3); }
-        .badge { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; }
-        .badge-gold { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; }
-        .badge-silver { background: linear-gradient(135deg, #94a3b8, #64748b); color: #fff; }
-        .badge-bronze { background: linear-gradient(135deg, #b45309, #92400e); color: #fff; }
-        .streak-fire { animation: fire 1s ease-in-out infinite alternate; }
-        @keyframes fire { from { transform: scale(1); } to { transform: scale(1.1); } }
-        .typing-dot { animation: typing 1.4s infinite; }
-        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes typing { 0%, 60%, 100% { opacity: 0.3; } 30% { opacity: 1; } }
-        .knowledge-node { transition: all 0.3s; cursor: pointer; }
-        .knowledge-node:hover { transform: scale(1.1); }
-        .knowledge-connected { stroke-dasharray: 5,5; animation: dash 20s linear infinite; }
-        @keyframes dash { to { stroke-dashoffset: -1000; } }
-        .slide-in { animation: slideIn 0.3s ease-out; }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
-        @keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); } 50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); } }
-        input:focus, textarea:focus { outline: none; border-color: var(--primary); }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: rgba(15, 15, 26, 0.5); }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI教学平台 - 李彦明</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC',system-ui,sans-serif;background:#0f0f1a;color:#e2e8f0}
+.header{background:rgba(15,23,42,0.95);padding:15px 20px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(99,102,241,0.2)}
+.header-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.2em;font-weight:700;color:#6366f1}
+.nav{display:flex;gap:15px}
+.nav a{color:#e2e8f0;text-decoration:none;font-size:0.9em;padding:5px 10px;border-radius:5px}
+.nav a:hover{background:rgba(99,102,241,0.2);color:#6366f1}
+.container{max-width:1000px;margin:0 auto;padding:40px 20px}
+.hero{text-align:center;padding:50px 20px}
+.hero h1{font-size:2.2em;margin-bottom:15px;background:linear-gradient(135deg,#6366f1,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#94a3b8;margin-bottom:25px}
+.btn{display:inline-block;padding:12px 30px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:25px;color:#fff;text-decoration:none;font-weight:600}
+.btn:hover{opacity:0.9}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:30px 0}
+.card{background:rgba(30,27,75,0.6);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:all 0.3s;text-decoration:none;color:inherit}
+.card:hover{border-color:#6366f1;transform:translateY(-3px)}
+.card .icon{font-size:2em;margin-bottom:10px}
+.card h3{font-size:1em;margin-bottom:8px;color:#fff}
+.card p{font-size:0.8em;color:#94a3b8}
+.subjects{margin:40px 0}
+.subjects h2{font-size:1.5em;margin-bottom:20px;text-align:center}
+.subject-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.subject{background:rgba(30,27,75,0.6);border:1px solid rgba(99,102,241,0.2);border-radius:10px;padding:15px;text-align:center;cursor:pointer;transition:all 0.3s;text-decoration:none;color:inherit}
+.subject:hover{border-color:#6366f1}
+.subject .icon{font-size:1.5em;margin-bottom:8px}
+.subject h4{font-size:0.9em;margin-bottom:5px}
+.subject .price{font-size:0.75em;color:#6366f1}
+.footer{text-align:center;padding:30px;color:#64748b;font-size:0.8em;border-top:1px solid rgba(99,102,241,0.2)}
+@media(max-width:768px){.cards,.subject-grid{grid-template-columns:repeat(2,1fr)}.nav{display:none}}
+</style>
 </head>
-<body class="min-h-screen">
-    <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0f0f1a]/90 backdrop-blur-lg border-b border-[rgba(99,102,241,0.2)]">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-xl">🎓</div>
-                <div>
-                    <h1 class="text-lg font-bold gradient-text">李彦明AI课程</h1>
-                    <p class="text-xs text-gray-400">全学段智能教学平台</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-4">
-                <div class="hidden md:flex items-center gap-2 bg-[rgba(99,102,241,0.1)] px-3 py-1.5 rounded-full">
-                    <span class="text-lg">🔥</span>
-                    <span id="streak-count" class="text-sm font-medium">0天连续学习</span>
-                </div>
-                <div class="flex items-center gap-2 bg-[rgba(245,158,11,0.1)] px-3 py-1.5 rounded-full">
-                    <span class="text-sm">💎</span>
-                    <span id="points-count" class="text-sm font-medium text-amber-400">0积分</span>
-                </div>
-                <button onclick="showParentPanel()" class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg text-sm font-medium hover:opacity-90 transition">家长端</button>
-                <button onclick="showTeacherPanel()" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg text-sm font-medium hover:opacity-90 transition">教师端</button>
-            </div>
-        </div>
-    </header>
+<body>
+<div class="header">
+<div class="header-inner">
+<div class="logo">🎓 李彦明AI课程</div>
+<div class="nav">
+<a href="/">首页</a>
+<a href="#features">功能</a>
+<a href="#subjects">学科</a>
+<a href="tel:15684394135">联系</a>
+</div>
+</div>
+</div>
 
-    <!-- Main Content -->
-    <main class="pt-20 pb-12 px-4">
-        <div class="max-w-7xl mx-auto">
-            <!-- Stats Overview -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div class="card rounded-2xl p-4 text-center">
-                    <div class="text-3xl mb-1">📚</div>
-                    <div id="total-lessons" class="text-2xl font-bold text-indigo-400">0</div>
-                    <div class="text-xs text-gray-400 mt-1">已学课程</div>
-                </div>
-                <div class="card rounded-2xl p-4 text-center">
-                    <div class="text-3xl mb-1">✅</div>
-                    <div id="correct-answers" class="text-2xl font-bold text-green-400">0</div>
-                    <div class="text-xs text-gray-400 mt-1">正确回答</div>
-                </div>
-                <div class="card rounded-2xl p-4 text-center">
-                    <div class="text-3xl mb-1">🎯</div>
-                    <div id="accuracy-rate" class="text-2xl font-bold text-cyan-400">0%</div>
-                    <div class="text-xs text-gray-400 mt-1">正确率</div>
-                </div>
-                <div class="card rounded-2xl p-4 text-center">
-                    <div class="text-3xl mb-1">🏆</div>
-                    <div id="badge-count" class="text-2xl font-bold text-amber-400">0</div>
-                    <div class="text-xs text-gray-400 mt-1">获得徽章</div>
-                </div>
-            </div>
+<div class="container">
+<div class="hero">
+<h1>AI智能教学平台</h1>
+<p>苏格拉底式AI导师 · 错题本 · 游戏化学习</p>
+<a href="#subjects" class="btn">开始学习</a>
+</div>
 
-            <!-- Subject Selection -->
-            <div class="mb-8">
-                <h2 class="text-xl font-bold mb-4">选择学科</h2>
-                <div class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-3">
-                    <button onclick="selectSubject('physics')" class="subject-btn card rounded-xl p-3 text-center transition hover:border-pink-500" data-subject="physics">
-                        <div class="text-2xl mb-1">🔬</div>
-                        <div class="text-xs font-medium text-pink-400">物理</div>
-                    </button>
-                    <button onclick="selectSubject('chemistry')" class="subject-btn card rounded-xl p-3 text-center transition hover:border-purple-500" data-subject="chemistry">
-                        <div class="text-2xl mb-1">⚗️</div>
-                        <div class="text-xs font-medium text-purple-400">化学</div>
-                    </button>
-                    <button onclick="selectSubject('math')" class="subject-btn card rounded-xl p-3 text-center transition hover:border-blue-500" data-subject="math">
-                        <div class="text-2xl mb-1">📐</div>
-                        <div class="text-xs font-medium text-blue-400">数学</div>
-                    </button>
-                    <button onclick="selectSubject('chinese')" class="subject-btn card rounded-xl p-3 text-center transition hover:border-red-500" data-subject="chinese">
-                        <div class="text-2xl mb-1">📚</div>
-                        <div class="text-xs font-medium text-red-400">语文</div>
-                    </button>
-                    <button onclick="selectSubject('english')" class="subject-btn card rounded-xl p-3 text-center transition hover:border-cyan-500" data-subject="english">
-                        <div class="text-2xl mb-1">🌍</div>
-                        <div class="text-xs font-medium text-cyan-400">英语</div>
-                    </button>
-                    <button onclick="selectSubject('history')" class="subject-btn card rounded-xl p-3 text-center transition hover:border-amber-500" data-subject="history">
-                        <div class="text-2xl mb-1">📜</div>
-                        <div class="text-xs font-medium text-amber-400">历史</div>
-                    </button>
-                    <button onclick="selectSubject('geography')" class="subject-btn card rounded-xl p-3 text-center transition hover:border-green-500" data-subject="geography">
-                        <div class="text-2xl mb-1">🗺️</div>
-                        <div class="text-xs font-medium text-green-400">地理</div>
-                    </button>
-                    <button onclick="selectSubject('biology')" class="subject-btn card rounded-xl p-3 text-center transition hover:border-emerald-500" data-subject="biology">
-                        <div class="text-2xl mb-1">🌿</div>
-                        <div class="text-xs font-medium text-emerald-400">生物</div>
-                    </button>
-                    <button onclick="selectSubject('daofa')" class="subject-btn card rounded-xl p-3 text-center transition hover:border-fuchsia-500" data-subject="daofa">
-                        <div class="text-2xl mb-1">⚖️</div>
-                        <div class="text-xs font-medium text-fuchsia-400">道法</div>
-                    </button>
-                </div>
-            </div>
+<div class="cards" id="features">
+<a class="card" href="parent.html">
+<div class="icon">👨‍👩‍👧</div>
+<h3>家长监控</h3>
+<p>学习报告+薄弱点提醒</p>
+</a>
+<a class="card" href="teacher.html">
+<div class="icon">👨‍🏫</div>
+<h3>教师工作台</h3>
+<p>智能出题+班级分析</p>
+</a>
+<a class="card" href="b2b.html">
+<div class="icon">🏫</div>
+<h3>B端方案</h3>
+<p>学校采购+教师培训</p>
+</a>
+</div>
 
-            <!-- AI Teaching System -->
-            <div id="ai-teaching-panel" class="hidden slide-in">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Chat Area -->
-                    <div class="lg:col-span-2 card rounded-2xl p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">🤖</div>
-                                <div>
-                                    <h3 id="subject-title" class="font-bold">AI导师</h3>
-                                    <p class="text-xs text-gray-400">苏格拉底式引导教学 · 不给答案只给提示</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-2">
-                                <button onclick="startNewQuestion()" class="px-3 py-1.5 bg-indigo-500/20 rounded-lg text-sm hover:bg-indigo-500/30 transition">🔄 新题目</button>
-                                <button onclick="toggleVoice()" id="voice-btn" class="px-3 py-1.5 bg-cyan-500/20 rounded-lg text-sm hover:bg-cyan-500/30 transition">🎤 语音</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Messages -->
-                        <div id="chat-messages" class="h-80 overflow-y-auto mb-4 space-y-3">
-                            <div class="message message-ai">
-                                <p>你好！我是李彦明AI导师 👋</p>
-                                <p class="mt-2">我会用苏格拉底式提问引导你思考，不会直接给你答案。请先选择一个学科，然后我会为你出题。</p>
-                            </div>
-                        </div>
+<div class="subjects" id="subjects">
+<h2>📚 选择学科</h2>
+<div class="subject-grid">
+<a class="subject" href="ai-courses/physics-ai/">
+<div class="icon">🔬</div>
+<h4>物理</h4>
+<span class="price">¥199起</span>
+</a>
+<a class="subject" href="ai-courses/chemistry-helper/">
+<div class="icon">⚗️</div>
+<h4>化学</h4>
+<span class="price">¥149起</span>
+</a>
+<a class="subject" href="ai-courses/math-geometry/">
+<div class="icon">📐</div>
+<h4>数学</h4>
+<span class="price">¥199起</span>
+</a>
+<a class="subject" href="ai-courses/essay-grader/">
+<div class="icon">✍️</div>
+<h4>语文</h4>
+<span class="price">¥149起</span>
+</a>
+<a class="subject" href="ai-courses/ai-english/">
+<div class="icon">🌍</div>
+<h4>英语</h4>
+<span class="price">¥299起</span>
+</a>
+<a class="subject" href="ai-courses/history-map/">
+<div class="icon">📜</div>
+<h4>历史</h4>
+<span class="price">¥99起</span>
+</a>
+<a class="subject" href="ai-courses/it-ai/">
+<div class="icon">💻</div>
+<h4>信息科技</h4>
+<span class="price">¥299起</span>
+</a>
+<a class="subject" href="ai-courses/ai-agent/">
+<div class="icon">🤖</div>
+<h4>AI智能体</h4>
+<span class="price">¥299/年</span>
+</a>
+</div>
+</div>
+</div>
 
-                        <!-- Input Area -->
-                        <div class="flex gap-3">
-                            <textarea id="user-input" rows="2" placeholder="输入你的答案或问题..." class="flex-1 bg-[rgba(30,27,75,0.8)] border border-[rgba(99,102,241,0.3)] rounded-xl px-4 py-3 resize-none" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage()}"></textarea>
-                            <button onclick="sendMessage()" class="px-6 btn-primary rounded-xl font-medium">发送</button>
-                        </div>
-
-                        <!-- Hint System -->
-                        <div id="hint-section" class="hidden mt-4 p-4 bg-amber-500/10 border border-amber-500/30 rounded-xl">
-                            <div class="flex items-center gap-2 mb-2">
-                                <span>💡</span>
-                                <span class="font-medium text-amber-400">提示 (<span id="hint-count">3</span>次可用)</span>
-                            </div>
-                            <p id="hint-text" class="text-sm"></p>
-                        </div>
-                    </div>
-
-                    <!-- Sidebar -->
-                    <div class="space-y-4">
-                        <!-- Knowledge Graph -->
-                        <div class="card rounded-2xl p-4">
-                            <h4 class="font-bold mb-3">📊 知识图谱</h4>
-                            <svg id="knowledge-graph" viewBox="0 0 300 200" class="w-full">
-                                <defs>
-                                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                                        <polygon points="0 0, 10 3.5, 0 7" fill="#6366f1" />
-                                    </marker>
-                                </defs>
-                            </svg>
-                        </div>
-
-                        <!-- Wrong Questions -->
-                        <div class="card rounded-2xl p-4">
-                            <h4 class="font-bold mb-3">❌ 错题本 (<span id="wrong-count">0</span>)</h4>
-                            <div id="wrong-questions" class="space-y-2 max-h-48 overflow-y-auto">
-                                <p class="text-sm text-gray-500 text-center py-4">暂无错题，继续保持！</p>
-                            </div>
-                            <button onclick="reviewWrongQuestions()" class="w-full mt-3 px-4 py-2 bg-amber-500/20 rounded-lg text-sm hover:bg-amber-500/30 transition">📖 复习错题</button>
-                        </div>
-
-                        <!-- Badges -->
-                        <div class="card rounded-2xl p-4">
-                            <h4 class="font-bold mb-3">🏅 徽章墙</h4>
-                            <div id="badges-grid" class="grid grid-cols-4 gap-2">
-                                <!-- Badges will be populated dynamically -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Parent Panel Modal -->
-    <div id="parent-panel" class="fixed inset-0 z-50 hidden">
-        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeParentPanel()"></div>
-        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-[#1a1a2e] border-l border-[rgba(99,102,241,0.3)] p-6 overflow-y-auto slide-in">
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="text-xl font-bold gradient-text">家长监控面板</h2>
-                <button onclick="closeParentPanel()" class="text-gray-400 hover:text-white text-2xl">&times;</button>
-            </div>
-            
-            <div class="space-y-6">
-                <div class="card rounded-xl p-4">
-                    <h3 class="font-bold mb-3">📊 今日学习报告</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-indigo-400" id="parent-lessons">0</div>
-                            <div class="text-xs text-gray-400">学习题数</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-green-400" id="parent-accuracy">0%</div>
-                            <div class="text-xs text-gray-400">正确率</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card rounded-xl p-4">
-                    <h3 class="font-bold mb-3">📈 学习趋势（近7天）</h3>
-                    <canvas id="learning-trend" width="400" height="150"></canvas>
-                </div>
-
-                <div class="card rounded-xl p-4">
-                    <h3 class="font-bold mb-3">⚠️ 薄弱知识点</h3>
-                    <div id="weak-points" class="space-y-2">
-                        <p class="text-sm text-gray-500">暂无数据，开始学习后自动生成</p>
-                    </div>
-                </div>
-
-                <div class="card rounded-xl p-4">
-                    <h3 class="font-bold mb-3">🎯 学习建议</h3>
-                    <div id="learning-tips" class="space-y-2">
-                        <p class="text-sm text-gray-500">完成更多题目后生成个性化建议</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Teacher Panel Modal -->
-    <div id="teacher-panel" class="fixed inset-0 z-50 hidden">
-        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeTeacherPanel()"></div>
-        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-[#1a1a2e] border-l border-[rgba(99,102,241,0.3)] p-6 overflow-y-auto slide-in">
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="text-xl font-bold gradient-text">教师工作台</h2>
-                <button onclick="closeTeacherPanel()" class="text-gray-400 hover:text-white text-2xl">&times;</button>
-            </div>
-            
-            <div class="space-y-6">
-                <div class="card rounded-xl p-4">
-                    <h3 class="font-bold mb-3">📝 智能出题</h3>
-                    <div class="space-y-3">
-                        <select id="teacher-subject" class="w-full bg-[rgba(30,27,75,0.8)] border border-[rgba(99,102,241,0.3)] rounded-lg px-3 py-2">
-                            <option value="physics">物理</option>
-                            <option value="chemistry">化学</option>
-                            <option value="math">数学</option>
-                            <option value="chinese">语文</option>
-                            <option value="english">英语</option>
-                        </select>
-                        <select id="teacher-difficulty" class="w-full bg-[rgba(30,27,75,0.8)] border border-[rgba(99,102,241,0.3)] rounded-lg px-3 py-2">
-                            <option value="easy">基础</option>
-                            <option value="medium">中等</option>
-                            <option value="hard">困难</option>
-                            <option value="contest">竞赛</option>
-                        </select>
-                        <button onclick="generateQuestions()" class="w-full btn-primary py-2 rounded-lg font-medium">✨ 生成题目</button>
-                    </div>
-                </div>
-
-                <div class="card rounded-xl p-4">
-                    <h3 class="font-bold mb-3">📊 班级学情分析</h3>
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-400">班级平均正确率</span>
-                            <span class="font-bold text-green-400">85%</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-400">待关注学生</span>
-                            <span class="font-bold text-amber-400">3人</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-400">作业完成率</span>
-                            <span class="font-bold text-indigo-400">92%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card rounded-xl p-4">
-                    <h3 class="font-bold mb-3">📤 导出功能</h3>
-                    <div class="space-y-2">
-                        <button class="w-full px-4 py-2 bg-green-500/20 rounded-lg text-sm hover:bg-green-500/30 transition">📄 导出成绩单</button>
-                        <button class="w-full px-4 py-2 bg-blue-500/20 rounded-lg text-sm hover:bg-blue-500/30 transition">📈 导出分析报告</button>
-                        <button class="w-full px-4 py-2 bg-purple-500/20 rounded-lg text-sm hover:bg-purple-500/30 transition">📋 导出知识点掌握表</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="border-t border-[rgba(99,102,241,0.2)] py-6 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <p class="text-gray-400 text-sm">📞 联系：15684394135</p>
-            <p class="text-gray-500 text-xs mt-2">© 2026 李彦明 · 全学段AI课程开发者</p>
-        </div>
-    </footer>
-
-    <script>
-        // Data Storage
-        const STORAGE_KEY = 'liyiming_edu_progress';
-        let userProgress = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
-            streak: 0,
-            points: 0,
-            totalLessons: 0,
-            correctAnswers: 0,
-            wrongAnswers: 0,
-            badges: [],
-            wrongQuestions: [],
-            knowledgeGraph: {},
-            learningHistory: []
-        };
-
-        let currentSubject = null;
-        let currentQuestion = null;
-        let hintCount = 3;
-        let isVoiceActive = false;
-
-        // Question Banks
-        const questionBanks = {
-            physics: {
-                easy: [
-                    { q: '什么是牛顿第一定律？', answer: '物体在不受外力作用时，总保持静止或匀速直线运动状态', hints: ['想想物体运动状态改变的原因', '这与什么有关？'], knowledge: '力学基础' },
-                    { q: '水的沸点是多少摄氏度？', answer: '100摄氏度（标准大气压下）', hints: ['这是一个常用物理常数', '与水沸腾有关'], knowledge: '热学基础' },
-                    { q: '光的传播速度是多少？', answer: '约3×10^8 m/s', hints: ['这是宇宙中最快的速度', '光在真空中传播'], knowledge: '光学基础' }
-                ],
-                medium: [
-                    { q: '一个物体从10米高处自由落下，落地速度是多少？', answer: '约14 m/s（g=10m/s²）', hints: ['用公式v²=2gh', '代入数值计算'], knowledge: '自由落体' },
-                    { q: '什么是杠杆平衡条件？', answer: '动力×动力臂=阻力×阻力臂', hints: ['这是阿基米德发现的', '与力和力臂有关'], knowledge: '简单机械' }
-                ],
-                hard: [
-                    { q: '简述光电效应的原理及其应用', answer: '光照射金属表面，电子吸收光子能量逸出，应用于太阳能电池、光电管等', hints: ['这是爱因斯坦解释的现象', '与光的粒子性有关'], knowledge: '近代物理' }
-                ],
-                contest: [
-                    { q: '一质点在xOy平面内运动，其轨迹方程为x=2t,y=3t²-2t，求t=2时的加速度', answer: '加速度a=6j（y方向），大小为6m/s²', hints: ['求二阶导数', 'a=d²x/dt² i + d²y/dt² j'], knowledge: '运动学竞赛' }
-                ]
-            },
-            chemistry: {
-                easy: [
-                    { q: '水的化学式是什么？', answer: 'H₂O', hints: ['由氢和氧组成', '两个氢原子和一个氧原子'], knowledge: '基础化学式' },
-                    { q: '氧气的化学式是什么？', answer: 'O₂', hints: ['双原子分子', '由两个氧原子组成'], knowledge: '气体化学式' }
-                ],
-                medium: [
-                    { q: '如何配平这个方程式：Fe + O₂ → Fe₃O₄', answer: '3Fe + 2O₂ → Fe₃O₄', hints: ['铁原子守恒', '氧原子守恒'], knowledge: '方程式配平' }
-                ]
-            },
-            math: {
-                easy: [
-                    { q: '什么是勾股定理？', answer: '直角三角形中，a²+b²=c²', hints: ['与直角三角形有关', '边的关系'], knowledge: '几何基础' },
-                    { q: '圆的面积公式是什么？', answer: 'S=πr²', hints: ['与半径有关', '圆周率乘以半径平方'], knowledge: '圆面积' }
-                ],
-                medium: [
-                    { q: '解方程：2x²-5x+3=0', answer: 'x₁=1, x₂=3/2', hints: ['用求根公式', 'Δ=b²-4ac'], knowledge: '一元二次方程' }
-                ]
-            },
-            chinese: {
-                easy: [
-                    { q: '"床前明月光"的下一句是什么？', answer: '疑是地上霜', hints: ['这是李白的诗', '描写月光'], knowledge: '古诗背诵' }
-                ]
-            },
-            english: {
-                easy: [
-                    { q: 'How do you say "谢谢" in English?', answer: 'Thank you / Thanks', hints: ['常用表达', '表示感谢'], knowledge: '基础词汇' }
-                ]
-            },
-            history: {
-                easy: [
-                    { q: '秦始皇统一六国的时间是什么时候？', answer: '公元前221年', hints: ['战国末期', '秦朝建立'], knowledge: '秦朝历史' }
-                ]
-            },
-            geography: {
-                easy: [
-                    { q: '中国最长的河流是哪条？', answer: '长江', hints: ['全长约6300公里', '世界第三长河'], knowledge: '中国地理' }
-                ]
-            },
-            biology: {
-                easy: [
-                    { q: '光合作用的反应式是什么？', answer: '6CO₂+6H₂O→C₆H₁₂O₆+6O₂（光照、叶绿体）', hints: ['植物利用什么制造有机物', '需要光和叶绿体'], knowledge: '光合作用' }
-                ]
-            },
-            daofa: {
-                easy: [
-                    { q: '我国根本政治制度是什么？', answer: '人民代表大会制度', hints: ['与政治制度有关', '最高权力机关'], knowledge: '政治制度' }
-                ]
-            }
-        };
-
-        // Badges Definition
-        const badges = [
-            { id: 'first_question', name: '初次尝试', icon: '🌟', desc: '完成第一题' },
-            { id: 'streak_3', name: '三日连续', icon: '🔥', desc: '连续学习3天' },
-            { id: 'streak_7', name: '一周坚持', icon: '🔥', desc: '连续学习7天' },
-            { id: 'perfect_10', name: '十全十美', icon: '💯', desc: '连续答对10题' },
-            { id: 'hint_master', name: '提示大师', icon: '💡', desc: '使用10次提示' },
-            { id: 'physics_beginner', name: '物理入门', icon: '🔬', desc: '完成物理5题' },
-            { id: 'math_master', name: '数学达人', icon: '📐', desc: '完成数学10题' },
-            { id: 'contest_ready', name: '竞赛预备', icon: '🏆', desc: '完成竞赛题' }
-        ];
-
-        // Initialize
-        function init() {
-            updateStats();
-            renderBadges();
-            renderKnowledgeGraph();
-            renderWrongQuestions();
-        }
-
-        function selectSubject(subject) {
-            currentSubject = subject;
-            hintCount = 3;
-            
-            // Update UI
-            document.querySelectorAll('.subject-btn').forEach(btn => {
-                btn.classList.remove('border-indigo-500', 'pulse-glow');
-                if (btn.dataset.subject === subject) {
-                    btn.classList.add('border-indigo-500', 'pulse-glow');
-                }
-            });
-
-            // Show teaching panel
-            document.getElementById('ai-teaching-panel').classList.remove('hidden');
-            
-            // Update title
-            const subjectNames = {
-                physics: '物理AI导师', chemistry: '化学AI导师', math: '数学AI导师',
-                chinese: '语文AI导师', english: '英语AI导师', history: '历史AI导师',
-                geography: '地理AI导师', biology: '生物AI导师', daofa: '道法AI导师'
-            };
-            document.getElementById('subject-title').textContent = subjectNames[subject];
-
-            // Start with a question
-            startNewQuestion();
-
-            // Add to history
-            addToHistory(subject);
-        }
-
-        function startNewQuestion() {
-            if (!currentSubject) return;
-            
-            const difficulty = userProgress.totalLessons < 5 ? 'easy' : 
-                              userProgress.totalLessons < 20 ? 'medium' : 
-                              Math.random() > 0.7 ? 'hard' : 'medium';
-            
-            const bank = questionBanks[currentSubject]?.[difficulty] || questionBanks[currentSubject]?.easy;
-            if (!bank || bank.length === 0) {
-                addMessage('ai', '暂未找到该难度题目，已为您准备基础题目。');
-                return;
-            }
-
-            currentQuestion = bank[Math.floor(Math.random() * bank.length)];
-            hintCount = 3;
-            
-            document.getElementById('hint-section').classList.add('hidden');
-            
-            addMessage('ai', `【${difficulty === 'easy' ? '基础' : difficulty === 'medium' ? '中等' : '挑战'}题】${currentQuestion.q}\n\n请先思考后回答，我会引导你找到答案 😊`);
-            
-            document.getElementById('user-input').focus();
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('user-input');
-            const text = input.value.trim();
-            if (!text) return;
-
-            addMessage('user', text);
-            input.value = '';
-
-            // Simulate AI thinking
-            showTyping();
-            setTimeout(() => {
-                removeTyping();
-                processAnswer(text);
-            }, 1000);
-        }
-
-        function processAnswer(userAnswer) {
-            if (!currentQuestion) return;
-
-            // Check answer (simplified - in production would use AI API)
-            const isCorrect = checkAnswer(userAnswer);
-            
-            if (isCorrect) {
-                addMessage('ai', `✅ 正确！你掌握了这个知识点！+10分 💎`);
-                userProgress.correctAnswers++;
-                userProgress.points += 10;
-                userProgress.totalLessons++;
-                checkBadges();
-            } else {
-                // Provide hint instead of direct answer
-                if (hintCount > 0) {
-                    hintCount--;
-                    const hint = currentQuestion.hints[currentQuestion.hints.length - 1 - hintCount] || '再想想，从基础知识出发';
-                    addMessage('ai', `❌ 不完全对，让我给你一个提示：${hint}\n\n还剩${hintCount}次提示机会`);
-                    showHint(hint);
-                } else {
-                    addMessage('ai', `💡 答案是：${currentQuestion.answer}\n\n记住这个知识点，下次会更好的！错题已加入错题本`);
-                    addToWrongQuestions(currentQuestion);
-                }
-                userProgress.wrongAnswers++;
-                userProgress.totalLessons++;
-            }
-
-            updateStats();
-            saveProgress();
-        }
-
-        function checkAnswer(answer) {
-            // Simplified check - in production would use AI API
-            const q = currentQuestion.q.toLowerCase();
-            const a = currentQuestion.answer.toLowerCase();
-            const user = answer.toLowerCase();
-            
-            // Simple keyword matching
-            const keywords = a.split(/[，,。、\s]/).filter(k => k.length > 1);
-            const matchCount = keywords.filter(k => user.includes(k)).length;
-            return matchCount >= keywords.length * 0.5;
-        }
-
-        function addMessage(type, text) {
-            const container = document.getElementById('chat-messages');
-            const div = document.createElement('div');
-            div.className = `message message-${type}`;
-            div.textContent = text;
-            container.appendChild(div);
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function showTyping() {
-            const container = document.getElementById('chat-messages');
-            const div = document.createElement('div');
-            div.id = 'typing-indicator';
-            div.className = 'message message-ai';
-            div.innerHTML = '<div class="flex gap-1"><span class="typing-dot">●</span><span class="typing-dot">●</span><span class="typing-dot">●</span></div>';
-            container.appendChild(div);
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function removeTyping() {
-            const el = document.getElementById('typing-indicator');
-            if (el) el.remove();
-        }
-
-        function showHint(hint) {
-            document.getElementById('hint-section').classList.remove('hidden');
-            document.getElementById('hint-count').textContent = hintCount;
-            document.getElementById('hint-text').textContent = hint;
-        }
-
-        function updateStats() {
-            document.getElementById('streak-count').textContent = `${userProgress.streak}天连续学习`;
-            document.getElementById('points-count').textContent = `${userProgress.points}积分`;
-            document.getElementById('total-lessons').textContent = userProgress.totalLessons;
-            document.getElementById('correct-answers').textContent = userProgress.correctAnswers;
-            document.getElementById('accuracy-rate').textContent = userProgress.totalLessons > 0 ? 
-                Math.round(userProgress.correctAnswers / userProgress.totalLessons * 100) + '%' : '0%';
-            document.getElementById('badge-count').textContent = userProgress.badges.length;
-            
-            // Update parent panel
-            document.getElementById('parent-lessons').textContent = userProgress.totalLessons;
-            document.getElementById('parent-accuracy').textContent = userProgress.totalLessons > 0 ? 
-                Math.round(userProgress.correctAnswers / userProgress.totalLessons * 100) + '%' : '0%';
-        }
-
-        function checkBadges() {
-            const newBadges = [];
-            
-            if (userProgress.totalLessons >= 1 && !hasBadge('first_question')) {
-                newBadges.push('first_question');
-            }
-            if (userProgress.streak >= 3 && !hasBadge('streak_3')) {
-                newBadges.push('streak_3');
-            }
-            if (userProgress.streak >= 7 && !hasBadge('streak_7')) {
-                newBadges.push('streak_7');
-            }
-            if (userProgress.correctAnswers >= 10 && !hasBadge('perfect_10')) {
-                newBadges.push('perfect_10');
-            }
-            
-            newBadges.forEach(id => {
-                const badge = badges.find(b => b.id === id);
-                if (badge && !userProgress.badges.includes(id)) {
-                    userProgress.badges.push(id);
-                    setTimeout(() => {
-                        alert(`🎉 获得徽章：${badge.icon} ${badge.name}`);
-                    }, 500);
-                }
-            });
-        }
-
-        function hasBadge(id) {
-            return userProgress.badges.includes(id);
-        }
-
-        function renderBadges() {
-            const grid = document.getElementById('badges-grid');
-            grid.innerHTML = badges.map(b => {
-                const earned = hasBadge(b.id);
-                return `<div class="text-center ${earned ? '' : 'opacity-30'}" title="${b.desc}">
-                    <div class="text-2xl">${b.icon}</div>
-                    <div class="text-[10px]">${b.name}</div>
-                </div>`;
-            }).join('');
-        }
-
-        function addToWrongQuestions(q) {
-            if (!userProgress.wrongQuestions.find(w => w.q === q.q)) {
-                userProgress.wrongQuestions.push({
-                    ...q,
-                    subject: currentSubject,
-                    date: new Date().toISOString()
-                });
-                renderWrongQuestions();
-            }
-        }
-
-        function renderWrongQuestions() {
-            const container = document.getElementById('wrong-questions');
-            document.getElementById('wrong-count').textContent = userProgress.wrongQuestions.length;
-            
-            if (userProgress.wrongQuestions.length === 0) {
-                container.innerHTML = '<p class="text-sm text-gray-500 text-center py-4">暂无错题，继续保持！</p>';
-                return;
-            }
-            
-            container.innerHTML = userProgress.wrongQuestions.slice(-5).reverse().map(q => `
-                <div class="p-2 bg-red-500/10 rounded-lg text-xs">
-                    <div class="font-medium text-red-400">${q.q}</div>
-                    <div class="text-gray-400 mt-1">${q.answer}</div>
-                </div>
-            `).join('');
-        }
-
-        function reviewWrongQuestions() {
-            if (userProgress.wrongQuestions.length === 0) {
-                alert('暂无错题需要复习');
-                return;
-            }
-            // Start reviewing from wrong questions
-            alert('开始复习错题模式！');
-        }
-
-        function renderKnowledgeGraph() {
-            const svg = document.getElementById('knowledge-graph');
-            // Simple visualization
-            svg.innerHTML = `
-                <circle cx="150" cy="100" r="30" fill="rgba(99,102,241,0.3)" stroke="#6366f1" stroke-width="2" class="knowledge-node"/>
-                <text x="150" y="105" text-anchor="middle" fill="#fff" font-size="12">核心知识</text>
-                <circle cx="80" cy="60" r="20" fill="rgba(239,68,68,0.3)" stroke="#ef4444" stroke-width="2" class="knowledge-node"/>
-                <text x="80" y="65" text-anchor="middle" fill="#fff" font-size="10">物理</text>
-                <circle cx="220" cy="60" r="20" fill="rgba(16,185,129,0.3)" stroke="#10b981" stroke-width="2" class="knowledge-node"/>
-                <text x="220" y="65" text-anchor="middle" fill="#fff" font-size="10">化学</text>
-                <circle cx="80" cy="140" r="20" fill="rgba(59,130,246,0.3)" stroke="#3b82f6" stroke-width="2" class="knowledge-node"/>
-                <text x="80" y="145" text-anchor="middle" fill="#fff" font-size="10">数学</text>
-                <circle cx="220" cy="140" r="20" fill="rgba(245,158,11,0.3)" stroke="#f59e0b" stroke-width="2" class="knowledge-node"/>
-                <text x="220" y="145" text-anchor="middle" fill="#fff" font-size="10">语文</text>
-                <line x1="125" y1="85" x2="95" y2="70" stroke="#6366f1" stroke-width="1" class="knowledge-connected"/>
-                <line x1="175" y1="85" x2="205" y2="70" stroke="#6366f1" stroke-width="1" class="knowledge-connected"/>
-                <line x1="125" y1="115" x2="95" y2="130" stroke="#6366f1" stroke-width="1" class="knowledge-connected"/>
-                <line x1="175" y1="115" x2="205" y2="130" stroke="#6366f1" stroke-width="1" class="knowledge-connected"/>
-            `;
-        }
-
-        function toggleVoice() {
-            isVoiceActive = !isVoiceActive;
-            const btn = document.getElementById('voice-btn');
-            if (isVoiceActive) {
-                btn.classList.add('bg-cyan-500/40');
-                if ('webkitSpeechRecognition' in window) {
-                    const recognition = new webkitSpeechRecognition();
-                    recognition.lang = 'zh-CN';
-                    recognition.onresult = (event) => {
-                        const text = event.results[0][0].transcript;
-                        document.getElementById('user-input').value = text;
-                        sendMessage();
-                    };
-                    recognition.start();
-                } else {
-                    alert('您的浏览器不支持语音识别');
-                    isVoiceActive = false;
-                    btn.classList.remove('bg-cyan-500/40');
-                }
-            } else {
-                btn.classList.remove('bg-cyan-500/40');
-            }
-        }
-
-        function showParentPanel() {
-            document.getElementById('parent-panel').classList.remove('hidden');
-            updateLearningTrend();
-        }
-
-        function closeParentPanel() {
-            document.getElementById('parent-panel').classList.add('hidden');
-        }
-
-        function showTeacherPanel() {
-            document.getElementById('teacher-panel').classList.remove('hidden');
-        }
-
-        function closeTeacherPanel() {
-            document.getElementById('teacher-panel').classList.add('hidden');
-        }
-
-        function generateQuestions() {
-            alert('智能出题功能开发中，敬请期待！');
-        }
-
-        function updateLearningTrend() {
-            const canvas = document.getElementById('learning-trend');
-            const ctx = canvas.getContext('2d');
-            ctx.clearRect(0, 0, 400, 150);
-            
-            // Draw simple line chart
-            ctx.beginPath();
-            ctx.strokeStyle = '#6366f1';
-            ctx.lineWidth = 2;
-            const points = [20, 35, 30, 50, 45, 60, userProgress.totalLessons || 30];
-            const step = 400 / (points.length - 1);
-            points.forEach((p, i) => {
-                const x = i * step;
-                const y = 130 - p;
-                if (i === 0) ctx.moveTo(x, y);
-                else ctx.lineTo(x, y);
-            });
-            ctx.stroke();
-            
-            // Draw labels
-            ctx.fillStyle = '#94a3b8';
-            ctx.font = '10px sans-serif';
-            ['周一', '周二', '周三', '周四', '周五', '周六', '周日'].forEach((label, i) => {
-                ctx.fillText(label, i * step, 145);
-            });
-        }
-
-        function addToHistory(subject) {
-            userProgress.learningHistory.push({
-                subject,
-                date: new Date().toISOString()
-            });
-            saveProgress();
-        }
-
-        function saveProgress() {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(userProgress));
-        }
-
-        // Initialize on load
-        init();
-    </script>
+<div class="footer">
+<p>📞 联系：15684394135 | © 2026 李彦明 · 全学段AI课程开发者</p>
+</div>
 </body>
 </html>
