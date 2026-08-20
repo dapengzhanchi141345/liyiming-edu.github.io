@@ -1,173 +1,118 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B端进校方案 - 李彦明AI课程</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background: #0f0f1a; color: #e2e8f0; }
-        .card { background: rgba(30, 27, 75, 0.6); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 16px; }
-        .gradient-text { background: linear-gradient(135deg, #6366f1, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B端进校方案 - 李彦明AI课程</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC',system-ui,sans-serif;background:#0f0f1a;color:#e2e8f0}
+.header{background:rgba(15,23,42,0.95);padding:15px 20px;border-bottom:1px solid rgba(99,102,241,0.2)}
+.header-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.logo{color:#6366f1;font-weight:700}
+.back{color:#94a3b8;text-decoration:none;font-size:0.9em}
+.back:hover{color:#6366f1}
+.container{max-width:900px;margin:0 auto;padding:40px 20px}
+h1{font-size:2em;margin-bottom:10px;text-align:center;background:linear-gradient(135deg,#6366f1,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{text-align:center;color:#94a3b8;margin-bottom:40px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:40px}
+.feature{background:rgba(30,27,75,0.6);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:20px;text-align:center}
+.feature .icon{font-size:2.5em;margin-bottom:10px}
+.feature h3{font-size:1em;margin-bottom:8px}
+.feature p{font-size:0.8em;color:#94a3b8}
+.pricing{margin-bottom:40px}
+.pricing h2{font-size:1.5em;margin-bottom:20px;text-align:center}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.price-card{background:rgba(30,27,75,0.6);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:25px;text-align:center}
+.price-card.featured{border-color:#6366f1;transform:scale(1.05)}
+.price-card h3{font-size:1.1em;margin-bottom:10px}
+.price-card .price{font-size:2em;font-weight:700;color:#6366f1;margin-bottom:15px}
+.price-card .price span{font-size:0.4em;color:#94a3b8}
+.price-card ul{list-style:none;font-size:0.8em;color:#94a3b8;text-align:left}
+.price-card ul li{padding:5px 0}
+.price-card ul li:before{content:"✓ ";color:#10b981}
+.contact{text-align:center;padding:40px;background:linear-gradient(135deg,#1e1b4b,#4c1d95);border-radius:16px}
+.contact h2{font-size:1.5em;margin-bottom:15px}
+.contact .phone{font-size:2.5em;font-weight:700;background:linear-gradient(135deg,#6366f1,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.footer{text-align:center;padding:20px;color:#64748b;font-size:0.8em}
+@media(max-width:768px){.feature-grid,.price-grid{grid-template-columns:1fr}}
+</style>
 </head>
-<body class="min-h-screen">
-    <div class="max-w-6xl mx-auto px-4 py-8">
-        <!-- Header -->
-        <div class="text-center mb-12">
-            <h1 class="text-4xl font-bold gradient-text mb-4">AI智能教学平台</h1>
-            <p class="text-xl text-gray-400">让每一位学生都拥有专属AI导师</p>
-            <p class="text-sm text-gray-500 mt-2">李彦明AI课程 · 全学段智能教学解决方案</p>
-        </div>
+<body>
+<div class="header">
+<div class="header-inner">
+<div class="logo">🏫 B端进校方案</div>
+<a href="/" class="back">← 返回首页</a>
+</div>
+</div>
 
-        <!-- Core Features -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div class="card p-6 text-center">
-                <div class="text-5xl mb-4">🤖</div>
-                <h3 class="text-xl font-bold mb-2">苏格拉底式AI导师</h3>
-                <p class="text-gray-400 text-sm">不给答案，只给提示，引导学生独立思考</p>
-            </div>
-            <div class="card p-6 text-center">
-                <div class="text-5xl mb-4">📊</div>
-                <h3 class="text-xl font-bold mb-2">智能学情分析</h3>
-                <p class="text-gray-400 text-sm">实时追踪学习进度，精准定位薄弱点</p>
-            </div>
-            <div class="card p-6 text-center">
-                <div class="text-5xl mb-4">🎯</div>
-                <h3 class="text-xl font-bold mb-2">个性化推题</h3>
-                <p class="text-gray-400 text-sm">错题自动推送，举一反三巩固提升</p>
-            </div>
-        </div>
+<div class="container">
+<h1>AI智能教学平台</h1>
+<p class="subtitle">让每一位学生都拥有专属AI导师</p>
 
-        <!-- Product Matrix -->
-        <div class="card p-6 mb-12">
-            <h2 class="text-2xl font-bold mb-6">📦 产品矩阵</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm">
-                    <thead>
-                        <tr class="text-gray-400 border-b border-[rgba(99,102,241,0.2)]">
-                            <th class="text-left py-3">产品</th>
-                            <th class="text-center py-3">学科</th>
-                            <th class="text-center py-3">学段</th>
-                            <th class="text-center py-3">定价</th>
-                            <th class="text-center py-3">B端价格</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b border-[rgba(99,102,241,0.1)]">
-                            <td class="py-3">AI物理虚拟实验</td>
-                            <td class="text-center text-pink-400">物理</td>
-                            <td class="text-center">初中+高中</td>
-                            <td class="text-center">¥199/年</td>
-                            <td class="text-center text-green-400">¥99/生/年</td>
-                        </tr>
-                        <tr class="border-b border-[rgba(99,102,241,0.1)]">
-                            <td class="py-3">AI作文批改精修</td>
-                            <td class="text-center text-red-400">语文</td>
-                            <td class="text-center">小学+初中</td>
-                            <td class="text-center">¥149/年</td>
-                            <td class="text-center text-green-400">¥79/生/年</td>
-                        </tr>
-                        <tr class="border-b border-[rgba(99,102,241,0.1)]">
-                            <td class="py-3">AI编程竞赛教练</td>
-                            <td class="text-center text-blue-400">信息科技</td>
-                            <td class="text-center">初中+高中</td>
-                            <td class="text-center">¥299/年</td>
-                            <td class="text-center text-green-400">¥149/生/年</td>
-                        </tr>
-                        <tr>
-                            <td class="py-3">全学科套餐</td>
-                            <td class="text-center">13科</td>
-                            <td class="text-center">K-12</td>
-                            <td class="text-center">¥799/年</td>
-                            <td class="text-center text-green-400">¥399/生/年</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<div class="feature-grid">
+<div class="feature">
+<div class="icon">🤖</div>
+<h3>苏格拉底式AI导师</h3>
+<p>不给答案只给提示，引导独立思考</p>
+</div>
+<div class="feature">
+<div class="icon">📊</div>
+<h3>智能学情分析</h3>
+<p>实时追踪学习进度，精准定位薄弱点</p>
+</div>
+<div class="feature">
+<div class="icon">🎯</div>
+<h3>个性化推题</h3>
+<p>错题自动推送，举一反三巩固提升</p>
+</div>
+</div>
 
-        <!-- School Package -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div class="card p-6">
-                <h3 class="text-xl font-bold mb-4">🏫 学校采购方案</h3>
-                <div class="space-y-3">
-                    <div class="flex justify-between p-3 bg-indigo-500/10 rounded-lg">
-                        <span>基础版（50人）</span>
-                        <span class="text-indigo-400 font-bold">¥4,950/年</span>
-                    </div>
-                    <div class="flex justify-between p-3 bg-purple-500/10 rounded-lg">
-                        <span>标准版（200人）</span>
-                        <span class="text-purple-400 font-bold">¥17,800/年</span>
-                    </div>
-                    <div class="flex justify-between p-3 bg-pink-500/10 rounded-lg">
-                        <span>完整版（500人）</span>
-                        <span class="text-pink-400 font-bold">¥39,500/年</span>
-                    </div>
-                </div>
-            </div>
+<div class="pricing">
+<h2>📦 学校采购方案</h2>
+<div class="price-grid">
+<div class="price-card">
+<h3>基础版</h3>
+<div class="price">¥4,950<span>/年</span></div>
+<ul>
+<li>50个学生账号</li>
+<li>基础学科课程</li>
+<li>学习报告</li>
+<li>错题本功能</li>
+</ul>
+</div>
+<div class="price-card featured">
+<h3>标准版</h3>
+<div class="price">¥17,800<span>/年</span></div>
+<ul>
+<li>200个学生账号</li>
+<li>全部学科课程</li>
+<li>竞赛专项课程</li>
+<li>家长监控端</li>
+<li>教师工作台</li>
+</ul>
+</div>
+<div class="price-card">
+<h3>完整版</h3>
+<div class="price">¥39,500<span>/年</span></div>
+<ul>
+<li>500个学生账号</li>
+<li>全部功能</li>
+<li>专属客服</li>
+<li>教师培训</li>
+<li>定制开发</li>
+</ul>
+</div>
+</div>
+</div>
 
-            <div class="card p-6">
-                <h3 class="text-xl font-bold mb-4">✨ 增值服务</h3>
-                <div class="space-y-3">
-                    <div class="flex items-center gap-3 p-3 bg-gray-500/10 rounded-lg">
-                        <span>📱</span>
-                        <span>微信小程序版</span>
-                        <span class="ml-auto text-green-400">免费</span>
-                    </div>
-                    <div class="flex items-center gap-3 p-3 bg-gray-500/10 rounded-lg">
-                        <span>👨‍🏫</span>
-                        <span>教师培训工作坊</span>
-                        <span class="ml-auto text-amber-400">¥5,000/场</span>
-                    </div>
-                    <div class="flex items-center gap-3 p-3 bg-gray-500/10 rounded-lg">
-                        <span>🎯</span>
-                        <span>竞赛专项辅导</span>
-                        <span class="ml-auto text-cyan-400">定制报价</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="contact">
+<h2>📞 联系我们</h2>
+<div class="phone">15684394135</div>
+<p style="color:#94a3b8;margin-top:15px">欢迎学校、培训机构咨询合作</p>
+</div>
+</div>
 
-        <!-- Testimonials -->
-        <div class="card p-6 mb-12">
-            <h2 class="text-2xl font-bold mb-6">💬 用户评价</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="p-4 bg-[rgba(99,102,241,0.1)] rounded-xl">
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">👨‍🏫</span>
-                        <span class="font-medium">某中学物理教师</span>
-                    </div>
-                    <p class="text-sm text-gray-400">"AI物理实验模拟器大大节省了课堂演示时间，学生反馈非常好，特别是虚拟实验功能，弥补了学校实验设备不足的短板。"</p>
-                </div>
-                <div class="p-4 bg-[rgba(99,102,241,0.1)] rounded-xl">
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">👩‍👦</span>
-                        <span class="font-medium">学生家长</span>
-                    </div>
-                    <p class="text-sm text-gray-400">"孩子用AI作文批改后，语文成绩提高了15分，最重要的是学会了如何修改作文，而不只是看答案。"</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Contact -->
-        <div class="card p-8 text-center">
-            <h2 class="text-2xl font-bold mb-4">📞 联系我们</h2>
-            <p class="text-gray-400 mb-6">欢迎学校、培训机构咨询合作</p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <div class="px-6 py-3 bg-indigo-500/20 rounded-lg">
-                    <div class="text-sm text-gray-400">联系人</div>
-                    <div class="text-xl font-bold">李彦明</div>
-                </div>
-                <div class="px-6 py-3 bg-cyan-500/20 rounded-lg">
-                    <div class="text-sm text-gray-400">电话/微信</div>
-                    <div class="text-xl font-bold text-cyan-400">15684394135</div>
-                </div>
-            </div>
-            <button class="mt-8 px-8 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg font-medium hover:opacity-90 transition">
-                预约演示
-            </button>
-        </div>
-    </div>
+<div class="footer">© 2026 李彦明 · 全学段AI课程开发者</div>
 </body>
 </html>
