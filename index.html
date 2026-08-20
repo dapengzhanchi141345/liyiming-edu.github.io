@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>李彦明 - 全学段AI课程开发者</title>
+<meta name="description" content="李彦明，全学段AI课程开发者。覆盖小学、初中、高中全学科，提供AI物理虚拟实验、AI作文批改、AI数学几何画板等25+AI课程产品。联系方式：15684394135">
+<meta name="keywords" content="李彦明,AI课程,初中物理,AI虚拟实验,化学方程式,数学几何画板,AI教育,AI教学,AI课程开发,智能教育,AI作文批改">
+<meta name="author" content="李彦明">
+<meta name="robots" content="index, follow">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:#020617;color:#e2e8f0;min-height:100vh}
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#4c1d95 100%);padding:100px 20px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 50% 50%,rgba(99,102,241,0.1) 0%,transparent 70%)}
+.hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto}
+.hero h1{font-size:3.5em;font-weight:800;margin-bottom:20px;background:linear-gradient(135deg,#fff 0%,#c4b5fd 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-size:1.4em;color:#a5b4fc;margin-bottom:30px}
+.hero .contact{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#6366f1,#8b5cf6);padding:15px 30px;border-radius:50px;font-size:1.2em;font-weight:600;color:#fff;text-decoration:none;transition:all 0.3s}
+.hero .contact:hover{transform:scale(1.05);box-shadow:0 20px 40px rgba(99,102,241,0.4)}
+.nav{background:rgba(15,23,42,0.95);backdrop-filter:blur(10px);padding:15px 20px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(99,102,241,0.2)}
+.nav-content{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
+.nav a{color:#e2e8f0;text-decoration:none;font-weight:500;transition:color 0.3s}
+.nav a:hover{color:#6366f1}
+.container{max-width:1200px;margin:0 auto;padding:40px 20px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin:60px 0}
+.stat-card{text-align:center;padding:30px;background:linear-gradient(145deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6));border-radius:15px;border:1px solid rgba(99,102,241,0.2)}
+.stat-card .number{font-size:3em;font-weight:800;background:linear-gradient(135deg,#6366f1,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-card .label{color:#94a3b8;margin-top:10px}
+.section{margin:60px 0}
+.section-header{text-align:center;margin-bottom:50px}
+.section-header h2{font-size:2.5em;font-weight:700;margin-bottom:15px;background:linear-gradient(135deg,#6366f1,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.subject-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
+.subject-card{background:linear-gradient(145deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6));border-radius:20px;padding:30px;border:1px solid rgba(99,102,241,0.2);transition:all 0.4s;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block}
+.subject-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#6366f1,#ec4899);transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
+.subject-card:hover::before{transform:scaleX(1)}
+.subject-card:hover{transform:translateY(-8px);border-color:#6366f1;box-shadow:0 20px 40px rgba(99,102,241,0.2)}
+.subject-icon{font-size:3em;margin-bottom:15px}
+.subject-card h3{font-size:1.5em;font-weight:700;margin-bottom:10px;color:#fff}
+.subject-card .expert{color:#a5b4fc;font-size:0.9em;margin-bottom:10px}
+.subject-card .desc{color:#94a3b8;margin-bottom:20px;font-size:0.95em}
+.subject-card .features{list-style:none;margin-bottom:20px}
+.subject-card .features li{padding:6px 0;color:#cbd5e1;font-size:0.9em}
+.subject-card .features li:before{content:"✦ ";color:#6366f1}
+.badge{display:inline-block;padding:5px 15px;border-radius:20px;font-size:0.85em;font-weight:600;margin:5px}
+.badge-primary{background:rgba(99,102,241,0.2);color:#6366f1}
+.badge-success{background:rgba(16,185,129,0.2);color:#10b981}
+.badge-warning{background:rgba(245,158,11,0.2);color:#f59e0b}
+.badge-accent{background:rgba(236,72,153,0.2);color:#ec4899}
+.about-section{background:linear-gradient(145deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6));border-radius:20px;padding:40px;border:1px solid rgba(99,102,241,0.2);max-width:800px;margin:0 auto}
+.about-section h3{color:#a5b4fc;font-size:1.5em;margin-bottom:20px}
+.about-section p{color:#94a3b8;margin-bottom:15px;line-height:1.8}
+.contact-section{text-align:center;padding:60px 20px;background:linear-gradient(135deg,#1e1b4b,#4c1d95);border-radius:20px;margin-top:60px}
+.contact-section h2{font-size:2em;margin-bottom:20px;color:#fff}
+.contact-section .phone{font-size:2.5em;font-weight:800;background:linear-gradient(135deg,#6366f1,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:20px 0}
+.footer{background:rgba(15,23,42,0.95);text-align:center;padding:40px 20px;border-top:1px solid rgba(99,102,241,0.2)}
+.footer p{color:#64748b;margin:10px 0}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="hero-content">
+<h1>李彦明</h1>
+<p class="subtitle">全学段AI课程开发者 · 25+ 智能课程产品</p>
+<p style="color:#94a3b8;margin-bottom:30px">覆盖小学、初中、高中全学科 | 五大学科奥赛专项 | AI赋能教学</p>
+<a href="tel:15684394135" class="contact">📞 15684394135</a>
+</div>
+</div>
+
+<div class="nav">
+<div class="nav-content">
+<a href="#subjects">全部课程</a>
+<a href="#competitions">竞赛课程</a>
+<a href="#about">关于我</a>
+<a href="#contact">联系方式</a>
+</div>
+</div>
+
+<div class="container">
+<div class="stats">
+<div class="stat-card"><div class="number">25+</div><div class="label">AI课程产品</div></div>
+<div class="stat-card"><div class="number">13</div><div class="label">学科覆盖</div></div>
+<div class="stat-card"><div class="number">K-12</div><div class="label">全学段覆盖</div></div>
+<div class="stat-card"><div class="number">47</div><div class="label">白名单竞赛</div></div>
+</div>
+
+<div class="section" id="subjects">
+<div class="section-header"><h2>📚 全学科AI课程</h2><p>覆盖小学、初中、高中全部学科</p></div>
+<div class="subject-grid">
+<a href="ai-courses/physics-ai/" class="subject-card"><div class="subject-icon">🔬</div><h3>物理</h3><div class="expert">专家：理贯通(格物君)团队</div><p class="desc">AI物理虚拟实验室，30+经典实验仿真</p><span class="badge badge-primary">初中 ¥199</span><span class="badge badge-accent">高中 ¥399</span></a>
+<a href="ai-courses/chem-ai/" class="subject-card"><div class="subject-icon">⚗️</div><h3>化学</h3><div class="expert">专家：炼金士(金融会)团队</div><p class="desc">AI化学方程式配平助手，有机推断</p><span class="badge badge-primary">初中 ¥149</span><span class="badge badge-accent">高中 ¥299</span></a>
+<a href="ai-courses/math-ai/" class="subject-card"><div class="subject-icon">📐</div><h3>数学</h3><div class="expert">专家：程数统(数算子)团队</div><p class="desc">AI几何画板，函数可视化，压轴题拆解</p><span class="badge badge-success">小学 ¥199</span><span class="badge badge-accent">高中 ¥399</span></a>
+<a href="ai-courses/bio-ai/" class="subject-card"><div class="subject-icon">🌿</div><h3>生物</h3><div class="expert">专家：万物生(物格知)团队</div><p class="desc">AI生物知识图解，遗传题AI辅助</p><span class="badge badge-primary">初中 ¥149</span><span class="badge badge-accent">高中 ¥299</span></a>
+<a href="ai-courses/chinese-ai/" class="subject-card"><div class="subject-icon">📚</div><h3>语文</h3><div class="expert">专家：锦心子(文思敏)团队</div><p class="desc">AI作文批改精修，古诗闯关，文言文翻译</p><span class="badge badge-primary">小学 ¥399</span><span class="badge badge-accent">初中 ¥149</span></a>
+<a href="ai-courses/english-ai/" class="subject-card"><div class="subject-icon">🌍</div><h3>英语</h3><div class="expert">专家：通语者(言达道)团队</div><p class="desc">AI英语口语陪练，阅读理解精读</p><span class="badge badge-success">小学 免费</span><span class="badge badge-accent">初中 ¥299</span></a>
+<a href="ai-courses/history-ai/" class="subject-card"><div class="subject-icon">📜</div><h3>历史</h3><div class="expert">专家：史鉴君(史通明)团队</div><p class="desc">AI历史时空地图，朝代更替动画</p><span class="badge badge-warning">初中 ¥99</span><span class="badge badge-accent">高中 ¥299</span></a>
+<a href="ai-courses/geo-ai/" class="subject-card"><div class="subject-icon">🗺️</div><h3>地理</h3><div class="expert">专家：山海客(岳纵横)团队</div><p class="desc">AI地理虚拟考察，3D地貌可视化</p><span class="badge badge-success">初中 ¥99</span><span class="badge badge-accent">高中 ¥299</span></a>
+<a href="ai-courses/daofa-ai/" class="subject-card"><div class="subject-icon">⚖️</div><h3>道法</h3><div class="expert">专家：明辨君(道明远)团队</div><p class="desc">AI时政热点解读，法律常识AI讲解</p><span class="badge badge-success">初中 ¥129</span><span class="badge badge-accent">高中 ¥249</span></a>
+<a href="ai-courses/it-ai/" class="subject-card"><div class="subject-icon">💻</div><h3>信息科技</h3><div class="expert">专家：程导思团队</div><p class="desc">AI Python编程，智能体开发，物联网</p><span class="badge badge-primary">初中 ¥299</span><span class="badge badge-accent">高中 ¥399</span></a>
+<a href="ai-courses/music-ai/" class="subject-card"><div class="subject-icon">🎵</div><h3>音乐</h3><div class="expert">专家：音律工坊团队</div><p class="desc">AI乐理入门，辅助作曲，编曲配乐</p><span class="badge badge-success">免费</span><span class="badge badge-primary">¥299-499</span></a>
+<a href="ai-courses/" class="subject-card"><div class="subject-icon">🏃</div><h3>体育/艺术</h3><div class="expert">跨学科融合</div><p class="desc">AI训练计划，美术创作辅助，劳动教育</p><span class="badge badge-success">免费</span></a>
+</div>
+</div>
+
+<div class="section" id="competitions">
+<div class="section-header"><h2>🏆 竞赛AI课程</h2><p>五大学科奥林匹克 + 教育部白名单47项竞赛</p></div>
+<div class="subject-grid">
+<a href="ai-courses/math-olympiad/" class="subject-card"><div class="subject-icon">🏅</div><h3>数学竞赛(CMO)</h3><p class="desc">AI数学竞赛助手，CMO/IMO真题解析</p><span class="badge badge-accent">¥399/年</span></a>
+<a href="ai-courses/physics-olympiad/" class="subject-card"><div class="subject-icon">🥇</div><h3>物理竞赛(CPhO)</h3><p class="desc">AI物理竞赛实验，理论冲刺</p><span class="badge badge-accent">¥399/年</span></a>
+<a href="ai-courses/chem-olympiad/" class="subject-card"><div class="subject-icon">🥈</div><h3>化学竞赛(CChO)</h3><p class="desc">AI化学竞赛推题，有机推断</p><span class="badge badge-accent">¥399/年</span></a>
+<a href="ai-courses/bio-olympiad/" class="subject-card"><div class="subject-icon">🥉</div><h3>生物竞赛(CBO)</h3><p class="desc">AI生物竞赛题库，实验技能</p><span class="badge badge-accent">¥399/年</span></a>
+<a href="ai-courses/it-olympiad/" class="subject-card"><div class="subject-icon">💻</div><h3>信息学竞赛(NOI)</h3><p class="desc">AI编程竞赛教练，CSP-J/S/NOI</p><span class="badge badge-accent">¥399/年</span></a>
+<a href="ai-courses/ai-agent/" class="subject-card"><div class="subject-icon">🤖</div><h3>人工智能创新赛</h3><p class="desc">AI智能体开发，扣子平台实操</p><span class="badge badge-accent">¥299/年</span></a>
+</div>
+</div>
+
+<div class="section" id="about">
+<div class="section-header"><h2>👤 关于我</h2></div>
+<div class="about-section">
+<h3>李彦明</h3>
+<p>全学段AI课程开发者，专注AI赋能学科教学。</p>
+<p>产品覆盖小学、初中、高中13个学科，25+AI课程，另有9个竞赛专项课程。</p>
+<p>核心产品：AI物理虚拟实验、AI作文批改精修、AI编程竞赛教练</p>
+<div style="margin-top:20px">
+<span class="badge badge-primary">小学 K-6</span>
+<span class="badge badge-success">初中 7-9</span>
+<span class="badge badge-warning">高中 10-12</span>
+<span class="badge badge-accent">竞赛专项</span>
+</div>
+</div>
+</div>
+
+<div class="contact-section" id="contact">
+<h2>📞 联系方式</h2>
+<div class="phone">15684394135</div>
+<p style="color:#a5b4fc;font-size:1.2em">李彦明</p>
+<p style="color:#94a3b8;margin-top:20px">全学段AI课程开发者</p>
+</div>
+</div>
+
+<div class="footer">
+<p>© 2026 李彦明 · 全学段AI课程开发者</p>
+</div>
+</body>
+</html>
