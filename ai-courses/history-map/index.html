@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI历史时空地图 - 李彦明</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif; background: linear-gradient(135deg, #3a1c71 0%, #d76d77 100%); min-height: 100vh; color: #333; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        header { text-align: center; padding: 30px 0; }
+        header h1 { font-size: 2.3em; color: white; }
+        header p { color: rgba(255,255,255,0.8); margin-top: 10px; }
+        .map-area { background: white; border-radius: 16px; padding: 30px; margin-top: 20px; text-align: center; }
+        .timeline { display: flex; justify-content: space-between; margin-top: 20px; flex-wrap: wrap; gap: 10px; }
+        .timeline-item { background: #3a1c71; color: white; padding: 10px 20px; border-radius: 20px; cursor: pointer; }
+        .timeline-item:hover { background: #d76d77; }
+        .events { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 25px; }
+        .event { background: white; border-radius: 12px; padding: 20px; text-align: center; }
+        .event .icon { font-size: 2.5em; margin-bottom: 10px; }
+        .event h4 { color: #3a1c71; margin-bottom: 5px; }
+        .event p { color: #666; font-size: 13px; }
+        footer { text-align: center; margin-top: 30px; color: rgba(255,255,255,0.7); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌍 AI历史时空地图</h1>
+            <p>历史事件动态演示 · 沉浸式学习体验</p>
+            <p style="margin-top: 10px; font-size: 14px;">开发者：李彦明 · 15684394135</p>
+        </header>
+
+        <div class="map-area">
+            <h3 style="color: #3a1c71; margin-bottom: 15px;">📅 时间轴导航</h3>
+            <div class="timeline">
+                <span class="timeline-item">夏商周</span>
+                <span class="timeline-item">春秋战国</span>
+                <span class="timeline-item">秦汉</span>
+                <span class="timeline-item">三国两晋</span>
+                <span class="timeline-item">隋唐</span>
+                <span class="timeline-item">宋元</span>
+                <span class="timeline-item">明清</span>
+                <span class="timeline-item">近代</span>
+                <span class="timeline-item">现代</span>
+            </div>
+        </div>
+
+        <h3 style="color: white; margin-top: 30px;">🎯 核心考点</h3>
+        <div class="events">
+            <div class="event"><div class="icon">🏛️</div><h4>中国古代史</h4><p>政治制度·经济文化</p></div>
+            <div class="event"><div class="icon">⚔️</div><h4>中国近代史</h4><p>屈辱抗争·救亡图存</p></div>
+            <div class="event"><div class="icon">🌐</div><h4>世界古代史</h4><p>文明起源·帝国兴衰</p></div>
+            <div class="event"><div class="icon">🇫🇷</div><h4>世界近代史</h4><p>资本主义·工业革命</p></div>
+            <div class="event"><div class="icon">☭</div><h4>世界现代史</h4><p>世界大战·冷战格局</p></div>
+            <div class="event"><div class="icon">📊</div><h4>史料分析</h4><p>材料解析·答题模板</p></div>
+        </div>
+
+        <footer>
+            <p>© 2026 李彦明 · AI历史时空地图</p>
+            <p style="font-size: 12px; margin-top: 5px;">沉浸式历史学习 · 年费99元</p>
+        </footer>
+    </div>
+</body>
+</html>
