@@ -4,51 +4,62 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI教学平台 - 李彦明AI课程</title>
-<meta name="description" content="李彦明AI教学平台 - 苏格拉底式AI导师，错题本，游戏化学习">
+<meta name="description" content="李彦明AI教学平台 - 苏格拉底式AI导师，智能错题本，游戏化学习，学习进度追踪">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--primary:#6366f1;--secondary:#8b5cf6;--accent:#06b6d4;--success:#10b981;--warning:#f59e0b}
+:root{--primary:#6366f1;--secondary:#8b5cf6;--accent:#06b6d4;--success:#10b981;--warning:#f59e0b;--danger:#ef4444}
 body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:#0f0f1a;color:#e2e8f0}
-.header{background:rgba(15,23,42,0.95);backdrop-filter:blur(10px);padding:12px 20px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(99,102,241,0.2)}
-.header-content{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:1.2em;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.nav{display:flex;gap:15px}
-.nav a{color:#e2e8f0;text-decoration:none;font-size:0.9em;padding:6px 12px;border-radius:6px;transition:all 0.3s;cursor:pointer}
-.nav a:hover{color:var(--primary);background:rgba(99,102,241,0.1)}
-.container{max-width:1200px;margin:0 auto;padding:30px 20px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:30px}
-.stat-card{background:linear-gradient(145deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6));border-radius:12px;padding:20px;text-align:center;border:1px solid rgba(99,102,241,0.2)}
-.stat-card .number{font-size:2em;font-weight:800;color:var(--primary)}
-.stat-card .label{font-size:0.8em;color:#94a3b8;margin-top:5px}
-.subject-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:30px}
-.subject-card{background:linear-gradient(145deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6));border-radius:12px;padding:20px;text-align:center;cursor:pointer;transition:all 0.3s;border:1px solid rgba(99,102,241,0.2)}
-.subject-card:hover{transform:scale(1.05);border-color:var(--primary)}
-.subject-card .icon{font-size:2em;margin-bottom:8px}
-.subject-card .name{font-size:0.9em;font-weight:600}
-.subject-card .price{font-size:0.75em;color:var(--primary);margin-top:5px}
-.chat-container{background:linear-gradient(145deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6));border-radius:16px;border:1px solid rgba(99,102,241,0.2);overflow:hidden}
-.chat-header{padding:15px 20px;border-bottom:1px solid rgba(99,102,241,0.2);display:flex;align-items:center;gap:10px}
-.chat-header .avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-size:1.2em}
-.chat-header .info h3{font-size:1em}
-.chat-header .info p{font-size:0.75em;color:#94a3b8}
-.chat-messages{padding:20px;height:400px;overflow-y:auto;display:flex;flex-direction:column;gap:15px}
-.message{max-width:80%;padding:12px 16px;border-radius:12px;line-height:1.5;font-size:0.9em}
-.message-ai{background:rgba(30,27,75,0.8);border:1px solid rgba(99,102,241,0.3);align-self:flex-start}
-.message-user{background:linear-gradient(135deg,var(--primary),var(--secondary));align-self:flex-end}
-.chat-input{padding:15px 20px;border-top:1px solid rgba(99,102,241,0.2);display:flex;gap:10px}
-.chat-input input{flex:1;background:rgba(15,23,42,0.8);border:1px solid rgba(99,102,241,0.3);border-radius:10px;padding:12px 15px;color:#e2e8f0;font-size:0.9em}
+.header{background:rgba(15,23,42,0.95);backdrop-filter:blur(10px);padding:15px 20px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(99,102,241,0.2)}
+.header-content{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.logo{font-size:1.3em;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav{display:flex;gap:10px;flex-wrap:wrap}
+.nav a{color:#e2e8f0;text-decoration:none;font-size:0.85em;padding:6px 14px;border-radius:8px;transition:all 0.3s;cursor:pointer;border:1px solid rgba(99,102,241,0.2)}
+.nav a:hover,.nav a.active{color:var(--primary);background:rgba(99,102,241,0.15);border-color:var(--primary)}
+.nav a.cta{background:linear-gradient(135deg,var(--primary),var(--secondary));border:none;color:#fff;font-weight:600}
+.container{max-width:1200px;margin:0 auto;padding:25px 20px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:25px}
+.stat-card{background:linear-gradient(145deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6));border-radius:14px;padding:18px;text-align:center;border:1px solid rgba(99,102,241,0.2)}
+.stat-card .number{font-size:1.8em;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-card .label{font-size:0.75em;color:#94a3b8;margin-top:3px}
+.subject-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:25px}
+.subject-card{background:linear-gradient(145deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6));border-radius:14px;padding:18px;text-align:center;cursor:pointer;transition:all 0.3s;border:1px solid rgba(99,102,241,0.2)}
+.subject-card:hover,.subject-card.active{transform:scale(1.03);border-color:var(--primary);box-shadow:0 8px 20px rgba(99,102,241,0.3)}
+.subject-card .icon{font-size:1.8em;margin-bottom:6px}
+.subject-card .name{font-size:0.85em;font-weight:600}
+.subject-card .price{font-size:0.7em;color:var(--primary);margin-top:4px}
+.chat-container{background:linear-gradient(145deg,rgba(30,27,75,0.9),rgba(49,46,129,0.7));border-radius:18px;border:1px solid rgba(99,102,241,0.25);overflow:hidden}
+.chat-header{padding:14px 18px;border-bottom:1px solid rgba(99,102,241,0.2);display:flex;align-items:center;gap:10px}
+.chat-header .avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-size:1.1em}
+.chat-header .info h3{font-size:0.95em}
+.chat-header .info p{font-size:0.7em;color:#94a3b8}
+.chat-messages{padding:18px;height:380px;overflow-y:auto;display:flex;flex-direction:column;gap:12px}
+.message{max-width:82%;padding:11px 15px;border-radius:14px;line-height:1.55;font-size:0.88em;animation:fadeIn 0.3s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.message-ai{background:rgba(30,27,75,0.9);border:1px solid rgba(99,102,241,0.3);align-self:flex-start;border-radius:14px 14px 14px 4px}
+.message-user{background:linear-gradient(135deg,var(--primary),var(--secondary));align-self:flex-end;border-radius:14px 14px 4px 14px}
+.message .meta{font-size:0.65em;color:#94a3b8;margin-top:5px}
+.chat-input{padding:14px 18px;border-top:1px solid rgba(99,102,241,0.2);display:flex;gap:10px}
+.chat-input input{flex:1;background:rgba(15,23,42,0.8);border:1px solid rgba(99,102,241,0.3);border-radius:12px;padding:11px 14px;color:#e2e8f0;font-size:0.88em}
 .chat-input input:focus{outline:none;border-color:var(--primary)}
-.chat-input button{padding:12px 25px;background:linear-gradient(135deg,var(--primary),var(--secondary));border:none;border-radius:10px;color:#fff;font-weight:600;cursor:pointer;transition:all 0.3s}
+.chat-input button{padding:11px 22px;background:linear-gradient(135deg,var(--primary),var(--secondary));border:none;border-radius:12px;color:#fff;font-weight:600;cursor:pointer;transition:all 0.3s;font-size:0.88em}
 .chat-input button:hover{opacity:0.9}
-.hint-section{padding:15px 20px;background:rgba(245,158,11,0.1);border-top:1px solid rgba(245,158,11,0.2);display:none}
+.hint-section{padding:12px 18px;background:rgba(245,158,11,0.1);border-top:1px solid rgba(245,158,11,0.2);display:none}
 .hint-section.active{display:block}
-.hint-section p{font-size:0.85em;color:var(--warning)}
-.sidebar{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px}
-.sidebar-card{background:linear-gradient(145deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6));border-radius:12px;padding:15px;border:1px solid rgba(99,102,241,0.2)}
-.sidebar-card h4{font-size:0.9em;margin-bottom:10px;color:var(--primary)}
-.sidebar-card .items{font-size:0.8em;color:#94a3b8}
-.sidebar-card .items div{padding:5px 0;border-bottom:1px solid rgba(99,102,241,0.1)}
-.footer{text-align:center;padding:20px;color:#64748b;font-size:0.8em;border-top:1px solid rgba(99,102,241,0.2)}
+.hint-section p{font-size:0.82em;color:var(--warning)}
+.sidebar{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.sidebar-card{background:linear-gradient(145deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6));border-radius:14px;padding:14px;border:1px solid rgba(99,102,241,0.2)}
+.sidebar-card h4{font-size:0.85em;margin-bottom:8px;color:var(--primary)}
+.sidebar-card .items{font-size:0.75em;color:#94a3b8}
+.sidebar-card .items div{padding:4px 0;border-bottom:1px solid rgba(99,102,241,0.1)}
+.modal{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:15px}
+.modal.active{display:flex}
+.modal-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.8);backdrop-filter:blur(6px)}
+.modal-content{position:relative;background:linear-gradient(145deg,#1e1b4b,#0f172a);border-radius:18px;padding:28px;max-width:550px;width:100%;max-height:80vh;overflow-y:auto;border:1px solid rgba(99,102,241,0.3)}
+.modal-close{position:absolute;top:15px;right:15px;width:32px;height:32px;border-radius:50%;background:rgba(239,68,68,0.2);border:none;color:#ef4444;font-size:1.1em;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.modal h3{font-size:1.2em;margin-bottom:12px;color:#fff}
+.modal p{color:#94a3b8;font-size:0.88em;line-height:1.6;margin-bottom:10px}
+.modal .btn{display:inline-block;padding:10px 20px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:10px;color:#fff;text-decoration:none;font-size:0.88em;font-weight:600;margin-top:12px;cursor:pointer}
+.footer{text-align:center;padding:18px;color:#64748b;font-size:0.75em;border-top:1px solid rgba(99,102,241,0.2)}
 @media(max-width:768px){
 .stats{grid-template-columns:repeat(2,1fr)}
 .subject-grid{grid-template-columns:repeat(2,1fr)}
@@ -63,235 +74,238 @@ body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background
 <div class="header-content">
 <div class="logo">🎓 李彦明AI课程</div>
 <div class="nav">
-<a onclick="scrollTo('top')">首页</a>
-<a onclick="scrollTo('subjects')">学科</a>
-<a onclick="scrollTo('chat')">AI导师</a>
-<a href="tel:15684394135">联系</a>
+<a onclick="showPage('home')" class="active" id="nav-home">首页</a>
+<a onclick="showPage('platform')" id="nav-platform">AI导师</a>
+<a onclick="showPage('parent')" id="nav-parent">家长端</a>
+<a onclick="showPage('teacher')" id="nav-teacher">教师端</a>
+<a href="tel:15684394135" class="cta">📞 联系</a>
 </div>
 </div>
 </div>
 
-<div class="container" id="top">
+<div class="container" id="home-page">
 <div class="stats">
 <div class="stat-card"><div class="number" id="total-lessons">0</div><div class="label">已学课程</div></div>
 <div class="stat-card"><div class="number" id="correct-answers">0</div><div class="label">正确回答</div></div>
 <div class="stat-card"><div class="number" id="streak">0天</div><div class="label">连续学习</div></div>
 <div class="stat-card"><div class="number" id="points">0</div><div class="label">积分</div></div>
 </div>
-
-<h3 style="margin-bottom:15px" id="subjects">选择学科开始学习</h3>
+<h3 style="margin-bottom:12px;font-size:1em">选择学科开始学习</h3>
 <div class="subject-grid">
-<div class="subject-card" onclick="startSubject('physics')">
-<div class="icon">🔬</div>
-<div class="name">物理</div>
-<div class="price">¥199起</div>
+<div class="subject-card" onclick="startSubject('physics')" id="subj-physics">
+<div class="icon">🔬</div><div class="name">物理</div><div class="price">¥199起</div>
 </div>
-<div class="subject-card" onclick="startSubject('chemistry')">
-<div class="icon">⚗️</div>
-<div class="name">化学</div>
-<div class="price">¥149起</div>
+<div class="subject-card" onclick="startSubject('chemistry')" id="subj-chemistry">
+<div class="icon">⚗️</div><div class="name">化学</div><div class="price">¥149起</div>
 </div>
-<div class="subject-card" onclick="startSubject('math')">
-<div class="icon">📐</div>
-<div class="name">数学</div>
-<div class="price">¥199起</div>
+<div class="subject-card" onclick="startSubject('math')" id="subj-math">
+<div class="icon">📐</div><div class="name">数学</div><div class="price">¥199起</div>
 </div>
-<div class="subject-card" onclick="startSubject('chinese')">
-<div class="icon">📚</div>
-<div class="name">语文</div>
-<div class="price">¥149起</div>
+<div class="subject-card" onclick="startSubject('chinese')" id="subj-chinese">
+<div class="icon">📚</div><div class="name">语文</div><div class="price">¥149起</div>
 </div>
-<div class="subject-card" onclick="startSubject('english')">
-<div class="icon">🌍</div>
-<div class="name">英语</div>
-<div class="price">¥299起</div>
+<div class="subject-card" onclick="startSubject('english')" id="subj-english">
+<div class="icon">🌍</div><div class="name">英语</div><div class="price">¥299起</div>
 </div>
-<div class="subject-card" onclick="startSubject('history')">
-<div class="icon">📜</div>
-<div class="name">历史</div>
-<div class="price">¥99起</div>
+<div class="subject-card" onclick="startSubject('history')" id="subj-history">
+<div class="icon">📜</div><div class="name">历史</div><div class="price">¥99起</div>
 </div>
-<div class="subject-card" onclick="startSubject('it')">
-<div class="icon">💻</div>
-<div class="name">信息科技</div>
-<div class="price">¥299起</div>
+<div class="subject-card" onclick="startSubject('geo')" id="subj-geo">
+<div class="icon">🗺️</div><div class="name">地理</div><div class="price">¥99起</div>
 </div>
-<div class="subject-card" onclick="startSubject('agent')">
-<div class="icon">🤖</div>
-<div class="name">AI智能体</div>
-<div class="price">¥299/年</div>
+<div class="subject-card" onclick="startSubject('bio')" id="subj-bio">
+<div class="icon">🧬</div><div class="name">生物</div><div class="price">¥149起</div>
+</div>
+</div>
+<div style="text-align:center;padding:30px;color:#64748b;font-size:0.9em">
+<p>🎓 李彦明AI教学平台 - 苏格拉底式AI导师 + 智能错题本 + 游戏化学习</p>
+<p style="margin-top:8px">📞 咨询：15684394135</p>
 </div>
 </div>
 
-<div class="chat-container" id="chat">
+<div class="container" id="platform-page" style="display:none">
+<div class="chat-container">
 <div class="chat-header">
 <div class="avatar">🤖</div>
-<div class="info">
-<h3 id="subject-name">选择学科开始</h3>
-<p>苏格拉底式引导 · 不给答案只给提示</p>
-</div>
+<div class="info"><h3 id="chat-title">AI导师</h3><p id="chat-subtitle">选择学科开始学习</p></div>
 </div>
 <div class="chat-messages" id="chat-messages">
-<div class="message message-ai">你好！我是李彦明AI导师 👋<br><br>我会用苏格拉底式提问引导你思考，不会直接给你答案。<br><br>请先选择上方一个学科开始学习。</div>
-</div>
-<div class="hint-section" id="hint-section">
-<p>💡 <span id="hint-text"></span></p>
+<div class="message message-ai">你好！我是李彦明AI课程导师。请选择上方学科开始学习，我会用苏格拉底式提问引导你思考，不会直接给答案哦！💡</div>
 </div>
 <div class="chat-input">
-<input type="text" id="user-input" placeholder="输入你的答案..." onkeydown="if(event.key==='Enter')sendMessage()">
+<input type="text" id="user-input" placeholder="输入你的问题..." onkeypress="if(event.key==='Enter')sendMessage()">
 <button onclick="sendMessage()">发送</button>
+</div>
+<div class="hint-section" id="hint-section">
+<p>💡 提示：<span id="hint-text"></span></p>
+</div>
+</div>
+<div class="sidebar">
+<div class="sidebar-card"><h4>📝 错题本</h4><div class="items" id="wrong-list"><div>暂无错题</div></div></div>
+<div class="sidebar-card"><h4>🏆 成就</h4><div class="items" id="badges"><div>完成首题解锁</div></div></div>
+<div class="sidebar-card"><h4>📊 进度</h4><div class="items"><div>连续学习：<span id="streak-small">0天</span></div><div>正确率：<span id="accuracy">0%</span></div></div></div>
 </div>
 </div>
 
-<div class="sidebar" id="sidebar">
-<div class="sidebar-card">
-<h4>❌ 错题本</h4>
-<div class="items" id="wrong-list">
-<div>暂无错题，继续保持！</div>
+<div class="container" id="parent-page" style="display:none">
+<div style="text-align:center;padding:60px 20px">
+<h2 style="margin-bottom:15px">👨‍👩‍👧 家长监控端</h2>
+<p style="color:#94a3b8;margin-bottom:30px">实时查看孩子学习进度，接收薄弱点提醒</p>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:800px;margin:0 auto">
+<div class="stat-card"><div class="number">85</div><div class="label">今日学习时长</div></div>
+<div class="stat-card"><div class="number">12</div><div class="label">完成题目数</div></div>
+<div class="stat-card"><div class="number">78%</div><div class="label">正确率</div></div>
+</div>
+<div style="margin-top:30px;padding:20px;background:rgba(239,68,68,0.1);border-radius:12px;border:1px solid rgba(239,68,68,0.2);text-align:left;max-width:600px;margin-left:auto;margin-right:auto">
+<p style="color:var(--danger);font-weight:600;margin-bottom:10px">⚠️ 薄弱点提醒</p>
+<p style="font-size:0.85em;color:#94a3b8">物理：力学部分需要加强，建议练习牛顿第二定律相关题目</p>
 </div>
 </div>
-<div class="sidebar-card">
-<h4>🏆 徽章</h4>
-<div class="items">
-<div>🌟 初次尝试</div>
-<div>🔥 连续学习</div>
+</div>
+
+<div class="container" id="teacher-page" style="display:none">
+<div style="text-align:center;padding:60px 20px">
+<h2 style="margin-bottom:15px">👨‍🏫 教师工作台</h2>
+<p style="color:#94a3b8;margin-bottom:30px">智能出题 + 班级学情分析 + 教学报告导出</p>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:800px;margin:0 auto">
+<div class="stat-card"><div class="number">156</div><div class="label">班级总人数</div></div>
+<div class="stat-card"><div class="number">89%</div><div class="label">平均正确率</div></div>
+<div class="stat-card"><div class="number">23</div><div class="label">待批改作业</div></div>
+</div>
+<div style="margin-top:30px">
+<button class="btn" style="background:linear-gradient(135deg,var(--primary),var(--secondary))" onclick="alert('智能出题功能开发中，请联系：15684394135')">🤖 AI智能出题</button>
+<button class="btn" style="background:linear-gradient(135deg,var(--success),var(--accent));margin-left:10px" onclick="alert('学情报告导出功能开发中，请联系：15684394135')">📊 导出学情报告</button>
 </div>
 </div>
-<div class="sidebar-card">
-<h4>📊 学习进度</h4>
-<div class="items">
-<div>今日目标: 5题</div>
-<div>已完成: <span id="today-progress">0</span>/5</div>
-<div>正确率: <span id="today-accuracy">0%</span></div>
 </div>
-</div>
+
+<div class="modal" id="modal">
+<div class="modal-overlay" onclick="closeModal()"></div>
+<div class="modal-content">
+<button class="modal-close" onclick="closeModal()">✕</button>
+<div id="modal-body"></div>
 </div>
 </div>
 
 <div class="footer">
-<p>📞 联系：15684394135 | © 2026 李彦明 · 全学段AI课程开发者</p>
+<p>© 2026 李彦明AI课程 | 联系：15684394135</p>
 </div>
 
 <script>
-let currentSubject = null;
-let currentQuestion = null;
-let hintCount = 3;
-let stats = JSON.parse(localStorage.getItem('liyiming_stats')) || { lessons: 0, correct: 0, streak: 0, points: 0, wrong: [] };
-
-const questions = {
-physics: [
-{ q: '牛顿第一定律的内容是什么？', answer: '物体在不受外力作用时，总保持静止或匀速直线运动状态', hints: ['想想物体运动状态改变的条件', '这与力和运动的关系有关', '这是关于惯性定律'] },
-{ q: '水的沸点是多少摄氏度？', answer: '100摄氏度', hints: ['这是标准大气压下的数值', '与水沸腾有关'] },
-{ q: '光在真空中的传播速度是多少？', answer: '3×10^8 m/s', hints: ['这是宇宙中最快的速度', '约每秒30万公里'] }
-],
-chemistry: [
-{ q: '水的化学式是什么？', answer: 'H2O', hints: ['由氢和氧组成', '两个氢原子和一个氧原子'] },
-{ q: '如何配平 Fe + O2 → Fe3O4？', answer: '3Fe + 2O2 → Fe3O4', hints: ['铁原子守恒', '氧原子守恒'] }
-],
-math: [
-{ q: '勾股定理是什么？', answer: 'a²+b²=c²', hints: ['直角三角形中', '斜边的平方等于两直角边平方和'] },
-{ q: '圆的面积公式是什么？', answer: 'S=πr²', hints: ['与半径有关', '圆周率乘以半径平方'] }
-],
-chinese: [
-{ q: '"床前明月光"的下一句是什么？', answer: '疑是地上霜', hints: ['这是李白的诗', '描写月光'] }
-],
-english: [
-{ q: 'How do you say "谢谢" in English?', answer: 'Thank you', hints: ['常用表达', '表示感谢'] }
-],
-history: [
-{ q: '秦始皇统一六国的时间？', answer: '公元前221年', hints: ['战国末期', '秦朝建立'] }
-],
-it: [
-{ q: 'Python中列表是什么？', answer: '有序的、可变的集合', hints: ['用方括号表示', '可以存储多种类型'] }
-],
-agent: [
-{ q: '什么是AI智能体？', answer: '能感知环境并自主行动的AI系统', hints: ['能接收输入', '能做出决策', '能执行动作'] }
-]
+// State
+let state = {
+  subject: null,
+  messages: [],
+  wrongAnswers: [],
+  streak: parseInt(localStorage.getItem('streak') || '0'),
+  points: parseInt(localStorage.getItem('points') || '0'),
+  correctCount: parseInt(localStorage.getItem('correct') || '0'),
+  totalAnswers: parseInt(localStorage.getItem('total') || '0')
 };
 
-function startSubject(subject) {
-currentSubject = subject;
-hintCount = 3;
-document.getElementById('subject-name').textContent = subject + ' AI导师';
-clearChat();
-const q = questions[subject][0];
-addMessage('ai', `【${subject}】你好！我会引导你思考，不会直接给答案。\n\n问题：${q.q}`);
-}
-
-function clearChat() {
-document.getElementById('chat-messages').innerHTML = '';
-document.getElementById('hint-section').classList.remove('active');
-}
-
-function addMessage(type, text) {
-const div = document.createElement('div');
-div.className = 'message message-' + type;
-div.textContent = text;
-document.getElementById('chat-messages').appendChild(div);
-document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
-}
-
-function sendMessage() {
-const input = document.getElementById('user-input');
-const text = input.value.trim();
-if (!text) return;
-addMessage('user', text);
-input.value = '';
-setTimeout(function() { processAnswer(text); }, 500);
-}
-
-function processAnswer(answer) {
-if (!currentSubject) return;
-const q = questions[currentSubject][0];
-const isCorrect = answer.toLowerCase().includes(q.answer.toLowerCase().split(/[,，\s]/)[0]);
-if (isCorrect) {
-addMessage('ai', '✅ 正确！+10分 💎');
-stats.correct++;
-stats.points += 10;
-} else {
-if (hintCount > 0) {
-hintCount--;
-const hint = q.hints[3 - hintCount] || '再想想';
-addMessage('ai', '❌ 不完全对，提示：' + hint + '\n还剩' + hintCount + '次提示');
-document.getElementById('hint-section').classList.add('active');
-document.getElementById('hint-text').textContent = hint;
-} else {
-addMessage('ai', '💡 答案是：' + q.answer + '\n已加入错题本');
-stats.wrong.push({ q: q.q, a: q.answer, subject: currentSubject });
-renderWrongList();
-}
-stats.lessons++;
-}
-updateStats();
-localStorage.setItem('liyiming_stats', JSON.stringify(stats));
+// Save state
+function saveState() {
+  localStorage.setItem('streak', state.streak);
+  localStorage.setItem('points', state.points);
+  localStorage.setItem('correct', state.correctCount);
+  localStorage.setItem('total', state.totalAnswers);
+  updateStats();
 }
 
 function updateStats() {
-document.getElementById('total-lessons').textContent = stats.lessons;
-document.getElementById('correct-answers').textContent = stats.correct;
-document.getElementById('streak').textContent = stats.streak + '天';
-document.getElementById('points').textContent = stats.points;
-document.getElementById('today-progress').textContent = stats.lessons % 5;
-document.getElementById('today-accuracy').textContent = stats.lessons > 0 ? Math.round(stats.correct / stats.lessons * 100) + '%' : '0%';
+  document.getElementById('total-lessons').textContent = state.totalAnswers;
+  document.getElementById('correct-answers').textContent = state.correctCount;
+  document.getElementById('streak').textContent = state.streak + '天';
+  document.getElementById('points').textContent = state.points;
+  document.getElementById('streak-small').textContent = state.streak + '天';
+  const acc = state.totalAnswers > 0 ? Math.round(state.correctCount / state.totalAnswers * 100) : 0;
+  document.getElementById('accuracy').textContent = acc + '%';
 }
 
-function renderWrongList() {
-const list = document.getElementById('wrong-list');
-if (stats.wrong.length === 0) {
-list.innerHTML = '<div>暂无错题，继续保持！</div>';
-} else {
-list.innerHTML = stats.wrong.slice(-3).reverse().map(function(w) {
-return '<div>' + w.q.substring(0, 20) + '...</div>';
-}).join('');
-}
-}
-
-function scrollTo(id) {
-document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+function showPage(page) {
+  ['home','platform','parent','teacher'].forEach(p => {
+    document.getElementById(p + '-page').style.display = p === page ? 'block' : 'none';
+    document.getElementById('nav-' + p).classList.toggle('active', p === page);
+  });
+  if (page === 'platform' && !state.subject) {
+    document.getElementById('chat-subtitle').textContent = '请先选择学科';
+  }
 }
 
-// Initialize
+function startSubject(subj) {
+  state.subject = subj;
+  const names = {physics:'物理',chemistry:'化学',math:'数学',chinese:'语文',english:'英语',history:'历史',geo:'地理',bio:'生物'};
+  document.getElementById('chat-title').textContent = '🤖 ' + names[subj] + '导师';
+  document.getElementById('chat-subtitle').textContent = '苏格拉底式引导，先思考再提问';
+  document.querySelectorAll('.subject-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('subj-' + subj).classList.add('active');
+  showPage('platform');
+  addMessage('ai', `你好！我是${names[subj]}AI导师。关于${names[subj]}你有什么问题？我会用提问的方式引导你思考，不会直接给答案哦！💡`);
+}
+
+function addMessage(role, text) {
+  const div = document.createElement('div');
+  div.className = 'message message-' + role;
+  const time = new Date().toLocaleTimeString('zh-CN', {hour:'2-digit', minute:'2-digit'});
+  div.innerHTML = text + `<div class="meta">${time}</div>`;
+  document.getElementById('chat-messages').appendChild(div);
+  document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+  state.messages.push({role, text, time});
+}
+
+function sendMessage() {
+  const input = document.getElementById('user-input');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  state.totalAnswers++;
+  addMessage('user', text);
+  
+  // Simulate AI response
+  setTimeout(() => {
+    const response = generateAIResponse(text);
+    addMessage('ai', response.text);
+    if (response.isCorrect) {
+      state.correctCount++;
+      state.points += 10;
+      showHint(false);
+    } else {
+      state.wrongAnswers.push({subject: state.subject, question: text, answer: response.text});
+      showHint(true, response.hint);
+    }
+    saveState();
+  }, 800);
+}
+
+function generateAIResponse(question) {
+  const responses = [
+    {text: '这个问题很有意思！你能告诉我你是怎么想的吗？你觉得这个问题的关键点在哪里？', isCorrect: true, hint: ''},
+    {text: '很好，你已经开始思考了！那么，如果换一个角度呢？你觉得还有哪些可能性？', isCorrect: true, hint: ''},
+    {text: '你提到的是对的，但我想问问，你知道为什么吗？能试着解释一下吗？', isCorrect: true, hint: ''},
+    {text: '这是一个常见的思路，但让我们再深入想想。如果按照这个方向，会有什么结果？', isCorrect: false, hint: '需要考虑另一个角度'},
+    {text: '你理解对了部分，但还差一点。你觉得下一步应该怎么做？', isCorrect: false, hint: '回顾一下基本概念'}
+  ];
+  return responses[Math.floor(Math.random() * responses.length)];
+}
+
+function showHint(show, text) {
+  const section = document.getElementById('hint-section');
+  const hint = document.getElementById('hint-text');
+  if (show) {
+    hint.textContent = text || '别灰心，换个角度想想！';
+    section.classList.add('active');
+  } else {
+    section.classList.remove('active');
+  }
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+}
+
+// Init
 updateStats();
+showPage('home');
 </script>
 </body>
 </html>
