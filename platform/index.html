@@ -63,15 +63,15 @@ body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background
 <div class="header-content">
 <div class="logo">🎓 李彦明AI课程</div>
 <div class="nav">
-<a onclick="showSection('home')">首页</a>
-<a onclick="showSection('chat')">AI导师</a>
-<a onclick="showSection('wrong')">错题本</a>
+<a onclick="scrollTo('top')">首页</a>
+<a onclick="scrollTo('subjects')">学科</a>
+<a onclick="scrollTo('chat')">AI导师</a>
 <a href="tel:15684394135">联系</a>
 </div>
 </div>
 </div>
 
-<div class="container" id="home-section">
+<div class="container" id="top">
 <div class="stats">
 <div class="stat-card"><div class="number" id="total-lessons">0</div><div class="label">已学课程</div></div>
 <div class="stat-card"><div class="number" id="correct-answers">0</div><div class="label">正确回答</div></div>
@@ -79,7 +79,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background
 <div class="stat-card"><div class="number" id="points">0</div><div class="label">积分</div></div>
 </div>
 
-<h3 style="margin-bottom:15px">选择学科开始学习</h3>
+<h3 style="margin-bottom:15px" id="subjects">选择学科开始学习</h3>
 <div class="subject-grid">
 <div class="subject-card" onclick="startSubject('physics')">
 <div class="icon">🔬</div>
@@ -123,16 +123,16 @@ body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background
 </div>
 </div>
 
-<div class="chat-container" id="chat-section" style="display:none">
+<div class="chat-container" id="chat">
 <div class="chat-header">
 <div class="avatar">🤖</div>
 <div class="info">
-<h3 id="subject-name">AI导师</h3>
+<h3 id="subject-name">选择学科开始</h3>
 <p>苏格拉底式引导 · 不给答案只给提示</p>
 </div>
 </div>
 <div class="chat-messages" id="chat-messages">
-<div class="message message-ai">你好！我是李彦明AI导师 👋<br><br>我会用苏格拉底式提问引导你思考，不会直接给你答案。请选择一个学科开始学习。</div>
+<div class="message message-ai">你好！我是李彦明AI导师 👋<br><br>我会用苏格拉底式提问引导你思考，不会直接给你答案。<br><br>请先选择上方一个学科开始学习。</div>
 </div>
 <div class="hint-section" id="hint-section">
 <p>💡 <span id="hint-text"></span></p>
@@ -143,7 +143,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background
 </div>
 </div>
 
-<div class="sidebar" id="sidebar" style="display:none">
+<div class="sidebar" id="sidebar">
 <div class="sidebar-card">
 <h4>❌ 错题本</h4>
 <div class="items" id="wrong-list">
@@ -152,7 +152,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background
 </div>
 <div class="sidebar-card">
 <h4>🏆 徽章</h4>
-<div class="items" id="badge-list">
+<div class="items">
 <div>🌟 初次尝试</div>
 <div>🔥 连续学习</div>
 </div>
@@ -212,20 +212,20 @@ agent: [
 function startSubject(subject) {
 currentSubject = subject;
 hintCount = 3;
-document.getElementById('chat-section').style.display = 'block';
-document.getElementById('sidebar').style.display = 'grid';
 document.getElementById('subject-name').textContent = subject + ' AI导师';
 clearChat();
-addMessage('ai', `【${subject}】你好！我会引导你思考，不会直接给答案。\n\n请先思考下面的问题：\n\n${questions[subject][0].q}`);
+const q = questions[subject][0];
+addMessage('ai', `【${subject}】你好！我会引导你思考，不会直接给答案。\n\n问题：${q.q}`);
 }
 
 function clearChat() {
 document.getElementById('chat-messages').innerHTML = '';
+document.getElementById('hint-section').classList.remove('active');
 }
 
 function addMessage(type, text) {
 const div = document.createElement('div');
-div.className = `message message-${type}`;
+div.className = 'message message-' + type;
 div.textContent = text;
 document.getElementById('chat-messages').appendChild(div);
 document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
@@ -237,13 +237,13 @@ const text = input.value.trim();
 if (!text) return;
 addMessage('user', text);
 input.value = '';
-setTimeout(() => processAnswer(text), 500);
+setTimeout(function() { processAnswer(text); }, 500);
 }
 
 function processAnswer(answer) {
 if (!currentSubject) return;
 const q = questions[currentSubject][0];
-const isCorrect = answer.toLowerCase().includes(q.answer.toLowerCase().split(/\s/)[0]);
+const isCorrect = answer.toLowerCase().includes(q.answer.toLowerCase().split(/[,，\s]/)[0]);
 if (isCorrect) {
 addMessage('ai', '✅ 正确！+10分 💎');
 stats.correct++;
@@ -252,12 +252,13 @@ stats.points += 10;
 if (hintCount > 0) {
 hintCount--;
 const hint = q.hints[3 - hintCount] || '再想想';
-addMessage('ai', `❌ 不完全对，提示：${hint}\n还剩${hintCount}次提示`);
+addMessage('ai', '❌ 不完全对，提示：' + hint + '\n还剩' + hintCount + '次提示');
 document.getElementById('hint-section').classList.add('active');
 document.getElementById('hint-text').textContent = hint;
 } else {
-addMessage('ai', `💡 答案是：${q.answer}\n已加入错题本`);
+addMessage('ai', '💡 答案是：' + q.answer + '\n已加入错题本');
 stats.wrong.push({ q: q.q, a: q.answer, subject: currentSubject });
+renderWrongList();
 }
 stats.lessons++;
 }
@@ -274,11 +275,23 @@ document.getElementById('today-progress').textContent = stats.lessons % 5;
 document.getElementById('today-accuracy').textContent = stats.lessons > 0 ? Math.round(stats.correct / stats.lessons * 100) + '%' : '0%';
 }
 
-function showSection(section) {
-if (section === 'chat') {
-document.getElementById('chat-section').scrollIntoView({ behavior: 'smooth' });
+function renderWrongList() {
+const list = document.getElementById('wrong-list');
+if (stats.wrong.length === 0) {
+list.innerHTML = '<div>暂无错题，继续保持！</div>';
+} else {
+list.innerHTML = stats.wrong.slice(-3).reverse().map(function(w) {
+return '<div>' + w.q.substring(0, 20) + '...</div>';
+}).join('');
 }
 }
+
+function scrollTo(id) {
+document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// Initialize
+updateStats();
 </script>
 </body>
 </html>
