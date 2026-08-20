@@ -4,45 +4,62 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>李彦明 - 全学段AI课程开发者</title>
-<meta name="description" content="李彦明，全学段AI课程开发者。覆盖小学、初中、高中全学科，提供AI物理虚拟实验、AI作文批改、AI数学几何画板等AI课程产品。联系方式：15684394135">
-<meta name="keywords" content="李彦明,AI课程,初中物理,AI虚拟实验,化学方程式,数学几何画板,AI教育,AI教学,AI课程开发">
+<meta name="description" content="李彦明，全学段AI课程开发者。覆盖小学、初中、高中全学科，提供AI物理虚拟实验、AI作文批改、AI数学几何画板等AI课程产品。">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#6366f1;--secondary:#8b5cf6;--accent:#06b6d4;--success:#10b981;--warning:#f59e0b;--danger:#ef4444}
 body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background:#020617;color:#e2e8f0;min-height:100vh}
-.hero{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#4c1d95 100%);padding:100px 20px 60px;text-align:center}
-.hero h1{font-size:3em;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#fff 0%,#c4b5fd 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#4c1d95 100%);padding:80px 20px;text-align:center}
+.hero h1{font-size:3em;font-weight:800;margin-bottom:15px;background:linear-gradient(135deg,#fff,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero .subtitle{font-size:1.2em;color:#a5b4fc;margin-bottom:10px}
-.hero .desc{color:#94a3b8;margin-bottom:30px;font-size:1em}
-.hero .contact{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#6366f1,#8b5cf6);padding:15px 35px;border-radius:50px;font-size:1.2em;font-weight:600;color:#fff;text-decoration:none;transition:all 0.3s}
-.hero .contact:hover{transform:scale(1.05);box-shadow:0 15px 35px rgba(99,102,241,0.4)}
+.hero .desc{color:#94a3b8;margin-bottom:30px}
+.hero .phone{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--primary),var(--secondary));padding:15px 35px;border-radius:50px;font-size:1.2em;font-weight:600;color:#fff;text-decoration:none;transition:all 0.3s}
+.hero .phone:hover{transform:scale(1.05);box-shadow:0 15px 35px rgba(99,102,241,0.4)}
 .nav{background:rgba(15,23,42,0.95);backdrop-filter:blur(10px);padding:12px 20px;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(99,102,241,0.2)}
-.nav-content{max-width:800px;margin:0 auto;display:flex;justify-content:center;gap:30px}
-.nav a{color:#e2e8f0;text-decoration:none;font-weight:500;padding:6px 12px;border-radius:6px;transition:all 0.3s;font-size:0.95em}
-.nav a:hover{color:#6366f1;background:rgba(99,102,241,0.1)}
-.container{max-width:900px;margin:0 auto;padding:50px 20px}
-.section{margin-bottom:50px}
+.nav-content{max-width:1000px;margin:0 auto;display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
+.nav a{color:#e2e8f0;text-decoration:none;font-weight:500;padding:6px 12px;border-radius:6px;transition:all 0.3s;cursor:pointer}
+.nav a:hover{color:var(--primary);background:rgba(99,102,241,0.1)}
+.container{max-width:1000px;margin:0 auto;padding:40px 20px}
+.section{margin-bottom:60px}
 .section-header{text-align:center;margin-bottom:30px}
-.section-header h2{font-size:1.8em;font-weight:700;margin-bottom:8px;background:linear-gradient(135deg,#6366f1,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.section-header h2{font-size:1.8em;font-weight:700;margin-bottom:8px;background:linear-gradient(135deg,var(--primary),var(--danger));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .section-header p{color:#94a3b8;font-size:0.9em}
-.product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.product-card{background:linear-gradient(145deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6));border-radius:12px;padding:20px;border:1px solid rgba(99,102,241,0.2);transition:all 0.3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
-.product-card:hover{transform:translateY(-3px);border-color:#6366f1;box-shadow:0 10px 25px rgba(99,102,241,0.2)}
-.product-card .icon{font-size:2em;margin-bottom:10px}
-.product-card h3{font-size:1.1em;font-weight:600;margin-bottom:6px;color:#fff}
-.product-card .desc{color:#94a3b8;font-size:0.8em;margin-bottom:12px;line-height:1.4}
-.product-card .price{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.75em;font-weight:600}
-.price-primary{background:rgba(99,102,241,0.2);color:#6366f1}
-.price-success{background:rgba(16,185,129,0.2);color:#10b981}
-.price-warning{background:rgba(245,158,11,0.2);color:#f59e0b}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.product-card{background:linear-gradient(145deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6));border-radius:16px;padding:25px;border:1px solid rgba(99,102,241,0.2);transition:all 0.3s;cursor:pointer;position:relative;overflow:hidden}
+.product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--danger));transform:scaleX(0);transition:transform 0.3s}
+.product-card:hover::before{transform:scaleX(1)}
+.product-card:hover{transform:translateY(-5px);border-color:var(--primary);box-shadow:0 15px 35px rgba(99,102,241,0.2)}
+.product-icon{font-size:2.5em;margin-bottom:15px}
+.product-card h3{font-size:1.2em;font-weight:600;margin-bottom:8px;color:#fff}
+.product-card .desc{color:#94a3b8;font-size:0.85em;margin-bottom:15px;line-height:1.5}
+.price-tags{display:flex;gap:8px;flex-wrap:wrap}
+.price-tag{padding:4px 12px;border-radius:12px;font-size:0.75em;font-weight:600}
+.price-primary{background:rgba(99,102,241,0.2);color:var(--primary)}
+.price-success{background:rgba(16,185,129,0.2);color:var(--success)}
+.price-warning{background:rgba(245,158,11,0.2);color:var(--warning)}
 .price-accent{background:rgba(236,72,153,0.2);color:#ec4899}
-.about-section{background:linear-gradient(145deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6));border-radius:16px;padding:30px;border:1px solid rgba(99,102,241,0.2);text-align:center}
-.about-section h3{font-size:1.5em;margin-bottom:15px;background:linear-gradient(135deg,#6366f1,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.about-section p{color:#94a3b8;margin-bottom:12px;line-height:1.7;font-size:0.95em}
+.about-section{background:linear-gradient(145deg,rgba(30,27,75,0.8),rgba(49,46,129,0.6));border-radius:16px;padding:40px;border:1px solid rgba(99,102,241,0.2);text-align:center}
+.about-section h3{font-size:1.6em;margin-bottom:20px;background:linear-gradient(135deg,var(--primary),var(--danger));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.about-section p{color:#94a3b8;margin-bottom:12px;line-height:1.7}
 .contact-section{text-align:center;padding:60px 20px;background:linear-gradient(135deg,#1e1b4b,#4c1d95);border-radius:16px;margin-top:40px}
 .contact-section h2{font-size:1.8em;margin-bottom:15px;color:#fff}
-.contact-section .phone{font-size:2.5em;font-weight:800;background:linear-gradient(135deg,#6366f1,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:15px 0}
-.footer{background:rgba(15,23,42,0.95);text-align:center;padding:25px 20px;border-top:1px solid rgba(99,102,241,0.2)}
-.footer p{color:#64748b;margin:4px 0;font-size:0.85em}
+.contact-section .phone{font-size:2.5em;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--danger));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:20px 0}
+.footer{background:rgba(15,23,42,0.95);text-align:center;padding:30px 20px;border-top:1px solid rgba(99,102,241,0.2)}
+.footer p{color:#64748b;margin:5px 0;font-size:0.85em}
+/* Modal */
+.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.active{display:flex}
+.modal-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.8);backdrop-filter:blur(5px)}
+.modal-content{position:relative;background:linear-gradient(145deg,#1e1b4b,#0f172a);border-radius:20px;padding:30px;max-width:600px;width:100%;max-height:80vh;overflow-y:auto;border:1px solid rgba(99,102,241,0.3)}
+.modal-close{position:absolute;top:15px;right:15px;width:30px;height:30px;border-radius:50%;background:rgba(239,68,68,0.2);border:none;color:#ef4444;font-size:1.2em;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s}
+.modal-close:hover{background:rgba(239,68,68,0.4)}
+.modal h2{font-size:1.5em;margin-bottom:15px;color:#fff}
+.modal p{color:#94a3b8;line-height:1.6;margin-bottom:15px}
+.modal .features{list-style:none;margin:20px 0}
+.modal .features li{padding:8px 0;color:#cbd5e1;font-size:0.9em;border-bottom:1px solid rgba(99,102,241,0.1)}
+.modal .features li:before{content:'✓ ';color:var(--success)}
+.modal .cta{display:block;width:100%;padding:12px;background:linear-gradient(135deg,var(--primary),var(--secondary));border:none;border-radius:10px;color:#fff;font-size:1em;font-weight:600;cursor:pointer;margin-top:20px;transition:all 0.3s}
+.modal .cta:hover{opacity:0.9}
 @media(max-width:768px){
 .hero h1{font-size:2.2em}
 .product-grid{grid-template-columns:1fr}
@@ -51,19 +68,20 @@ body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background
 </style>
 </head>
 <body>
+
 <div class="hero">
 <h1>李彦明</h1>
 <p class="subtitle">全学段AI课程开发者</p>
 <p class="desc">覆盖小学、初中、高中全学科 | 25+ AI课程产品</p>
-<a href="tel:15684394135" class="contact">📞 15684394135</a>
+<a href="tel:15684394135" class="phone">📞 15684394135</a>
 </div>
 
 <div class="nav">
 <div class="nav-content">
-<a href="#products">课程产品</a>
-<a href="#competitions">竞赛课程</a>
-<a href="#about">关于我</a>
-<a href="#contact">联系</a>
+<a onclick="scrollTo('products')">课程产品</a>
+<a onclick="scrollTo('competitions')">竞赛课程</a>
+<a onclick="scrollTo('about')">关于我</a>
+<a onclick="scrollTo('contact')">联系方式</a>
 </div>
 </div>
 
@@ -74,94 +92,134 @@ body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background
 <p>点击卡片查看详情</p>
 </div>
 <div class="product-grid">
-<a class="product-card" href="ai-courses/physics-ai/">
-<div class="icon">🔬</div>
+<div class="product-card" onclick="openModal('physics')">
+<div class="product-icon">🔬</div>
 <h3>AI物理虚拟实验</h3>
-<p class="desc">30+经典实验仿真，初中+高中</p>
-<span class="price price-primary">初中 ¥199</span>
-<span class="price price-accent">高中 ¥399</span>
-</a>
-<a class="product-card" href="ai-courses/chemistry-helper/">
-<div class="icon">⚗️</div>
+<p class="desc">30+经典实验仿真，初中+高中全覆盖</p>
+<div class="price-tags">
+<span class="price-tag price-primary">初中 ¥199</span>
+<span class="price-tag price-accent">高中 ¥399</span>
+</div>
+</div>
+<div class="product-card" onclick="openModal('chemistry')">
+<div class="product-icon">⚗️</div>
 <h3>AI化学方程式助手</h3>
-<p class="desc">智能配平+有机推断</p>
-<span class="price price-primary">初中 ¥149</span>
-<span class="price price-accent">高中 ¥299</span>
-</a>
-<a class="product-card" href="ai-courses/math-geometry/">
-<div class="icon">📐</div>
+<p class="desc">智能配平+有机推断+实验设计</p>
+<div class="price-tags">
+<span class="price-tag price-primary">初中 ¥149</span>
+<span class="price-tag price-accent">高中 ¥299</span>
+</div>
+</div>
+<div class="product-card" onclick="openModal('math')">
+<div class="product-icon">📐</div>
 <h3>AI数学几何画板</h3>
-<p class="desc">函数可视化+压轴题拆解</p>
-<span class="price price-success">小学 ¥199</span>
-<span class="price price-accent">高中 ¥399</span>
-</a>
-<a class="product-card" href="ai-courses/essay-grader/">
-<div class="icon">✍️</div>
+<p class="desc">函数可视化+压轴题拆解+几何证明</p>
+<div class="price-tags">
+<span class="price-tag price-success">小学 ¥199</span>
+<span class="price-tag price-accent">高中 ¥399</span>
+</div>
+</div>
+<div class="product-card" onclick="openModal('chinese')">
+<div class="product-icon">✍️</div>
 <h3>AI作文批改精修</h3>
-<p class="desc">AI批改+润色建议</p>
-<span class="price price-primary">小学 ¥399</span>
-<span class="price price-primary">初中 ¥149</span>
-</a>
-<a class="product-card" href="ai-courses/ai-english/">
-<div class="icon">🌍</div>
+<p class="desc">AI批改+润色建议+升格指导</p>
+<div class="price-tags">
+<span class="price-tag price-primary">小学 ¥399</span>
+<span class="price-tag price-primary">初中 ¥149</span>
+</div>
+</div>
+<div class="product-card" onclick="openModal('english')">
+<div class="product-icon">🌍</div>
 <h3>AI英语口语陪练</h3>
-<p class="desc">语音纠音+情景对话</p>
-<span class="price price-success">小学 免费</span>
-<span class="price price-accent">初中 ¥299</span>
-</a>
-<a class="product-card" href="ai-courses/history-map/">
-<div class="icon">📜</div>
+<p class="desc">语音纠音+情景对话+阅读理解</p>
+<div class="price-tags">
+<span class="price-tag price-success">小学 免费</span>
+<span class="price-tag price-accent">初中 ¥299</span>
+</div>
+</div>
+<div class="product-card" onclick="openModal('history')">
+<div class="product-icon">📜</div>
 <h3>AI历史时空地图</h3>
-<p class="desc">朝代更替动画+事件可视化</p>
-<span class="price price-warning">初中 ¥99</span>
-<span class="price price-accent">高中 ¥299</span>
-</a>
-<a class="product-card" href="ai-courses/it-ai/">
-<div class="icon">💻</div>
+<p class="desc">朝代更替动画+事件可视化+时空定位</p>
+<div class="price-tags">
+<span class="price-tag price-warning">初中 ¥99</span>
+<span class="price-tag price-accent">高中 ¥299</span>
+</div>
+</div>
+<div class="product-card" onclick="openModal('it')">
+<div class="product-icon">💻</div>
 <h3>AI编程竞赛教练</h3>
-<p class="desc">CSP-J/S/NOI专项辅导</p>
-<span class="price price-primary">初中 ¥299</span>
-<span class="price price-accent">高中 ¥399</span>
-</a>
-<a class="product-card" href="ai-courses/ai-agent/">
-<div class="icon">🤖</div>
+<p class="desc">CSP-J/S/NOI专项辅导+Python入门</p>
+<div class="price-tags">
+<span class="price-tag price-primary">初中 ¥299</span>
+<span class="price-tag price-accent">高中 ¥399</span>
+</div>
+</div>
+<div class="product-card" onclick="openModal('agent')">
+<div class="product-icon">🤖</div>
 <h3>AI智能体开发课程</h3>
-<p class="desc">扣子平台实操+竞赛导向</p>
-<span class="price price-accent">¥299/年</span>
-</a>
+<p class="desc">扣子平台实操+竞赛导向+项目实战</p>
+<div class="price-tags">
+<span class="price-tag price-accent">¥299/年</span>
+</div>
+</div>
 </div>
 </div>
 
 <div class="section" id="competitions">
 <div class="section-header">
-<h2>🏆 竞赛专项</h2>
+<h2>🏆 竞赛专项课程</h2>
 <p>五大学科奥林匹克 + 白名单竞赛</p>
 </div>
 <div class="product-grid">
-<a class="product-card" href="ai-courses/math-olympiad/">
-<div class="icon">🏅</div>
+<div class="product-card" onclick="openModal('math-olympiad')">
+<div class="product-icon">🏅</div>
 <h3>数学竞赛(CMO)</h3>
-<p class="desc">AI竞赛助手，真题解析</p>
-<span class="price price-accent">¥399/年</span>
-</a>
-<a class="product-card" href="ai-courses/physics-olympiad/">
-<div class="icon">🥇</div>
+<p class="desc">AI竞赛助手，真题解析，思维训练</p>
+<div class="price-tags">
+<span class="price-tag price-accent">¥399/年</span>
+</div>
+</div>
+<div class="product-card" onclick="openModal('physics-olympiad')">
+<div class="product-icon">🥇</div>
 <h3>物理竞赛(CPhO)</h3>
-<p class="desc">AI竞赛实验，理论冲刺</p>
-<span class="price price-accent">¥399/年</span>
-</a>
-<a class="product-card" href="ai-courses/chem-olympiad/">
-<div class="icon">🥈</div>
+<p class="desc">AI竞赛实验模拟，理论冲刺</p>
+<div class="price-tags">
+<span class="price-tag price-accent">¥399/年</span>
+</div>
+</div>
+<div class="product-card" onclick="openModal('chem-olympiad')">
+<div class="product-icon">🥈</div>
 <h3>化学竞赛(CChO)</h3>
-<p class="desc">AI竞赛推题，有机推断</p>
-<span class="price price-accent">¥399/年</span>
-</a>
-<a class="product-card" href="ai-courses/bio-olympiad/">
-<div class="icon">🥉</div>
+<p class="desc">AI竞赛推题，有机推断专项</p>
+<div class="price-tags">
+<span class="price-tag price-accent">¥399/年</span>
+</div>
+</div>
+<div class="product-card" onclick="openModal('bio-olympiad')">
+<div class="product-icon">🥉</div>
 <h3>生物竞赛(CBO)</h3>
-<p class="desc">AI竞赛题库，实验技能</p>
-<span class="price price-accent">¥399/年</span>
-</a>
+<p class="desc">AI竞赛题库，实验技能训练</p>
+<div class="price-tags">
+<span class="price-tag price-accent">¥399/年</span>
+</div>
+</div>
+<div class="product-card" onclick="openModal('it-olympiad')">
+<div class="product-icon">💻</div>
+<h3>信息学竞赛(NOI)</h3>
+<p class="desc">AI编程教练，算法思维训练</p>
+<div class="price-tags">
+<span class="price-tag price-accent">¥399/年</span>
+</div>
+</div>
+<div class="product-card" onclick="openModal('ai-contest')">
+<div class="product-icon">🤖</div>
+<h3>人工智能创新赛</h3>
+<p class="desc">AI智能体开发，扣子平台实操</p>
+<div class="price-tags">
+<span class="price-tag price-accent">¥299/年</span>
+</div>
+</div>
 </div>
 </div>
 
@@ -172,7 +230,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background
 <div class="about-section">
 <h3>李彦明</h3>
 <p>全学段AI课程开发者，专注AI赋能学科教学</p>
-<p>产品覆盖小学、初中、高中13个学科，25+AI课程，6个竞赛专项</p>
+<p>产品覆盖小学、初中、高中13个学科，25+ AI课程，6个竞赛专项</p>
 <p style="margin-top:15px;color:#6366f1">核心产品：AI物理虚拟实验 · AI作文批改精修 · AI编程竞赛教练</p>
 </div>
 </div>
@@ -181,7 +239,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background
 <h2>📞 联系我们</h2>
 <div class="phone">15684394135</div>
 <p style="color:#a5b4fc;font-size:1.1em">李彦明</p>
-<p style="color:#94a3b8;margin-top:15px;font-size:0.9em">欢迎学校、机构咨询合作</p>
+<p style="color:#94a3b8;margin-top:15px">欢迎学校、机构咨询合作</p>
 </div>
 </div>
 
@@ -189,5 +247,118 @@ body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background
 <p>© 2026 李彦明 · 全学段AI课程开发者</p>
 <p>联系：15684394135</p>
 </div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+<div class="modal-overlay" onclick="closeModal()"></div>
+<div class="modal-content">
+<button class="modal-close" onclick="closeModal()">×</button>
+<h2 id="modal-title">课程详情</h2>
+<p id="modal-desc">课程描述</p>
+<ul class="features" id="modal-features"></ul>
+<button class="cta" onclick="contactUs()">立即咨询</button>
+</div>
+</div>
+
+<script>
+const courseData = {
+physics: {
+title: 'AI物理虚拟实验',
+desc: '30+经典实验仿真，初中+高中全覆盖',
+features: ['力学实验：牛顿定律、自由落体、斜面运动', '电学实验：电路连接、欧姆定律、电表使用', '光学实验：透镜成像、折射反射、色散', '热学实验：沸腾凝固、比热容、物态变化', '支持虚拟实验报告生成']
+},
+chemistry: {
+title: 'AI化学方程式助手',
+desc: '智能配平+有机推断+实验设计',
+features: ['自动配平化学方程式', '有机化学反应推断', '实验方案设计指导', '常见物质性质查询', '中考/高考化学专项']
+},
+math: {
+title: 'AI数学几何画板',
+desc: '函数可视化+压轴题拆解+几何证明',
+features: ['函数图像动态演示', '几何图形交互式操作', '压轴题分步拆解', '错题智能分析', '竞赛数学专项训练']
+},
+chinese: {
+title: 'AI作文批改精修',
+desc: 'AI批改+润色建议+升格指导',
+features: ['作文自动评分（内容/结构/语言）', 'AI润色提升建议', '经典范文对比分析', '素材库智能推荐', '中考/高考作文专项']
+},
+english: {
+title: 'AI英语口语陪练',
+desc: '语音纠音+情景对话+阅读理解',
+features: ['AI语音识别纠音', '情景对话模拟', '阅读理解精读训练', '词汇语法专项', '口语考试模拟']
+},
+history: {
+title: 'AI历史时空地图',
+desc: '朝代更替动画+事件可视化+时空定位',
+features: ['中国朝代更替动画', '世界历史时间轴', '历史事件地图定位', '中考历史考点梳理', '高考历史材料题专项']
+},
+it: {
+title: 'AI编程竞赛教练',
+desc: 'CSP-J/S/NOI专项辅导+Python入门',
+features: ['Python基础语法教学', '算法思维训练', 'CSP-J/S真题解析', 'NOI竞赛专项辅导', '项目实战训练']
+},
+agent: {
+title: 'AI智能体开发课程',
+desc: '扣子平台实操+竞赛导向+项目实战',
+features: ['扣子平台入门教学', 'AI智能体设计开发', '竞赛项目实战', '大模型应用开发', '创新挑战赛指导']
+},
+'math-olympiad': {
+title: '数学竞赛(CMO)',
+desc: 'AI竞赛助手，真题解析，思维训练',
+features: ['CMO历年真题解析', '数学思维训练', '解题方法总结', '竞赛专项题库', '名师解题思路']
+},
+'physics-olympiad': {
+title: '物理竞赛(CPhO)',
+desc: 'AI竞赛实验模拟，理论冲刺',
+features: ['CPhO历年真题', '虚拟物理实验', '理论知识点梳理', '竞赛专项训练', '实验技能提升']
+},
+'chem-olympiad': {
+title: '化学竞赛(CChO)',
+desc: 'AI竞赛推题，有机推断专项',
+features: ['CChO历年真题', '有机化学推断专项', '实验设计指导', '竞赛题库训练', '解题技巧总结']
+},
+'bio-olympiad': {
+title: '生物竞赛(CBO)',
+desc: 'AI竞赛题库，实验技能训练',
+features: ['CBO历年真题', '生物知识点梳理', '实验技能训练', '竞赛专项题库', '遗传题专项突破']
+},
+'it-olympiad': {
+title: '信息学竞赛(NOI)',
+desc: 'AI编程教练，算法思维训练',
+features: ['NOI历年真题', '算法专项训练', '数据结构讲解', '编程思维培养', '竞赛项目实战']
+},
+'ai-contest': {
+title: '人工智能创新赛',
+desc: 'AI智能体开发，扣子平台实操',
+features: ['AI创新赛真题', '智能体开发实战', '扣子平台教学', '项目方案设计', '比赛指导辅导']
+}
+};
+
+function openModal(course) {
+const data = courseData[course];
+if (!data) return;
+document.getElementById('modal-title').textContent = data.title;
+document.getElementById('modal-desc').textContent = data.desc;
+document.getElementById('modal-features').innerHTML = data.features.map(f => `<li>${f}</li>`).join('');
+document.getElementById('modal').classList.add('active');
+}
+
+function closeModal() {
+document.getElementById('modal').classList.remove('active');
+}
+
+function scrollTo(id) {
+document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+function contactUs() {
+window.location.href = 'tel:15684394135';
+}
+
+// Close modal on Escape
+document.addEventListener('keydown', (e) => {
+if (e.key === 'Escape') closeModal();
+});
+</script>
 </body>
 </html>
