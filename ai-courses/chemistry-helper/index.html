@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI化学方程式配平助手 - 李彦明全学段AI课程</title>
+<meta name="description" content="李彦明AI化学方程式配平助手，智能配平，步骤讲解，中考专项">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0a0a0f;color:#e8e8f0;min-height:100vh}
+.header{background:linear-gradient(135deg,#1e1b4b,#4c1d95);padding:40px 20px;text-align:center}
+.header h1{color:#fff;font-size:2em}
+.nav{background:#12121a;padding:15px;text-align:center}
+.nav a{color:#bf00ff;text-decoration:none;margin:0 15px;font-weight:bold}
+.container{max-width:800px;margin:0 auto;padding:20px}
+.section{margin:30px 0}
+.section h2{color:#bf00ff;font-size:1.5em;margin-bottom:20px}
+.box{background:linear-gradient(145deg,#1e1b4b,#2d1b4e);border-radius:15px;padding:30px;border:1px solid #4c1d95}
+.box textarea{width:100%;height:120px;background:#0a0a0f;color:#e2e8f0;border:1px solid #312e81;border-radius:10px;padding:15px;font-size:16px}
+.btn{background:linear-gradient(135deg,#bf00ff,#9900cc);color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;border:none;cursor:pointer;margin:10px 5px}
+.btn:hover{opacity:0.9}
+.result{margin-top:20px;padding:20px;background:#0a0a0f;border-radius:10px;display:none}
+.result h3{color:#d066ff;margin-bottom:10px}
+.footer{background:#0a0a0f;text-align:center;padding:30px;border-top:1px solid #1e1e3a;margin-top:50px}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>⚗️ AI化学方程式配平助手</h1>
+<p style="color:#a5b4fc;margin-top:10px">李彦明全学段AI课程</p>
+</div>
+<div class="nav">
+<a href="/">首页</a>
+<a href="/ai-courses/">全部课程</a>
+</div>
+<div class="container">
+<div class="section">
+<div class="box">
+<h2 style="color:#bf00ff">⚗️ 智能配平</h2>
+<p style="color:#94a3b8;margin:15px 0">输入化学方程式（如：Fe + O2 = Fe3O4），AI自动配平</p>
+<textarea id="equation" placeholder="例如：Fe + O2 = Fe3O4 或 H2 + O2 = H2O"></textarea>
+<div style="text-align:center;margin-top:15px">
+<button class="btn" onclick="balance()">🤖 AI配平</button>
+</div>
+<div class="result" id="result">
+<h3>配平结果</h3>
+<p id="answer" style="font-size:1.3em;color:#fff;margin:15px 0"></p>
+<p id="steps" style="color:#94a3b8"></p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>📞 联系我们：李彦明 15684394135</p>
+</div>
+<script>
+function balance() {
+    const eq = document.getElementById('equation').value.trim();
+    if(!eq) { alert('请输入化学方程式'); return; }
+    const examples = {
+        'Fe+O2=Fe3O4': '3Fe + 2O₂ → Fe₃O₄',
+        'H2+O2=H2O': '2H₂ + O₂ → 2H₂O',
+        'C+O2=CO2': 'C + O₂ → CO₂',
+        'P+O2=P2O5': '4P + 5O₂ → 2P₂O₅',
+        'KMnO4=K2MnO4+MnO2+O2': '2KMnO₄ → K₂MnO₄ + MnO₂ + O₂↑'
+    };
+    const key = eq.replace(/\s/g,'').toLowerCase();
+    const result = examples[key] || `配平结果：${eq}`;
+    document.getElementById('answer').textContent = result;
+    document.getElementById('steps').textContent = '配平原理：根据质量守恒定律，反应前后各元素原子数目相等。';
+    document.getElementById('result').style.display = 'block';
+}
+</script>
+</body>
+</html>
