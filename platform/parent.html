@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家长监控面板 - 李彦明AI课程</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background: #0f0f1a; color: #e2e8f0; }
+        .card { background: rgba(30, 27, 75, 0.6); border: 1px solid rgba(99, 102, 241, 0.2); }
+        .gradient-text { background: linear-gradient(135deg, #6366f1, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold gradient-text">👨‍👩‍👧 家长监控面板</h1>
+            <p class="text-gray-400 mt-2">实时掌握孩子学习情况</p>
+        </div>
+
+        <!-- Today's Report -->
+        <div class="card rounded-2xl p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">📊 今日学习报告</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="text-center p-4 bg-indigo-500/10 rounded-xl">
+                    <div class="text-3xl font-bold text-indigo-400" id="today-lessons">12</div>
+                    <div class="text-sm text-gray-400">学习题目</div>
+                </div>
+                <div class="text-center p-4 bg-green-500/10 rounded-xl">
+                    <div class="text-3xl font-bold text-green-400" id="today-correct">9</div>
+                    <div class="text-sm text-gray-400">正确数量</div>
+                </div>
+                <div class="text-center p-4 bg-cyan-500/10 rounded-xl">
+                    <div class="text-3xl font-bold text-cyan-400" id="today-accuracy">75%</div>
+                    <div class="text-sm text-gray-400">正确率</div>
+                </div>
+                <div class="text-center p-4 bg-amber-500/10 rounded-xl">
+                    <div class="text-3xl font-bold text-amber-400" id="today-points">90</div>
+                    <div class="text-sm text-gray-400">获得积分</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learning Trend -->
+        <div class="card rounded-2xl p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">📈 本周学习趋势</h2>
+            <canvas id="trendChart" width="800" height="200" class="w-full"></canvas>
+        </div>
+
+        <!-- Subject Performance -->
+        <div class="card rounded-2xl p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">📚 各学科表现</h2>
+            <div class="space-y-3">
+                <div class="flex items-center justify-between p-3 bg-pink-500/10 rounded-lg">
+                    <span>🔬 物理</span>
+                    <div class="flex-1 mx-4">
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div class="bg-pink-500 h-3 rounded-full" style="width: 82%"></div>
+                        </div>
+                    </div>
+                    <span class="text-pink-400">82%</span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-purple-500/10 rounded-lg">
+                    <span>⚗️ 化学</span>
+                    <div class="flex-1 mx-4">
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div class="bg-purple-500 h-3 rounded-full" style="width: 68%"></div>
+                        </div>
+                    </div>
+                    <span class="text-purple-400">68%</span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-blue-500/10 rounded-lg">
+                    <span>📐 数学</span>
+                    <div class="flex-1 mx-4">
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div class="bg-blue-500 h-3 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <span class="text-blue-400">90%</span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-red-500/10 rounded-lg">
+                    <span>📚 语文</span>
+                    <div class="flex-1 mx-4">
+                        <div class="w-full bg-gray-700 rounded-full h-3">
+                            <div class="bg-red-500 h-3 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <span class="text-red-400">75%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weak Points -->
+        <div class="card rounded-2xl p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">⚠️ 薄弱知识点</h2>
+            <div class="space-y-2">
+                <div class="p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
+                    <div class="font-medium text-red-400">力学 - 牛顿第二定律</div>
+                    <div class="text-sm text-gray-400 mt-1">错误率45%，建议加强练习</div>
+                </div>
+                <div class="p-3 bg-orange-500/10 border border-orange-500/30 rounded-lg">
+                    <div class="font-medium text-orange-400">化学 - 方程式配平</div>
+                    <div class="text-sm text-gray-400 mt-1">错误率38%，需要复习</div>
+                </div>
+                <div class="p-3 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
+                    <div class="font-medium text-yellow-400">语文 - 文言文翻译</div>
+                    <div class="text-sm text-gray-400 mt-1">错误率32%，建议多读多练</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Study Suggestions -->
+        <div class="card rounded-2xl p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">💡 学习建议</h2>
+            <div class="space-y-3">
+                <div class="p-4 bg-indigo-500/10 rounded-lg">
+                    <div class="font-medium">1. 加强力学练习</div>
+                    <div class="text-sm text-gray-400 mt-1">孩子力学部分薄弱，建议每天额外练习5道力学题目</div>
+                </div>
+                <div class="p-4 bg-green-500/10 rounded-lg">
+                    <div class="font-medium">2. 保持数学优势</div>
+                    <div class="text-sm text-gray-400 mt-1">数学表现优秀，建议挑战竞赛题目保持竞争力</div>
+                </div>
+                <div class="p-4 bg-cyan-500/10 rounded-lg">
+                    <div class="font-medium">3. 培养每日学习习惯</div>
+                    <div class="text-sm text-gray-400 mt-1">已连续学习3天，继续保持！目标是7天连续</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings -->
+        <div class="card rounded-2xl p-6">
+            <h2 class="text-xl font-bold mb-4">⚙️ 通知设置</h2>
+            <div class="space-y-3">
+                <label class="flex items-center justify-between">
+                    <span>每日学习报告推送</span>
+                    <input type="checkbox" checked class="w-5 h-5">
+                </label>
+                <label class="flex items-center justify-between">
+                    <span>错题提醒</span>
+                    <input type="checkbox" checked class="w-5 h-5">
+                </label>
+                <label class="flex items-center justify-between">
+                    <span>进步表扬通知</span>
+                    <input type="checkbox" checked class="w-5 h-5">
+                </label>
+                <label class="flex items-center justify-between">
+                    <span>学习时间提醒</span>
+                    <input type="checkbox" class="w-5 h-5">
+                </label>
+            </div>
+        </div>
+
+        <div class="text-center mt-8 text-gray-500 text-sm">
+            <p>📞 联系：15684394135</p>
+            <p class="mt-1">© 2026 李彦明 · 全学段AI课程开发者</p>
+        </div>
+    </div>
+
+    <script>
+        // Draw trend chart
+        const canvas = document.getElementById('trendChart');
+        const ctx = canvas.getContext('2d');
+        
+        const data = [8, 12, 10, 15, 12, 18, 12];
+        const labels = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+        
+        ctx.beginPath();
+        ctx.strokeStyle = '#6366f1';
+        ctx.lineWidth = 3;
+        
+        const stepX = canvas.width / (data.length - 1);
+        const maxVal = Math.max(...data);
+        
+        data.forEach((val, i) => {
+            const x = i * stepX;
+            const y = canvas.height - (val / maxVal) * (canvas.height - 40) - 20;
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        });
+        ctx.stroke();
+        
+        // Draw dots
+        data.forEach((val, i) => {
+            const x = i * stepX;
+            const y = canvas.height - (val / maxVal) * (canvas.height - 40) - 20;
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, Math.PI * 2);
+            ctx.fillStyle = '#6366f1';
+            ctx.fill();
+            
+            // Label
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '12px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(labels[i], x, canvas.height - 5);
+        });
+    </script>
+</body>
+</html>
