@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI像素工坊 - 李彦明全学段AI课程</title>
+<meta name="description" content="李彦明AI像素工坊，小学美术创意课程，像素画创作">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0a0a0f;color:#e8e8f0;min-height:100vh}
+.header{background:linear-gradient(135deg,#1e1b4b,#4c1d95);padding:40px 20px;text-align:center}
+.header h1{color:#fff;font-size:2em}
+.nav{background:#12121a;padding:15px;text-align:center}
+.nav a{color:#ff69b4;text-decoration:none;margin:0 15px;font-weight:bold}
+.container{max-width:800px;margin:0 auto;padding:20px}
+.section{margin:30px 0}
+.section h2{color:#ff69b4;font-size:1.5em;margin-bottom:20px}
+.canvas-container{background:#1e1b4b;border-radius:15px;padding:20px;border:1px solid #4c1d95;text-align:center}
+canvas{border:1px solid #312e81;border-radius:10px;cursor:crosshair;display:block;margin:0 auto}
+.colors{display:flex;justify-content:center;gap:10px;margin:15px 0;flex-wrap:wrap}
+.color{width:40px;height:40px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:all 0.3s}
+.color:hover,.color.active{border-color:#fff;transform:scale(1.1)}
+.tools{display:flex;justify-content:center;gap:15px;margin:15px 0}
+.btn{background:#312e81;color:#fff;padding:10px 20px;border-radius:8px;cursor:pointer;border:none;font-size:1em}
+.btn:hover{background:#4c1d95}
+.footer{background:#0a0a0f;text-align:center;padding:30px;border-top:1px solid #1e1e3a;margin-top:50px}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>🎨 AI像素工坊</h1>
+<p style="color:#a5b4fc;margin-top:10px">李彦明全学段AI课程 | 小学美术创意</p>
+</div>
+<div class="nav">
+<a href="/">首页</a>
+<a href="/ai-courses/">全部课程</a>
+</div>
+<div class="container">
+<div class="section">
+<h2>🎮 像素画创作</h2>
+<div class="canvas-container">
+<canvas id="canvas" width="320" height="320"></canvas>
+<div class="colors">
+<div class="color active" style="background:#000" onclick="setColor('#000',this)"></div>
+<div class="color" style="background:#fff" onclick="setColor('#fff',this)"></div>
+<div class="color" style="background:#ff0000" onclick="setColor('#ff0000',this)"></div>
+<div class="color" style="background:#00ff00" onclick="setColor('#00ff00',this)"></div>
+<div class="color" style="background:#0000ff" onclick="setColor('#0000ff',this)"></div>
+<div class="color" style="background:#ffff00" onclick="setColor('#ffff00',this)"></div>
+<div class="color" style="background:#ff00ff" onclick="setColor('#ff00ff',this)"></div>
+<div class="color" style="background:#00ffff" onclick="setColor('#00ffff',this)"></div>
+<div class="color" style="background:#ff6600" onclick="setColor('#ff6600',this)"></div>
+<div class="color" style="background:#9933ff" onclick="setColor('#9933ff',this)"></div>
+</div>
+<div class="tools">
+<button class="btn" onclick="clearCanvas()">🗑️ 清空</button>
+<button class="btn" onclick="saveCanvas()">💾 保存</button>
+<button class="btn" onclick="aiEnhance()">🤖 AI增强</button>
+</div>
+</div>
+<div style="text-align:center;margin-top:30px">
+<p style="font-size:1.5em;color:#ff69b4;font-weight:bold">免费体验</p>
+<p style="color:#94a3b8;margin:15px 0">AI辅助创作 · 像素画教学 · 创意设计</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>📞 联系我们：李彦明 15684394135</p>
+</div>
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const gridSize = 20;
+const cellSize = canvas.width / gridSize;
+let currentColor = '#000';
+let isDrawing = false;
+
+ctx.fillStyle = '#0a0a0f';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+canvas.addEventListener('mousedown', () => isDrawing = true);
+canvas.addEventListener('mouseup', () => isDrawing = false);
+canvas.addEventListener('mousemove', (e) => {
+    if(!isDrawing) return;
+    draw(e);
+});
+canvas.addEventListener('click', draw);
+
+function draw(e) {
+    const rect = canvas.getBoundingClientRect();
+    const x = Math.floor((e.clientX - rect.left) / cellSize);
+    const y = Math.floor((e.clientY - rect.top) / cellSize);
+    ctx.fillStyle = currentColor;
+    ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+}
+
+function setColor(color, el) {
+    currentColor = color;
+    document.querySelectorAll('.color').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+}
+
+function clearCanvas() {
+    ctx.fillStyle = '#0a0a0f';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function saveCanvas() {
+    const link = document.createElement('a');
+    link.download = 'pixel-art.png';
+    link.href = canvas.toDataURL();
+    link.click();
+}
+
+function aiEnhance() {
+    alert('AI增强功能：将为您优化像素画，添加对称效果、颜色搭配建议');
+}
+</script>
+</body>
+</html>
