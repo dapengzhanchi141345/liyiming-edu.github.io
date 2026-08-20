@@ -1,184 +1,77 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>李彦明AI课程 - 微信小程序版</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background: #0f0f1a; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-        .card { background: rgba(30, 27, 75, 0.6); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 16px; }
-        .gradient-text { background: linear-gradient(135deg, #6366f1, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .btn-primary { background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 12px; padding: 12px 24px; }
-        .subject-card { background: rgba(30, 27, 75, 0.6); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 12px; padding: 16px; text-align: center; transition: all 0.3s; }
-        .subject-card:hover { transform: scale(1.05); border-color: #6366f1; }
-        .streak-badge { background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 20px; padding: 4px 12px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>李彦明AI课程 - 微信小程序版</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;background:#0f0f1a;color:#e2e8f0}
+.header{background:rgba(15,23,42,0.95);padding:12px 15px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(99,102,241,0.2)}
+.logo{font-size:1.1em;font-weight:700;color:#6366f1}
+.streak{display:flex;align-items:center;gap:5px;font-size:0.85em}
+.container{padding:15px}
+.card{background:rgba(30,27,75,0.6);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:15px;margin-bottom:15px}
+.card h3{font-size:0.95em;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.item{background:rgba(15,23,42,0.6);border-radius:10px;padding:12px;text-align:center;cursor:pointer;transition:all 0.2s}
+.item:hover{border:1px solid rgba(99,102,241,0.3)}
+.item .icon{font-size:1.8em;margin-bottom:5px}
+.item .name{font-size:0.8em}
+.item .count{font-size:0.7em;color:#94a3b8}
+.bottom-nav{position:fixed;bottom:0;left:0:right:0;background:rgba(15,23,42,0.95);border-top:1px solid rgba(99,102,241,0.2);padding:10px;display:flex;justify-content:space-around}
+.nav-item{display:flex;flex-direction:column;align-items:center;font-size:0.7em;color:#94a3b8}
+.nav-item.active{color:#6366f1}
+.nav-item .icon{font-size:1.3em;margin-bottom:3px}
+</style>
 </head>
-<body class="pb-20">
-    <!-- Header -->
-    <div class="sticky top-0 z-50 bg-[#0f0f1a]/95 backdrop-blur-lg border-b border-[rgba(99,102,241,0.2)] px-4 py-3">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <span class="text-2xl">🎓</span>
-                <span class="font-bold gradient-text">李彦明AI课程</span>
-            </div>
-            <div class="flex items-center gap-3">
-                <div class="streak-badge text-sm">
-                    <span>🔥</span>
-                    <span id="streak">7天</span>
-                </div>
-                <div class="bg-amber-500/20 px-3 py-1 rounded-full text-sm text-amber-400">
-                    <span>💎</span>
-                    <span id="points">850</span>
-                </div>
-            </div>
-        </div>
-    </div>
+<body>
+<div class="header">
+<div class="logo">🎓 李彦明AI课程</div>
+<div class="streak"><span>🔥</span><span>7天</span></div>
+</div>
 
-    <!-- Main Content -->
-    <div class="px-4 py-6">
-        <!-- Welcome -->
-        <div class="card p-4 mb-6">
-            <div class="flex items-center justify-between">
-                <div>
-                    <h2 class="text-lg font-bold">你好，同学！👋</h2>
-                    <p class="text-sm text-gray-400 mt-1">今天想学什么？</p>
-                </div>
-                <div class="text-4xl">🚀</div>
-            </div>
-        </div>
+<div class="container">
+<div class="card">
+<h3>👋 你好，同学！今天想学什么？</h3>
+</div>
 
-        <!-- Subject Selection -->
-        <h3 class="font-bold text-lg mb-4">选择学科</h3>
-        <div class="grid grid-cols-3 gap-3 mb-6">
-            <div class="subject-card" onclick="startSubject('physics')">
-                <div class="text-3xl mb-2">🔬</div>
-                <div class="text-sm font-medium text-pink-400">物理</div>
-                <div class="text-xs text-gray-500 mt-1">120题</div>
-            </div>
-            <div class="subject-card" onclick="startSubject('chemistry')">
-                <div class="text-3xl mb-2">⚗️</div>
-                <div class="text-sm font-medium text-purple-400">化学</div>
-                <div class="text-xs text-gray-500 mt-1">95题</div>
-            </div>
-            <div class="subject-card" onclick="startSubject('math')">
-                <div class="text-3xl mb-2">📐</div>
-                <div class="text-sm font-medium text-blue-400">数学</div>
-                <div class="text-xs text-gray-500 mt-1">150题</div>
-            </div>
-            <div class="subject-card" onclick="startSubject('chinese')">
-                <div class="text-3xl mb-2">📚</div>
-                <div class="text-sm font-medium text-red-400">语文</div>
-                <div class="text-xs text-gray-500 mt-1">80题</div>
-            </div>
-            <div class="subject-card" onclick="startSubject('english')">
-                <div class="text-3xl mb-2">🌍</div>
-                <div class="text-sm font-medium text-cyan-400">英语</div>
-                <div class="text-xs text-gray-500 mt-1">60题</div>
-            </div>
-            <div class="subject-card" onclick="startSubject('history')">
-                <div class="text-3xl mb-2">📜</div>
-                <div class="text-sm font-medium text-amber-400">历史</div>
-                <div class="text-xs text-gray-500 mt-1">70题</div>
-            </div>
-        </div>
+<div class="card">
+<h3>📚 选择学科</h3>
+<div class="grid">
+<div class="item"><div class="icon">🔬</div><div class="name">物理</div><div class="count">120题</div></div>
+<div class="item"><div class="icon">⚗️</div><div class="name">化学</div><div class="count">95题</div></div>
+<div class="item"><div class="icon">📐</div><div class="name">数学</div><div class="count">150题</div></div>
+<div class="item"><div class="icon">📚</div><div class="name">语文</div><div class="count">80题</div></div>
+<div class="item"><div class="icon">🌍</div><div class="name">英语</div><div class="count">60题</div></div>
+<div class="item"><div class="icon">📜</div><div class="name">历史</div><div class="count">70题</div></div>
+</div>
+</div>
 
-        <!-- Today's Challenge -->
-        <div class="card p-4 mb-6">
-            <div class="flex items-center justify-between mb-3">
-                <h3 class="font-bold">🎯 今日挑战</h3>
-                <span class="text-xs text-gray-400">剩余 3/5 题</span>
-            </div>
-            <div class="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl p-4">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <div class="font-medium">完成今日目标</div>
-                        <div class="text-sm text-gray-400 mt-1">再做2题即可解锁徽章</div>
-                    </div>
-                    <div class="text-3xl">🏆</div>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2 mt-3">
-                    <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full" style="width: 60%"></div>
-                </div>
-            </div>
-        </div>
+<div class="card">
+<h3>🎯 今日挑战</h3>
+<p style="font-size:0.85em;color:#94a3b8">完成今日目标：再做2题即可解锁徽章</p>
+<div style="margin-top:10px;height:6px;background:rgba(99,102,241,0.2);border-radius:3px">
+<div style="width:60%;height:100%;background:linear-gradient(90deg,#6366f1,#8b5cf6);border-radius:3px"></div>
+</div>
+</div>
 
-        <!-- Wrong Questions -->
-        <div class="card p-4 mb-6">
-            <div class="flex items-center justify-between mb-3">
-                <h3 class="font-bold">❌ 待复习错题</h3>
-                <span class="text-xs text-red-400">5题</span>
-            </div>
-            <div class="space-y-2">
-                <div class="p-3 bg-red-500/10 rounded-lg text-sm">
-                    <div class="text-red-400">物理 - 牛顿第二定律</div>
-                    <div class="text-gray-500 text-xs mt-1">F=ma，单位：N</div>
-                </div>
-                <div class="p-3 bg-orange-500/10 rounded-lg text-sm">
-                    <div class="text-orange-400">化学 - 方程式配平</div>
-                    <div class="text-gray-500 text-xs mt-1">Fe + O₂ → Fe₃O₄</div>
-                </div>
-            </div>
-            <button class="w-full mt-3 py-2 bg-red-500/20 rounded-lg text-sm text-red-400">开始复习</button>
-        </div>
+<div class="card">
+<h3>❌ 待复习错题 <span style="color:#ef4444">5题</span></h3>
+<div style="font-size:0.8em;color:#94a3b8;padding:8px;background:rgba(239,68,68,0.1);border-radius:8px;margin-bottom:5px">
+物理 - 牛顿第二定律
+</div>
+<div style="font-size:0.8em;color:#94a3b8;padding:8px;background:rgba(245,158,11,0.1);border-radius:8px">
+化学 - 方程式配平
+</div>
+</div>
+</div>
 
-        <!-- Badges -->
-        <div class="card p-4 mb-6">
-            <h3 class="font-bold mb-3">🏅 我的徽章</h3>
-            <div class="grid grid-cols-6 gap-2">
-                <div class="text-center">
-                    <div class="text-2xl">🌟</div>
-                    <div class="text-[10px] text-gray-400">新手</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-2xl">🔥</div>
-                    <div class="text-[10px] text-gray-400">7天</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-2xl">💯</div>
-                    <div class="text-[10px] text-gray-400">满分</div>
-                </div>
-                <div class="text-center opacity-30">
-                    <div class="text-2xl">🏆</div>
-                    <div class="text-[10px] text-gray-400">竞赛</div>
-                </div>
-                <div class="text-center opacity-30">
-                    <div class="text-2xl">🚀</div>
-                    <div class="text-[10px] text-gray-400">达人</div>
-                </div>
-                <div class="text-center opacity-30">
-                    <div class="text-2xl">👑</div>
-                    <div class="text-[10px] text-gray-400">王者</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bottom Navigation -->
-    <div class="fixed bottom-0 left-0 right-0 bg-[#0f0f1a]/95 backdrop-blur-lg border-t border-[rgba(99,102,241,0.2)] px-4 py-3 flex justify-around">
-        <button class="flex flex-col items-center text-indigo-400">
-            <span class="text-xl">🏠</span>
-            <span class="text-[10px] mt-1">首页</span>
-        </button>
-        <button class="flex flex-col items-center text-gray-400">
-            <span class="text-xl">📚</span>
-            <span class="text-[10px] mt-1">课程</span>
-        </button>
-        <button class="flex flex-col items-center text-gray-400">
-            <span class="text-xl">📊</span>
-            <span class="text-[10px] mt-1">进度</span>
-        </button>
-        <button class="flex flex-col items-center text-gray-400">
-            <span class="text-xl">👤</span>
-            <span class="text-[10px] mt-1">我的</span>
-        </button>
-    </div>
-
-    <script>
-        function startSubject(subject) {
-            alert(`开始${subject}学习模式！\n\nAI导师将用苏格拉底式提问引导你思考，不给答案只给提示。`);
-        }
-    </script>
+<div class="bottom-nav">
+<div class="nav-item active"><div class="icon">🏠</div><div>首页</div></div>
+<div class="nav-item"><div class="icon">📚</div><div>课程</div></div>
+<div class="nav-item"><div class="icon">📊</div><div>进度</div></div>
+<div class="nav-item"><div class="icon">👤</div><div>我的</div></div>
+</div>
 </body>
 </html>
