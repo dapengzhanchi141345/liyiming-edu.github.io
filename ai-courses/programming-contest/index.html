@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI编程竞赛教练 - 李彦明全学段AI课程</title>
+<meta name="description" content="李彦明AI编程竞赛教练，CSP-J/S/NOI专项训练，算法题库，真题解析">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0a0a0f;color:#e8e8f0;min-height:100vh}
+.header{background:linear-gradient(135deg,#1e1b4b,#4c1d95);padding:40px 20px;text-align:center}
+.header h1{color:#fff;font-size:2em}
+.nav{background:#12121a;padding:15px;text-align:center}
+.nav a{color:#818cf8;text-decoration:none;margin:0 15px;font-weight:bold}
+.container{max-width:1000px;margin:0 auto;padding:20px}
+.section{margin:30px 0}
+.section h2{color:#a78bfa;font-size:1.5em;margin-bottom:20px}
+.problem-card{background:linear-gradient(145deg,#1e1b4b,#312e81);border-radius:15px;padding:25px;border:1px solid #4c1d95;margin-bottom:20px}
+.problem-card h3{color:#c4b5fd;margin-bottom:15px}
+.problem-card .tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.8em;margin-right:5px}
+.tag-easy{background:#10b981;color:#fff}
+.tag-medium{background:#f59e0b;color:#000}
+.tag-hard{background:#ef4444;color:#fff}
+.problem-content{background:#0a0a0f;padding:15px;border-radius:10px;margin:15px 0;line-height:1.8}
+.code-box{background:#1e293b;padding:15px;border-radius:10px;font-family:monospace;margin:10px 0;overflow-x:auto}
+.btn{background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;border:none;cursor:pointer;margin:5px}
+.btn:hover{opacity:0.9}
+.solution{display:none;background:#0a0a0f;padding:20px;border-radius:10px;margin-top:15px}
+.footer{background:#0a0a0f;text-align:center;padding:30px;border-top:1px solid #1e1e3a;margin-top:50px}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>💻 AI编程竞赛教练</h1>
+<p style="color:#a5b4fc;margin-top:10px">李彦明全学段AI课程 | CSP-J/S/NOI专项训练</p>
+</div>
+
+<div class="nav">
+<a href="/">首页</a>
+<a href="/ai-courses/">全部课程</a>
+<a href="javascript:history.back()">返回</a>
+</div>
+
+<div class="container">
+<div class="section">
+<h2>📋 经典算法题库</h2>
+<div class="problem-card">
+<span class="tag tag-easy">入门</span>
+<span class="tag tag-medium">基础</span>
+<h3>题目1：两数之和</h3>
+<div class="problem-content">
+<p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。</p>
+<p><strong>示例：</strong></p>
+<p>输入: nums = [2, 7, 11, 15], target = 9</p>
+<p>输出: [0, 1]</p>
+</div>
+<button class="btn" onclick="showSolution('sol1')">💡 查看解析</button>
+<div class="solution" id="sol1">
+<p><strong>解题思路：</strong>使用哈希表存储已遍历的数字，查找target-nums[i]是否存在。</p>
+<div class="code-box">
+#include &lt;bits/stdc++.h&gt;<br>
+using namespace std;<br>
+int main() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vector&lt;int&gt; nums = {2, 7, 11, 15};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int target = 9;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unordered_map&lt;int, int&gt; mp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for(int i = 0; i &lt; nums.size(); i++) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(mp.count(target - nums[i])) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; mp[target - nums[i]] &lt;&lt; " " &lt;&lt; i &lt;&lt; endl;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mp[nums[i]] = i;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>
+}
+</div>
+<p><strong>时间复杂度：</strong>O(n) | <strong>空间复杂度：</strong>O(n)</p>
+</div>
+</div>
+
+<div class="problem-card">
+<span class="tag tag-medium">进阶</span>
+<span class="tag tag-hard">经典</span>
+<h3>题目2：链表反转</h3>
+<div class="problem-content">
+<p>反转一个单链表。</p>
+<p><strong>示例：</strong></p>
+<p>输入: 1->2->3->4->5->NULL</p>
+<p>输出: 5->4->3->2->1->NULL</p>
+</div>
+<button class="btn" onclick="showSolution('sol2')">💡 查看解析</button>
+<div class="solution" id="sol2">
+<p><strong>解题思路：</strong>使用三个指针，依次反转链表节点的指向。</p>
+<div class="code-box">
+struct ListNode {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int val;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ListNode *next;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ListNode(int x) : val(x), next(NULL) {}<br>
+};<br>
+<br>
+ListNode* reverseList(ListNode* head) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ListNode *prev = NULL;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ListNode *curr = head;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;while(curr) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ListNode *next = curr->next;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curr->next = prev;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prev = curr;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curr = next;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return prev;<br>
+}
+</div>
+<p><strong>时间复杂度：</strong>O(n) | <strong>空间复杂度：</strong>O(1)</p>
+</div>
+</div>
+
+<div class="problem-card">
+<span class="tag tag-hard">困难</span>
+<span class="tag tag-hard">竞赛</span>
+<h3>题目3：最短路径(Dijkstra)</h3>
+<div class="problem-content">
+<p>给定一个包含n个节点和m条边的有向图，求从起点s到其他所有节点的最短路径。</p>
+</div>
+<button class="btn" onclick="showSolution('sol3')">💡 查看解析</button>
+<div class="solution" id="sol3">
+<p><strong>解题思路：</strong>使用优先队列优化的Dijkstra算法。</p>
+<div class="code-box">
+#include &lt;bits/stdc++.h&gt;<br>
+using namespace std;<br>
+const int INF = 1e9;<br>
+vector&lt;pair&lt;int,int&gt;&gt; adj[100005];<br>
+int dist[100005];<br>
+<br>
+void dijkstra(int s, int n) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for(int i = 1; i &lt;= n; i++) dist[i] = INF;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;priority_queue&lt;pair&lt;int,int&gt;, vector&lt;pair&lt;int,int&gt;&gt;, greater&lt;pair&lt;int,int&gt;&gt;&gt; pq;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dist[s] = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pq.push({0, s});<br>
+&nbsp;&nbsp;&nbsp;&nbsp;while(!pq.empty()) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int d = pq.top().first;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int u = pq.top().second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pq.pop();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(d &gt; dist[u]) continue;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(auto &amp;e : adj[u]) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(dist[u] + e.second &lt; dist[e.first]) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dist[e.first] = dist[u] + e.second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pq.push({dist[e.first], e.first});<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+</div>
+<p><strong>时间复杂度：</strong>O(m log n)</p>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>📊 竞赛信息</h2>
+<div class="problem-card">
+<h3>CSP-J/S 认证</h3>
+<p style="color:#94a3b8;margin:10px 0">CSP-J/S是入门级和进阶级认证，是NOI系列赛事的重要组成部分。</p>
+<ul style="color:#94a3b8;margin-left:20px">
+<li>CSP-J：入门级，适合初中生</li>
+<li>CSP-S：进阶级，适合高中生</li>
+<li>报名时间：每年9月</li>
+<li>比赛时间：每年10月</li>
+</ul>
+</div>
+<div class="problem-card">
+<h3>NOI系列赛事</h3>
+<ul style="color:#94a3b8;margin-left:20px">
+<li>省选：每年3月</li>
+<li>NOI决赛：每年7月</li>
+<li>金牌前50名进入国家集训队</li>
+<li>集训队成员可获得保送清北资格</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h2>💰 订阅信息</h2>
+<div class="problem-card" style="text-align:center">
+<h3>AI编程竞赛教练</h3>
+<p style="font-size:2em;color:#a78bfa;font-weight:bold;margin:20px 0">¥399/年</p>
+<p style="color:#94a3b8;margin-bottom:20px">包含全套算法题库 + 真题解析 + 竞赛指导</p>
+<a href="tel:15684394135" class="btn" style="font-size:1.1em;padding:15px 40px">📞 联系订阅：15684394135</a>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<p>📞 联系我们：李彦明 15684394135</p>
+<p>© 2026 李彦明 · 全学段AI课程开发者</p>
+</div>
+
+<script>
+function showSolution(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+</body>
+</html>
