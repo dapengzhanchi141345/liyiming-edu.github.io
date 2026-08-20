@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI英语口语陪练 - 李彦明</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif; background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); min-height: 100vh; color: #333; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        header { text-align: center; padding: 30px 0; }
+        header h1 { font-size: 2.3em; color: white; }
+        header p { color: rgba(255,255,255,0.8); margin-top: 10px; }
+        .chat-area { background: white; border-radius: 16px; padding: 30px; margin-top: 20px; }
+        .chat-messages { height: 300px; overflow-y: auto; margin-bottom: 20px; }
+        .message { margin-bottom: 15px; padding: 12px 18px; border-radius: 20px; max-width: 80%; }
+        .message.ai { background: #f0f0f0; margin-right: auto; }
+        .message.user { background: #a18cd1; color: white; margin-left: auto; }
+        .input-area { display: flex; gap: 10px; }
+        .input-area input { flex: 1; padding: 12px 20px; border: 2px solid #ddd; border-radius: 25px; font-size: 16px; }
+        .input-area input:focus { outline: none; border-color: #a18cd1; }
+        .input-area button { background: #a18cd1; color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; }
+        .topics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+        .topic { background: white; border-radius: 10px; padding: 15px; text-align: center; cursor: pointer; }
+        .topic:hover { background: #f0f0f0; }
+        .topic .icon { font-size: 2em; margin-bottom: 5px; }
+        .topic p { font-size: 14px; color: #333; }
+        footer { text-align: center; margin-top: 30px; color: rgba(255,255,255,0.7); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗣️ AI英语口语陪练</h1>
+            <p>语音对话 · 即时纠音 · 情景模拟</p>
+            <p style="margin-top: 10px; font-size: 14px;">开发者：李彦明 · 15684394135</p>
+        </header>
+
+        <div class="chat-area">
+            <div class="chat-messages">
+                <div class="message ai">Hello! I'm your AI English tutor. Let's practice together!</div>
+                <div class="message user">Hi! I want to practice ordering food.</div>
+                <div class="message ai">Great! Let's order food at a restaurant. What would you like to order?</div>
+            </div>
+            <div class="input-area">
+                <input type="text" placeholder="Type your message...">
+                <button>发送</button>
+                <button>🎤</button>
+            </div>
+        </div>
+
+        <h3 style="color: white; margin-top: 25px;">🎯 练习场景</h3>
+        <div class="topics">
+            <div class="topic"><div class="icon">🍔</div><p>餐厅点餐</p></div>
+            <div class="topic"><div class="icon">✈️</div><p>机场问路</p></div>
+            <div class="topic"><div class="icon">🏥</div><p>医院就诊</p></div>
+            <div class="topic"><div class="icon">🛒</div><p>购物问价</p></div>
+            <div class="topic"><div class="icon">🏨</div><p>酒店入住</p></div>
+            <div class="topic"><div class="icon">📚</div><p>课堂讨论</p></div>
+        </div>
+
+        <footer>
+            <p>© 2026 李彦明 · AI英语口语陪练</p>
+            <p style="font-size: 12px; margin-top: 5px;">年费299元 · 家长付费意愿高</p>
+        </footer>
+    </div>
+</body>
+</html>
