@@ -1,0 +1,9 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "李彦明",
+  "jobTitle": "AI课程开发者",
+  "description": "全学段AI课程开发者，专注AI赋能学科教学",
+  "telephone": "15684394135",
+  "url": "https://liyiming-edu.github.io"
+}
