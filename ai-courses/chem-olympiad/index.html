@@ -3,59 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>化学竞赛CChO专项 - 李彦明全学段AI课程</title>
-<meta name="description" content="李彦明AI化学竞赛专项，CChO初赛复赛决赛训练">
+<title>AI化学竞赛专项(CChO) - 李彦明全学段AI课程</title>
+<meta name="description" content="李彦明AI化学竞赛课程，CChO初赛复赛决赛专项训练，有机推断AI辅助，分析化学计算训练，竞赛实验模拟">
+<meta name="keywords" content="化学竞赛,CChO,金牌,清北保送">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0a0a0f;color:#e8e8f0;min-height:100vh}
-.header{background:linear-gradient(135deg,#1e1b4b,#4c1d95);padding:40px 20px;text-align:center}
-.header h1{color:#fff;font-size:2em}
-.nav{background:#12121a;padding:15px;text-align:center}
-.nav a{color:#bf00ff;text-decoration:none;margin:0 15px;font-weight:bold}
-.container{max-width:1000px;margin:0 auto;padding:20px}
-.section{margin:30px 0}
-.section h2{color:#bf00ff;font-size:1.5em;margin-bottom:20px}
-.card{background:linear-gradient(145deg,#1e1b4b,#2d1b4e);border-radius:15px;padding:25px;border:1px solid #4c1d95;margin-bottom:20px}
-.card h3{color:#d066ff;margin-bottom:10px}
-.card p{color:#94a3b8;line-height:1.8}
-.footer{background:#0a0a0f;text-align:center;padding:30px;border-top:1px solid #1e1e3a;margin-top:50px}
+:root{--primary:#6366f1;--secondary:#8b5cf6;--accent:#06b6d4;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--dark:#0f172a}
+body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:#020617;color:#e2e8f0;min-height:100vh;line-height:1.6}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:rgba(15,23,42,0.5)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px}
+.header{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#4c1d95 100%);padding:60px 20px;text-align:center}
+.header h1{font-size:2.5em;font-weight:900;margin-bottom:15px;background:linear-gradient(135deg,#fff,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header .subtitle{color:#a5b4fc;font-size:1.1em;margin-bottom:20px}
+.nav{background:rgba(15,23,42,0.98);padding:14px 20px;border-bottom:1px solid rgba(99,102,241,0.2)}
+.nav-content{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:20px}
+.nav a{color:#e2e8f0;text-decoration:none;font-weight:500;padding:8px 16px;border-radius:8px;transition:all 0.3s}
+.nav a:hover{color:var(--primary);background:rgba(99,102,241,0.1)}
+.container{max-width:1000px;margin:0 auto;padding:40px 20px}
+.section{margin-bottom:40px}
+.card{background:linear-gradient(145deg,rgba(30,27,75,0.9),rgba(49,46,129,0.7));border-radius:18px;padding:30px;border:1px solid rgba(99,102,241,0.25);margin-bottom:25px}
+.card h2{font-size:1.4em;margin-bottom:18px;color:var(--accent);display:flex;align-items:center;gap:10px}
+.card h3{font-size:1.1em;margin:15px 0 10px;color:#fff}
+.card p{color:#94a3b8;line-height:1.8;margin:8px 0}
+.card ul{list-style:none;padding:0}
+.card li{padding:8px 0 8px 25px;color:#cbd5e1;border-bottom:1px solid rgba(99,102,241,0.1);position:relative}
+.card li:before{content:"✓";position:absolute;left:0;color:var(--success);font-weight:bold}
+.price-section{text-align:center;padding:40px;background:linear-gradient(135deg,#1e1b4b,#4c1d95);border-radius:20px;margin-top:30px}
+.price-section .price{font-size:3em;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:15px 0}
+.price-section .desc{color:#94a3b8;margin-bottom:25px}
+.btn{display:inline-block;padding:14px 35px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:50px;color:#fff;font-weight:700;text-decoration:none;font-size:1.1em;transition:all 0.3s}
+.btn:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(99,102,241,0.4)}
+.footer{background:rgba(15,23,42,0.98);text-align:center;padding:30px 20px;border-top:1px solid rgba(99,102,241,0.2)}
+.footer p{color:#64748b;margin:6px 0;font-size:0.9em}
+@media(max-width:768px){
+.header h1{font-size:1.8em}
+.nav-content{flex-direction:column;gap:10px}
+}
 </style>
 </head>
 <body>
+
 <div class="header">
-<h1>🏆 AI化学竞赛专项(CChO)</h1>
-<p style="color:#a5b4fc;margin-top:10px">李彦明全学段AI课程</p>
+<h1>🥉 AI化学竞赛专项(CChO)</h1>
+<div class="subtitle">五大学科奥赛金牌辅导</div>
 </div>
+
 <div class="nav">
+<div class="nav-content">
 <a href="/">首页</a>
 <a href="/ai-courses/">全部课程</a>
+<a href="tel:15684394135">📞 联系报名</a>
 </div>
+</div>
+
 <div class="container">
+
 <div class="section">
 <div class="card">
-<h3>📅 2026赛程时间</h3>
-<p>初赛：2026年9月6日</p>
-<p>决赛：2026年10月30日（约100人）</p>
-<p>国家集训队：2026年11月（约20人，保送清北）</p>
+<h2>📋 课程简介</h2>
+<p>李彦明AI化学竞赛课程，CChO初赛复赛决赛专项训练，有机推断AI辅助，分析化学计算训练，竞赛实验模拟</p>
 </div>
+</div>
+
+<div class="section">
 <div class="card">
-<h3>📚 课程内容</h3>
-<p>• 无机化学：元素化学、配平、推断</p>
-<p>• 有机化学：反应机理、合成路线、结构推导</p>
-<p>• 物理化学：热力学、动力学、电化学</p>
-<p>• 分析化学：滴定、光谱、色谱</p>
-<p>• 结构化学：分子轨道、晶体结构</p>
-</div>
-<div class="card" style="text-align:center">
-<h3>💰 竞赛课程</h3>
-<p style="font-size:2em;color:#bf00ff;font-weight:bold;margin:20px 0">¥399/年</p>
-<p style="color:#94a3b8;margin-bottom:20px">初赛训练 + 决赛冲刺 + 竞赛真题</p>
-<p style="color:#fff;font-size:1.2em">📞 联系报名：15684394135</p>
+<h2>📚 核心功能</h2>
+<ul>
+<li>有机化学推题专项，掌握推断题解题方法</li><li>无机推断AI辅助，理解化学反应原理</li><li>分析化学计算训练，提高计算能力</li><li>CChO历年真题库，海量题目巩固提升</li><li>竞赛实验模拟，虚拟实验操作训练</li><li>竞赛模拟测试，真实考场氛围体验</li>
+</ul>
 </div>
 </div>
+
+<div class="section">
+<div class="card">
+<h2>🎯 适用对象</h2>
+<p>高中10-12年级有化学竞赛需求的学生，目标参加CChO并取得好成绩</p>
 </div>
+</div>
+
+<div class="section">
+<div class="card">
+<h2>📊 学习效果</h2>
+<ul>
+<li>系统掌握化学竞赛核心知识点</li>
+<li>提升解题能力与应试技巧</li>
+<li>培养学科思维与创新能力</li>
+<li>AI辅助个性化学习路径</li>
+<li>学习进度实时追踪反馈</li>
+</ul>
+</div>
+</div>
+
+<div class="price-section">
+<h2 style="color:#fff;font-size:1.5em;margin-bottom:10px">🥉 AI化学竞赛专项</h2>
+<div class="price">¥399/年</div>
+<p class="desc">有机/无机/分析化学专项 + 真题解析</p>
+<a href="tel:15684394135" class="btn">📞 立即咨询报名</a>
+<p style="color:#94a3b8;margin-top:20px;font-size:0.9em">联系电话：15684394135（微信同号）</p>
+</div>
+
+</div>
+
 <div class="footer">
-<p>📞 联系我们：李彦明 15684394135</p>
+<p>© 2026 李彦明 · 全学段AI课程开发者</p>
+<p>联系方式：15684394135（微信同号）</p>
+<p style="font-size:0.78em;margin-top:8px">覆盖小学、初中、高中13学科 | 32+AI课程产品</p>
 </div>
+
 </body>
 </html>
