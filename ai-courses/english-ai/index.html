@@ -3,212 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>通语者AI英语课程 - 李彦明全学段AI课程</title>
-<meta name="description" content="李彦明AI英语课程：小学绘本伴读、初中口语陪练、高中阅读理解精读、竞赛英语训练">
+<title>AI英语口语陪练 - 李彦明全学段AI课程</title>
+<meta name="description" content="李彦明AI英语课程，AI语音识别实时纠音，情景对话AI陪练，中考/高考英语阅读精读训练，长难句拆解分析">
+<meta name="keywords" content="AI英语,口语陪练,语音识别,英语竞赛">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0a0a0f;color:#e8e8f0;min-height:100vh}
-.header{background:linear-gradient(135deg,#1a1a2e 0%,#0f3460 100%);padding:40px 20px;text-align:center;border-bottom:3px solid #00d4ff}
-.header h1{font-size:2.5em;color:#00d4ff;margin-bottom:10px}
-.header p{color:#a0a0b0;font-size:1.1em}
-.nav{background:#12121a;padding:15px;text-align:center}
-.nav a{color:#00d4ff;text-decoration:none;margin:0 15px;font-weight:bold}
-.container{max-width:1200px;margin:0 auto;padding:20px}
-.section{margin:30px 0}
-.section h2{color:#00d4ff;font-size:1.8em;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #1e1e3a}
-.course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.course-card{background:linear-gradient(145deg,#1a1a2e,#0f3460);border-radius:12px;padding:25px;border:1px solid #2a2a4a;transition:all 0.3s}
-.course-card:hover{transform:translateY(-5px);border-color:#00d4ff;box-shadow:0 10px 30px rgba(0,212,255,0.2)}
-.course-card h3{color:#00d4ff;font-size:1.3em;margin-bottom:15px}
-.level-badge{display:inline-block;background:#00d4ff;color:#000;padding:4px 12px;border-radius:20px;font-size:0.85em;margin-right:8px}
-.level-badge.primary{background:#4ecca3;color:#000}
-.level-badge.junior{background:#ffd93d}
-.level-badge.senior{background:#6c5ce7}
-.level-badge.contest{background:#e94560}
-.feature-list{list-style:none;padding:0}
-.feature-list li{padding:8px 0;color:#b0b0c0;border-bottom:1px solid #1e1e3a}
-.feature-list li:before{content:"✓ ";color:#4ecca3;font-weight:bold}
-.pricing{background:#1e1e3a;padding:15px;border-radius:8px;margin-top:15px;display:flex;justify-content:space-between;align-items:center}
-.price{font-size:1.5em;color:#00d4ff;font-weight:bold}
-.btn{background:#00d4ff;color:#000;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:bold}
-.btn:hover{background:#00b8d4}
-.expert-badge{background:linear-gradient(135deg,#00d4ff,#0099cc);color:#000;padding:15px;border-radius:10px;margin-bottom:25px;text-align:center}
-.expert-badge h3{font-size:1.5em}
-.footer{background:#0a0a0f;text-align:center;padding:30px;border-top:1px solid #1e1e3a;margin-top:50px}
+:root{--primary:#6366f1;--secondary:#8b5cf6;--accent:#06b6d4;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--dark:#0f172a}
+body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:#020617;color:#e2e8f0;min-height:100vh;line-height:1.6}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:rgba(15,23,42,0.5)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px}
+.header{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#4c1d95 100%);padding:60px 20px;text-align:center}
+.header h1{font-size:2.5em;font-weight:900;margin-bottom:15px;background:linear-gradient(135deg,#fff,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header .subtitle{color:#a5b4fc;font-size:1.1em;margin-bottom:20px}
+.nav{background:rgba(15,23,42,0.98);padding:14px 20px;border-bottom:1px solid rgba(99,102,241,0.2)}
+.nav-content{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:20px}
+.nav a{color:#e2e8f0;text-decoration:none;font-weight:500;padding:8px 16px;border-radius:8px;transition:all 0.3s}
+.nav a:hover{color:var(--primary);background:rgba(99,102,241,0.1)}
+.container{max-width:1000px;margin:0 auto;padding:40px 20px}
+.section{margin-bottom:40px}
+.card{background:linear-gradient(145deg,rgba(30,27,75,0.9),rgba(49,46,129,0.7));border-radius:18px;padding:30px;border:1px solid rgba(99,102,241,0.25);margin-bottom:25px}
+.card h2{font-size:1.4em;margin-bottom:18px;color:var(--accent);display:flex;align-items:center;gap:10px}
+.card h3{font-size:1.1em;margin:15px 0 10px;color:#fff}
+.card p{color:#94a3b8;line-height:1.8;margin:8px 0}
+.card ul{list-style:none;padding:0}
+.card li{padding:8px 0 8px 25px;color:#cbd5e1;border-bottom:1px solid rgba(99,102,241,0.1);position:relative}
+.card li:before{content:"✓";position:absolute;left:0;color:var(--success);font-weight:bold}
+.price-section{text-align:center;padding:40px;background:linear-gradient(135deg,#1e1b4b,#4c1d95);border-radius:20px;margin-top:30px}
+.price-section .price{font-size:3em;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:15px 0}
+.price-section .desc{color:#94a3b8;margin-bottom:25px}
+.btn{display:inline-block;padding:14px 35px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:50px;color:#fff;font-weight:700;text-decoration:none;font-size:1.1em;transition:all 0.3s}
+.btn:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(99,102,241,0.4)}
+.footer{background:rgba(15,23,42,0.98);text-align:center;padding:30px 20px;border-top:1px solid rgba(99,102,241,0.2)}
+.footer p{color:#64748b;margin:6px 0;font-size:0.9em}
+@media(max-width:768px){
+.header h1{font-size:1.8em}
+.nav-content{flex-direction:column;gap:10px}
+}
 </style>
 </head>
 <body>
+
 <div class="header">
-<h1>🌍 通语者AI英语课程</h1>
-<p>李彦明全学段AI课程 | 专家：通语者(言达道)团队</p>
+<h1>🌍 AI英语口语陪练</h1>
+<div class="subtitle">语音识别纠音 + 情景对话 + 阅读精读</div>
 </div>
 
 <div class="nav">
+<div class="nav-content">
 <a href="/">首页</a>
 <a href="/ai-courses/">全部课程</a>
-<a href="javascript:history.back()">返回</a>
+<a href="tel:15684394135">📞 联系报名</a>
+</div>
 </div>
 
 <div class="container">
-<div class="expert-badge">
-<h3>🎓 专家团队：通语者(言达道)英语教学专家团</h3>
-<p>团队成员：言启蒙(基础) | 言博采(高中) | 言精研(本科) | 言达意(翻译) | 英阅卷(阅卷评分)</p>
-</div>
 
 <div class="section">
-<h2>📖 小学英语AI课程</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge primary">小学</span>
-<h3>AI绘本伴读</h3>
-<ul class="feature-list">
-<li>AI语音朗读，纯正发音</li>
-<li>生词AI注释+音标</li>
-<li>理解问题AI互动</li>
-<li>跟读打分+纠音</li>
-</ul>
-<div class="pricing">
-<span>免费体验</span>
-<a href="tel:15684394135" class="btn">立即体验</a>
-</div>
-</div>
-<div class="course-card">
-<span class="level-badge primary">小学</span>
-<h3>AI单词闯关</h3>
-<ul class="feature-list">
-<li>艾宾浩斯记忆曲线</li>
-<li>AI智能复习提醒</li>
-<li>图文结合记忆</li>
-<li>单词拼写AI检测</li>
-</ul>
-<div class="pricing">
-<span class="price">¥99/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
-</div>
-</div>
+<div class="card">
+<h2>📋 课程简介</h2>
+<p>李彦明AI英语课程，AI语音识别实时纠音，情景对话AI陪练，中考/高考英语阅读精读训练，长难句拆解分析</p>
 </div>
 </div>
 
 <div class="section">
-<h2>📝 初中英语AI课程</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge junior">初中</span>
-<h3>AI口语陪练</h3>
-<ul class="feature-list">
-<li>AI智能对话练习</li>
-<li>发音准确度检测</li>
-<li>语法错误实时纠正</li>
-<li>中考口语专项训练</li>
+<div class="card">
+<h2>📚 核心功能</h2>
+<ul>
+<li>语音识别实时纠音，精准纠正发音问题</li><li>情景对话AI陪练，旅行/购物/面试等真实场景</li><li>中考/高考英语阅读精读训练，提高阅读理解能力</li><li>长难句AI拆解分析，理解复杂句子结构</li><li>英语口语闯关游戏，趣味学习不枯燥</li><li>小学/初中/高中英语知识图谱，系统梳理知识点</li>
 </ul>
-<div class="pricing">
-<span class="price">¥299/年</span>
-<a href="tel:15684394135" class="btn">立即订阅</a>
-</div>
-</div>
-<div class="course-card">
-<span class="level-badge junior">初中</span>
-<h3>AI语法讲解</h3>
-<ul class="feature-list">
-<li>语法知识AI拆解</li>
-<li>时态用法AI总结</li>
-<li>易错点AI提醒</li>
-<li>练习题AI生成</li>
-</ul>
-<div class="pricing">
-<span class="price">¥199/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
-</div>
-</div>
-<div class="course-card">
-<span class="level-badge junior">初中</span>
-<h3>AI阅读理解</h3>
-<ul class="feature-list">
-<li>长难句AI拆解</li>
-<li>答题技巧AI总结</li>
-<li>题型分类训练</li>
-<li>中考真题AI演练</li>
-</ul>
-<div class="pricing">
-<span class="price">¥199/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
-</div>
-</div>
 </div>
 </div>
 
 <div class="section">
-<h2>📚 高中英语AI课程</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge senior">高中</span>
-<h3>AI阅读精读</h3>
-<ul class="feature-list">
-<li>长难句AI逐层分析</li>
-<li>词汇积累AI推荐</li>
-<li>解题技巧AI总结</li>
-<li>高考真题AI训练</li>
-</ul>
-<div class="pricing">
-<span class="price">¥299/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
-</div>
-</div>
-<div class="course-card">
-<span class="level-badge senior">高中</span>
-<h3>AI书面表达</h3>
-<ul class="feature-list">
-<li>作文AI批改评分</li>
-<li>高分句型AI推荐</li>
-<li>连接词AI优化</li>
-<li>高考作文AI模拟</li>
-</ul>
-<div class="pricing">
-<span class="price">¥299/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
-</div>
-</div>
+<div class="card">
+<h2>🎯 适用对象</h2>
+<p>小学1-6年级、初中7-9年级、高中10-12年级学生</p>
 </div>
 </div>
 
 <div class="section">
-<h2>🏆 英语竞赛AI课程</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge contest">竞赛</span>
-<h3>AI英语竞赛训练</h3>
-<ul class="feature-list">
-<li>竞赛英语AI题库</li>
-<li>完形填空AI技巧</li>
-<li>阅读理解AI提速</li>
-<li>写作竞赛AI指导</li>
+<div class="card">
+<h2>📊 学习效果</h2>
+<ul>
+<li>系统掌握英语核心知识点</li>
+<li>提升解题能力与应试技巧</li>
+<li>培养学科思维与创新能力</li>
+<li>AI辅助个性化学习路径</li>
+<li>学习进度实时追踪反馈</li>
 </ul>
-<div class="pricing">
-<span class="price">¥399/年</span>
-<a href="tel:15684394135" class="btn">竞赛冲刺</a>
 </div>
 </div>
-<div class="course-card">
-<span class="level-badge contest">竞赛</span>
-<h3>AI翻译竞赛辅导</h3>
-<ul class="feature-list">
-<li>英汉互译AI训练</li>
-<li>翻译技巧AI总结</li>
-<li>历年真题AI演练</li>
-<li>专业术语AI积累</li>
-</ul>
-<div class="pricing">
-<span class="price">¥299/年</span>
-<a href="tel:15684394135" class="btn">开始训练</a>
+
+<div class="price-section">
+<h2 style="color:#fff;font-size:1.5em;margin-bottom:10px">🌍 AI英语口语陪练</h2>
+<div class="price">免费起</div>
+<p class="desc">小学版免费体验 | 初中版¥299/年 | 高中版¥299/年</p>
+<a href="tel:15684394135" class="btn">📞 立即咨询报名</a>
+<p style="color:#94a3b8;margin-top:20px;font-size:0.9em">联系电话：15684394135（微信同号）</p>
 </div>
-</div>
-</div>
-</div>
+
 </div>
 
 <div class="footer">
-<p>📞 联系我们：李彦明 15684394135</p>
 <p>© 2026 李彦明 · 全学段AI课程开发者</p>
+<p>联系方式：15684394135（微信同号）</p>
+<p style="font-size:0.78em;margin-top:8px">覆盖小学、初中、高中13学科 | 32+AI课程产品</p>
 </div>
+
 </body>
 </html>
