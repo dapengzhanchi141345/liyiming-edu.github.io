@@ -3,170 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>明辨君AI道法课程 - 李彦明全学段AI课程</title>
-<meta name="description" content="李彦明AI道法课程：小学品德教育、初中时政热点解读、高中高考题库、竞赛道法训练">
+<title>AI时政热点解读 - 李彦明全学段AI课程</title>
+<meta name="description" content="李彦明AI道法课程，时政热点实时更新解读，法律常识AI讲解，中考/高考道法命题热点预测，材料分析答题模板">
+<meta name="keywords" content="AI道法,时政热点,中考道法,高考政治">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0a0a0f;color:#e8e8f0;min-height:100vh}
-.header{background:linear-gradient(135deg,#1a1a2e 0%,#4a1942 100%);padding:40px 20px;text-align:center;border-bottom:3px solid #ff00ff}
-.header h1{font-size:2.5em;color:#ff00ff;margin-bottom:10px}
-.header p{color:#a0a0b0;font-size:1.1em}
-.nav{background:#12121a;padding:15px;text-align:center}
-.nav a{color:#ff00ff;text-decoration:none;margin:0 15px;font-weight:bold}
-.container{max-width:1200px;margin:0 auto;padding:20px}
-.section{margin:30px 0}
-.section h2{color:#ff00ff;font-size:1.8em;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #1e1e3a}
-.course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.course-card{background:linear-gradient(145deg,#1a1a2e,#4a1942);border-radius:12px;padding:25px;border:1px solid #2a2a4a;transition:all 0.3s}
-.course-card:hover{transform:translateY(-5px);border-color:#ff00ff;box-shadow:0 10px 30px rgba(255,0,255,0.2)}
-.course-card h3{color:#ff66ff;font-size:1.3em;margin-bottom:15px}
-.level-badge{display:inline-block;background:#ff00ff;color:#fff;padding:4px 12px;border-radius:20px;font-size:0.85em;margin-right:8px}
-.level-badge.primary{background:#4ecca3;color:#000}
-.level-badge.junior{background:#ffd93d}
-.level-badge.senior{background:#6c5ce7}
-.level-badge.contest{background:#e94560}
-.feature-list{list-style:none;padding:0}
-.feature-list li{padding:8px 0;color:#b0b0c0;border-bottom:1px solid #1e1e3a}
-.feature-list li:before{content:"✓ ";color:#4ecca3;font-weight:bold}
-.pricing{background:#1e1e3a;padding:15px;border-radius:8px;margin-top:15px;display:flex;justify-content:space-between;align-items:center}
-.price{font-size:1.5em;color:#ff00ff;font-weight:bold}
-.btn{background:#ff00ff;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:bold}
-.btn:hover{background:#cc00cc}
-.expert-badge{background:linear-gradient(135deg,#ff00ff,#9900cc);color:#fff;padding:15px;border-radius:10px;margin-bottom:25px;text-align:center}
-.expert-badge h3{font-size:1.5em}
-.footer{background:#0a0a0f;text-align:center;padding:30px;border-top:1px solid #1e1e3a;margin-top:50px}
+:root{--primary:#6366f1;--secondary:#8b5cf6;--accent:#06b6d4;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--dark:#0f172a}
+body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:#020617;color:#e2e8f0;min-height:100vh;line-height:1.6}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:rgba(15,23,42,0.5)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px}
+.header{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#4c1d95 100%);padding:60px 20px;text-align:center}
+.header h1{font-size:2.5em;font-weight:900;margin-bottom:15px;background:linear-gradient(135deg,#fff,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header .subtitle{color:#a5b4fc;font-size:1.1em;margin-bottom:20px}
+.nav{background:rgba(15,23,42,0.98);padding:14px 20px;border-bottom:1px solid rgba(99,102,241,0.2)}
+.nav-content{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:20px}
+.nav a{color:#e2e8f0;text-decoration:none;font-weight:500;padding:8px 16px;border-radius:8px;transition:all 0.3s}
+.nav a:hover{color:var(--primary);background:rgba(99,102,241,0.1)}
+.container{max-width:1000px;margin:0 auto;padding:40px 20px}
+.section{margin-bottom:40px}
+.card{background:linear-gradient(145deg,rgba(30,27,75,0.9),rgba(49,46,129,0.7));border-radius:18px;padding:30px;border:1px solid rgba(99,102,241,0.25);margin-bottom:25px}
+.card h2{font-size:1.4em;margin-bottom:18px;color:var(--accent);display:flex;align-items:center;gap:10px}
+.card h3{font-size:1.1em;margin:15px 0 10px;color:#fff}
+.card p{color:#94a3b8;line-height:1.8;margin:8px 0}
+.card ul{list-style:none;padding:0}
+.card li{padding:8px 0 8px 25px;color:#cbd5e1;border-bottom:1px solid rgba(99,102,241,0.1);position:relative}
+.card li:before{content:"✓";position:absolute;left:0;color:var(--success);font-weight:bold}
+.price-section{text-align:center;padding:40px;background:linear-gradient(135deg,#1e1b4b,#4c1d95);border-radius:20px;margin-top:30px}
+.price-section .price{font-size:3em;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:15px 0}
+.price-section .desc{color:#94a3b8;margin-bottom:25px}
+.btn{display:inline-block;padding:14px 35px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:50px;color:#fff;font-weight:700;text-decoration:none;font-size:1.1em;transition:all 0.3s}
+.btn:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(99,102,241,0.4)}
+.footer{background:rgba(15,23,42,0.98);text-align:center;padding:30px 20px;border-top:1px solid rgba(99,102,241,0.2)}
+.footer p{color:#64748b;margin:6px 0;font-size:0.9em}
+@media(max-width:768px){
+.header h1{font-size:1.8em}
+.nav-content{flex-direction:column;gap:10px}
+}
 </style>
 </head>
 <body>
+
 <div class="header">
-<h1>⚖️ 明辨君AI道法课程</h1>
-<p>李彦明全学段AI课程 | 专家：明辨君(道明远)团队</p>
+<h1>⚖️ AI时政热点解读</h1>
+<div class="subtitle">实时更新 + 法律常识 + 命题预测</div>
 </div>
 
 <div class="nav">
+<div class="nav-content">
 <a href="/">首页</a>
 <a href="/ai-courses/">全部课程</a>
-<a href="javascript:history.back()">返回</a>
+<a href="tel:15684394135">📞 联系报名</a>
+</div>
 </div>
 
 <div class="container">
-<div class="expert-badge">
-<h3>🎓 专家团队：明辨君(道明远)道法教学专家团</h3>
-<p>团队成员：道启蒙(小学) | 道明理(中学) | 道博识(本科) | 道深究(硕博) | 德阅判(阅卷评分)</p>
-</div>
 
 <div class="section">
-<h2>📖 小学道法AI课程</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge primary">小学</span>
-<h3>AI品德故事</h3>
-<ul class="feature-list">
-<li>AI生成品德故事</li>
-<li>社会主义核心价值观AI讲解</li>
-<li>文明礼仪AI情景模拟</li>
-<li>爱国主义教育AI动画</li>
-</ul>
-<div class="pricing">
-<span>免费体验</span>
-<a href="tel:15684394135" class="btn">立即体验</a>
-</div>
-</div>
+<div class="card">
+<h2>📋 课程简介</h2>
+<p>李彦明AI道法课程，时政热点实时更新解读，法律常识AI讲解，中考/高考道法命题热点预测，材料分析答题模板</p>
 </div>
 </div>
 
 <div class="section">
-<h2>📝 初中道法AI课程</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge junior">初中</span>
-<h3>AI时政热点解读</h3>
-<ul class="feature-list">
-<li>AI实时更新时政热点</li>
-<li>热点事件AI背景分析</li>
-<li>考点关联AI总结</li>
-<li>中考材料题AI训练</li>
+<div class="card">
+<h2>📚 核心功能</h2>
+<ul>
+<li>时政热点实时更新+解读，紧跟社会发展趋势</li><li>法律常识AI讲解，通俗易懂理解法律知识</li><li>中考/高考命题热点预测，把握考试方向与重点</li><li>材料分析答题模板，掌握道法答题技巧</li><li>初中/高中道法知识图谱，系统梳理知识点</li><li>道法竞赛专项训练，提升学科核心素养</li>
 </ul>
-<div class="pricing">
-<span class="price">¥129/年</span>
-<a href="tel:15684394135" class="btn">立即订阅</a>
-</div>
-</div>
-<div class="course-card">
-<span class="level-badge junior">初中</span>
-<h3>AI法律常识</h3>
-<ul class="feature-list">
-<li>宪法知识AI讲解</li>
-<li>未成年人保护法AI解读</li>
-<li>案例AI情景模拟</li>
-<li>法治观念AI培养</li>
-</ul>
-<div class="pricing">
-<span class="price">¥149/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
-</div>
-</div>
 </div>
 </div>
 
 <div class="section">
-<h2>📚 高中道法AI课程</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge senior">高中</span>
-<h3>AI高考政治题库</h3>
-<ul class="feature-list">
-<li>经济生活AI精解</li>
-<li>政治生活AI分析</li>
-<li>文化生活AI归纳</li>
-<li>生活与哲学AI梳理</li>
-</ul>
-<div class="pricing">
-<span class="price">¥299/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
-</div>
-</div>
-<div class="course-card">
-<span class="level-badge senior">高中</span>
-<h3>AI材料分析答题</h3>
-<ul class="feature-list">
-<li>答题模板AI总结</li>
-<li>材料分析方法AI指导</li>
-<li>术语运用AI规范</li>
-<li>高考真题AI演练</li>
-</ul>
-<div class="pricing">
-<span class="price">¥249/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
-</div>
-</div>
+<div class="card">
+<h2>🎯 适用对象</h2>
+<p>初中7-9年级、高中10-12年级学生</p>
 </div>
 </div>
 
 <div class="section">
-<h2>🏆 道法竞赛AI课程</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge contest">竞赛</span>
-<h3>AI时政分析竞赛</h3>
-<ul class="feature-list">
-<li>竞赛时政AI题库</li>
-<li>热点追踪AI系统</li>
-<li>分析框架AI训练</li>
-<li>写作技巧AI指导</li>
+<div class="card">
+<h2>📊 学习效果</h2>
+<ul>
+<li>系统掌握道法核心知识点</li>
+<li>提升解题能力与应试技巧</li>
+<li>培养学科思维与创新能力</li>
+<li>AI辅助个性化学习路径</li>
+<li>学习进度实时追踪反馈</li>
 </ul>
-<div class="pricing">
-<span class="price">¥399/年</span>
-<a href="tel:15684394135" class="btn">竞赛冲刺</a>
 </div>
 </div>
+
+<div class="price-section">
+<h2 style="color:#fff;font-size:1.5em;margin-bottom:10px">⚖️ AI时政热点解读</h2>
+<div class="price">¥129起</div>
+<p class="desc">初中版¥129/年 | 高中版¥249/年</p>
+<a href="tel:15684394135" class="btn">📞 立即咨询报名</a>
+<p style="color:#94a3b8;margin-top:20px;font-size:0.9em">联系电话：15684394135（微信同号）</p>
 </div>
-</div>
+
 </div>
 
 <div class="footer">
-<p>📞 联系我们：李彦明 15684394135</p>
 <p>© 2026 李彦明 · 全学段AI课程开发者</p>
+<p>联系方式：15684394135（微信同号）</p>
+<p style="font-size:0.78em;margin-top:8px">覆盖小学、初中、高中13学科 | 32+AI课程产品</p>
 </div>
+
 </body>
 </html>
