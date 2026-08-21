@@ -1,72 +1,115 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI数学竞赛助手 - 李彦明</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #333; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        header { text-align: center; padding: 30px 0; }
-        header h1 { font-size: 2.5em; color: #d35400; }
-        header p { color: #666; margin-top: 10px; }
-        .badge { display: inline-block; background: #d35400; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; margin-top: 15px; }
-        .modules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
-        .module { background: white; border-radius: 16px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .module h3 { color: #d35400; margin-bottom: 10px; }
-        .module p { color: #666; font-size: 14px; }
-        .module .tags { margin-top: 15px; }
-        .module .tag { display: inline-block; background: #fff3e0; color: #d35400; padding: 3px 10px; border-radius: 12px; font-size: 12px; margin-right: 5px; }
-        footer { text-align: center; margin-top: 40px; color: #666; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI数学竞赛专项(CMO/IMO) - 李彦明全学段AI课程</title>
+<meta name="description" content="李彦明AI数学竞赛课程，CMO/IMO真题解析，代数/几何/数论/组合四大分支专项突破，解题思路AI引导，竞赛模拟测试">
+<meta name="keywords" content="数学竞赛,CMO,IMO,金牌,清北保送">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#6366f1;--secondary:#8b5cf6;--accent:#06b6d4;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--dark:#0f172a}
+body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:#020617;color:#e2e8f0;min-height:100vh;line-height:1.6}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:rgba(15,23,42,0.5)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px}
+.header{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#4c1d95 100%);padding:60px 20px;text-align:center}
+.header h1{font-size:2.5em;font-weight:900;margin-bottom:15px;background:linear-gradient(135deg,#fff,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header .subtitle{color:#a5b4fc;font-size:1.1em;margin-bottom:20px}
+.nav{background:rgba(15,23,42,0.98);padding:14px 20px;border-bottom:1px solid rgba(99,102,241,0.2)}
+.nav-content{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:20px}
+.nav a{color:#e2e8f0;text-decoration:none;font-weight:500;padding:8px 16px;border-radius:8px;transition:all 0.3s}
+.nav a:hover{color:var(--primary);background:rgba(99,102,241,0.1)}
+.container{max-width:1000px;margin:0 auto;padding:40px 20px}
+.section{margin-bottom:40px}
+.card{background:linear-gradient(145deg,rgba(30,27,75,0.9),rgba(49,46,129,0.7));border-radius:18px;padding:30px;border:1px solid rgba(99,102,241,0.25);margin-bottom:25px}
+.card h2{font-size:1.4em;margin-bottom:18px;color:var(--accent);display:flex;align-items:center;gap:10px}
+.card h3{font-size:1.1em;margin:15px 0 10px;color:#fff}
+.card p{color:#94a3b8;line-height:1.8;margin:8px 0}
+.card ul{list-style:none;padding:0}
+.card li{padding:8px 0 8px 25px;color:#cbd5e1;border-bottom:1px solid rgba(99,102,241,0.1);position:relative}
+.card li:before{content:"✓";position:absolute;left:0;color:var(--success);font-weight:bold}
+.price-section{text-align:center;padding:40px;background:linear-gradient(135deg,#1e1b4b,#4c1d95);border-radius:20px;margin-top:30px}
+.price-section .price{font-size:3em;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:15px 0}
+.price-section .desc{color:#94a3b8;margin-bottom:25px}
+.btn{display:inline-block;padding:14px 35px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:50px;color:#fff;font-weight:700;text-decoration:none;font-size:1.1em;transition:all 0.3s}
+.btn:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(99,102,241,0.4)}
+.footer{background:rgba(15,23,42,0.98);text-align:center;padding:30px 20px;border-top:1px solid rgba(99,102,241,0.2)}
+.footer p{color:#64748b;margin:6px 0;font-size:0.9em}
+@media(max-width:768px){
+.header h1{font-size:1.8em}
+.nav-content{flex-direction:column;gap:10px}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🏆 AI数学竞赛助手</h1>
-            <p>全国中学生数学奥林匹克竞赛（CMO）备赛平台</p>
-            <span class="badge">金牌50人=清北保送</span>
-            <p style="margin-top: 15px; font-size: 14px;">开发者：李彦明 · 15684394135</p>
-        </header>
 
-        <div class="modules">
-            <div class="module">
-                <h3>代数专题</h3>
-                <p>不等式证明 · 多项式 · 数列递推</p>
-                <div class="tags"><span class="tag">核心</span><span class="tag">拉分</span></div>
-            </div>
-            <div class="module">
-                <h3>几何专题</h3>
-                <p>平面几何 · 解析几何 · 向量方法</p>
-                <div class="tags"><span class="tag">必考</span><span class="tag">难点</span></div>
-            </div>
-            <div class="module">
-                <h3>数论专题</h3>
-                <p>整除理论 · 同余方程 · 费马小定理</p>
-                <div class="tags"><span class="tag">竞赛特色</span><span class="tag">拉分</span></div>
-            </div>
-            <div class="module">
-                <h3>组合专题</h3>
-                <p>计数原理 · 图论基础 · 构造法</p>
-                <div class="tags"><span class="tag">新趋势</span><span class="tag">创新</span></div>
-            </div>
-            <div class="module">
-                <h3>历年真题</h3>
-                <p>历年联赛试题 · AI逐题解析 · 解题模板</p>
-                <div class="tags"><span class="tag">冲刺</span><span class="tag">提分</span></div>
-            </div>
-            <div class="module">
-                <h3>AI推题</h3>
-                <p>按薄弱点精准推送 · 智能难度调节</p>
-                <div class="tags"><span class="tag">个性化</span><span class="tag">高效</span></div>
-            </div>
-        </div>
+<div class="header">
+<h1>🥇 AI数学竞赛专项(CMO/IMO)</h1>
+<div class="subtitle">五大学科奥赛金牌辅导</div>
+</div>
 
-        <footer>
-            <p>© 2026 李彦明 · AI数学竞赛助手</p>
-            <p style="font-size: 12px; margin-top: 5px;">CMO官方备赛平台 · 年费399元</p>
-        </footer>
-    </div>
+<div class="nav">
+<div class="nav-content">
+<a href="/">首页</a>
+<a href="/ai-courses/">全部课程</a>
+<a href="tel:15684394135">📞 联系报名</a>
+</div>
+</div>
+
+<div class="container">
+
+<div class="section">
+<div class="card">
+<h2>📋 课程简介</h2>
+<p>李彦明AI数学竞赛课程，CMO/IMO真题解析，代数/几何/数论/组合四大分支专项突破，解题思路AI引导，竞赛模拟测试</p>
+</div>
+</div>
+
+<div class="section">
+<div class="card">
+<h2>📚 核心功能</h2>
+<ul>
+<li>历年CMO真题AI拆解，理解命题思路与方法</li><li>代数/几何/数论/组合四大分支专项训练</li><li>IMO备考策略规划，科学安排复习进度</li><li>数学竞赛专项题库，海量题目巩固提升</li><li>解题思路AI引导，培养数学思维能力</li><li>竞赛模拟测试，真实考场氛围体验</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="card">
+<h2>🎯 适用对象</h2>
+<p>高中10-12年级有数学竞赛需求的学生，目标参加CMO/IMO并取得好成绩</p>
+</div>
+</div>
+
+<div class="section">
+<div class="card">
+<h2>📊 学习效果</h2>
+<ul>
+<li>系统掌握数学竞赛核心知识点</li>
+<li>提升解题能力与应试技巧</li>
+<li>培养学科思维与创新能力</li>
+<li>AI辅助个性化学习路径</li>
+<li>学习进度实时追踪反馈</li>
+</ul>
+</div>
+</div>
+
+<div class="price-section">
+<h2 style="color:#fff;font-size:1.5em;margin-bottom:10px">🥇 AI数学竞赛专项</h2>
+<div class="price">¥399/年</div>
+<p class="desc">四大分支专项 + 真题解析 + 模拟测试</p>
+<a href="tel:15684394135" class="btn">📞 立即咨询报名</a>
+<p style="color:#94a3b8;margin-top:20px;font-size:0.9em">联系电话：15684394135（微信同号）</p>
+</div>
+
+</div>
+
+<div class="footer">
+<p>© 2026 李彦明 · 全学段AI课程开发者</p>
+<p>联系方式：15684394135（微信同号）</p>
+<p style="font-size:0.78em;margin-top:8px">覆盖小学、初中、高中13学科 | 32+AI课程产品</p>
+</div>
+
 </body>
 </html>
