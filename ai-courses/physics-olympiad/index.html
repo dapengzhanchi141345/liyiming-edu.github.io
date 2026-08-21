@@ -3,61 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>物理竞赛CPhO专项 - 李彦明全学段AI课程</title>
-<meta name="description" content="李彦明AI物理竞赛专项，CPhO预赛复赛决赛训练">
+<title>AI物理竞赛专项(CPhO) - 李彦明全学段AI课程</title>
+<meta name="description" content="李彦明AI物理竞赛课程，CPhO预赛复赛决赛专项训练，力学/电磁学/光学虚拟实验模拟，理论推导动画演示，实验数据处理AI辅助">
+<meta name="keywords" content="物理竞赛,CPhO,CMO,IMO,金牌,清北保送">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0a0a0f;color:#e8e8f0;min-height:100vh}
-.header{background:linear-gradient(135deg,#1e1b4b,#4c1d95);padding:40px 20px;text-align:center}
-.header h1{color:#fff;font-size:2em}
-.nav{background:#12121a;padding:15px;text-align:center}
-.nav a{color:#ff0066;text-decoration:none;margin:0 15px;font-weight:bold}
-.container{max-width:1000px;margin:0 auto;padding:20px}
-.section{margin:30px 0}
-.section h2{color:#ff0066;font-size:1.5em;margin-bottom:20px}
-.card{background:linear-gradient(145deg,#1e1b4b,#2a1a3e);border-radius:15px;padding:25px;border:1px solid #4c1d95;margin-bottom:20px}
-.card h3{color:#ff3388;margin-bottom:10px}
-.card p{color:#94a3b8;line-height:1.8}
-.footer{background:#0a0a0f;text-align:center;padding:30px;border-top:1px solid #1e1e3a;margin-top:50px}
+:root{--primary:#6366f1;--secondary:#8b5cf6;--accent:#06b6d4;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--dark:#0f172a}
+body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:#020617;color:#e2e8f0;min-height:100vh;line-height:1.6}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:rgba(15,23,42,0.5)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px}
+.header{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#4c1d95 100%);padding:60px 20px;text-align:center}
+.header h1{font-size:2.5em;font-weight:900;margin-bottom:15px;background:linear-gradient(135deg,#fff,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header .subtitle{color:#a5b4fc;font-size:1.1em;margin-bottom:20px}
+.nav{background:rgba(15,23,42,0.98);padding:14px 20px;border-bottom:1px solid rgba(99,102,241,0.2)}
+.nav-content{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:20px}
+.nav a{color:#e2e8f0;text-decoration:none;font-weight:500;padding:8px 16px;border-radius:8px;transition:all 0.3s}
+.nav a:hover{color:var(--primary);background:rgba(99,102,241,0.1)}
+.container{max-width:1000px;margin:0 auto;padding:40px 20px}
+.section{margin-bottom:40px}
+.card{background:linear-gradient(145deg,rgba(30,27,75,0.9),rgba(49,46,129,0.7));border-radius:18px;padding:30px;border:1px solid rgba(99,102,241,0.25);margin-bottom:25px}
+.card h2{font-size:1.4em;margin-bottom:18px;color:var(--accent);display:flex;align-items:center;gap:10px}
+.card h3{font-size:1.1em;margin:15px 0 10px;color:#fff}
+.card p{color:#94a3b8;line-height:1.8;margin:8px 0}
+.card ul{list-style:none;padding:0}
+.card li{padding:8px 0 8px 25px;color:#cbd5e1;border-bottom:1px solid rgba(99,102,241,0.1);position:relative}
+.card li:before{content:"✓";position:absolute;left:0;color:var(--success);font-weight:bold}
+.price-section{text-align:center;padding:40px;background:linear-gradient(135deg,#1e1b4b,#4c1d95);border-radius:20px;margin-top:30px}
+.price-section .price{font-size:3em;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:15px 0}
+.price-section .desc{color:#94a3b8;margin-bottom:25px}
+.btn{display:inline-block;padding:14px 35px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:50px;color:#fff;font-weight:700;text-decoration:none;font-size:1.1em;transition:all 0.3s}
+.btn:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(99,102,241,0.4)}
+.footer{background:rgba(15,23,42,0.98);text-align:center;padding:30px 20px;border-top:1px solid rgba(99,102,241,0.2)}
+.footer p{color:#64748b;margin:6px 0;font-size:0.9em}
+@media(max-width:768px){
+.header h1{font-size:1.8em}
+.nav-content{flex-direction:column;gap:10px}
+}
 </style>
 </head>
 <body>
+
 <div class="header">
-<h1>🏆 AI物理竞赛专项(CPhO)</h1>
-<p style="color:#a5b4fc;margin-top:10px">李彦明全学段AI课程 | 预赛→复赛→决赛</p>
+<h1>🥈 AI物理竞赛专项(CPhO)</h1>
+<div class="subtitle">五大学科奥赛金牌辅导</div>
 </div>
+
 <div class="nav">
+<div class="nav-content">
 <a href="/">首页</a>
 <a href="/ai-courses/">全部课程</a>
+<a href="tel:15684394135">📞 联系报名</a>
 </div>
+</div>
+
 <div class="container">
+
 <div class="section">
 <div class="card">
-<h3>📅 2026赛程时间</h3>
-<p>预赛：2026年9月5日（理论+实验）</p>
-<p>复赛：2026年10月29日（理论+实验）</p>
-<p>决赛：2026年11月（约50人）</p>
-<p>国家集训队：2026年12月（约20人，保送清北）</p>
+<h2>📋 课程简介</h2>
+<p>李彦明AI物理竞赛课程，CPhO预赛复赛决赛专项训练，力学/电磁学/光学虚拟实验模拟，理论推导动画演示，实验数据处理AI辅助</p>
 </div>
+</div>
+
+<div class="section">
 <div class="card">
-<h3>📚 课程内容</h3>
-<p>• 力学专题：牛顿定律、动量能量、转动、振动</p>
-<p>• 电磁学专题：静电场、恒定电流、磁场、电磁感应</p>
-<p>• 热学专题：气体定律、热力学定律</p>
-<p>• 光学专题：几何光学、波动光学</p>
-<p>• 近代物理：相对论、量子力学基础</p>
-<p>• 实验专题：设计性实验、数据处理</p>
-</div>
-<div class="card" style="text-align:center">
-<h3>💰 竞赛课程</h3>
-<p style="font-size:2em;color:#ff0066;font-weight:bold;margin:20px 0">¥399/年</p>
-<p style="color:#94a3b8;margin-bottom:20px">预赛训练 + 复赛专项 + 决赛冲刺</p>
-<p style="color:#fff;font-size:1.2em">📞 联系报名：15684394135</p>
+<h2>📚 核心功能</h2>
+<ul>
+<li>力学/电磁学/光学虚拟实验模拟演示</li><li>实验数据处理AI辅助，掌握实验技能</li><li>预赛/决赛专项训练，针对性突破难点</li><li>CPhO历年真题库，海量题目巩固提升</li><li>理论推导动画演示，直观理解复杂过程</li><li>竞赛模拟测试，真实考场氛围体验</li>
+</ul>
 </div>
 </div>
+
+<div class="section">
+<div class="card">
+<h2>🎯 适用对象</h2>
+<p>高中10-12年级有物理竞赛需求的学生，目标参加CPhO并取得好成绩</p>
 </div>
+</div>
+
+<div class="section">
+<div class="card">
+<h2>📊 学习效果</h2>
+<ul>
+<li>系统掌握物理竞赛核心知识点</li>
+<li>提升解题能力与应试技巧</li>
+<li>培养学科思维与创新能力</li>
+<li>AI辅助个性化学习路径</li>
+<li>学习进度实时追踪反馈</li>
+</ul>
+</div>
+</div>
+
+<div class="price-section">
+<h2 style="color:#fff;font-size:1.5em;margin-bottom:10px">🥈 AI物理竞赛专项</h2>
+<div class="price">¥399/年</div>
+<p class="desc">预赛训练 + 复赛专项 + 决赛冲刺</p>
+<a href="tel:15684394135" class="btn">📞 立即咨询报名</a>
+<p style="color:#94a3b8;margin-top:20px;font-size:0.9em">联系电话：15684394135（微信同号）</p>
+</div>
+
+</div>
+
 <div class="footer">
-<p>📞 联系我们：李彦明 15684394135</p>
+<p>© 2026 李彦明 · 全学段AI课程开发者</p>
+<p>联系方式：15684394135（微信同号）</p>
+<p style="font-size:0.78em;margin-top:8px">覆盖小学、初中、高中13学科 | 32+AI课程产品</p>
 </div>
+
 </body>
 </html>
