@@ -1010,8 +1010,24 @@ let state = {subject:null,messages:[],wrongAnswers:[],streak:parseInt(localStora
 
 function saveState(){localStorage.setItem('streak',state.streak);localStorage.setItem('points',state.points);localStorage.setItem('correct',state.correctCount);localStorage.setItem('total',state.totalAnswers);updateStats();}
 function updateStats(){document.getElementById('total-lessons').textContent=state.totalAnswers;document.getElementById('correct-answers').textContent=state.correctCount;document.getElementById('streak').textContent=state.streak+'天';document.getElementById('points').textContent=state.points;document.getElementById('streak-small').textContent=state.streak+'天';document.getElementById('points-small').textContent=state.points;const acc=state.totalAnswers>0?Math.round(state.correctCount/state.totalAnswers*100):0;document.getElementById('accuracy').textContent=acc+'%';}
-function scrollTo(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});}
-function openModal(id){const p=products[id];if(!p)return;const body=document.getElementById('modal-body');body.innerHTML='<h2>'+p.title+'</h2><p style="color:#94a3b8;margin-bottom:15px">'+p.desc+'</p><ul class="features">'+p.features.map(f=>'<li>'+f+'</li>').join('')+'</ul><p style="color:#6366f1;font-weight:700;margin-top:15px;font-size:1em">💰 价格：'+p.price+'</p><a href="tel:15684394135" class="cta" style="text-align:center;display:block;text-decoration:none">📞 立即咨询：15684394135</a>';document.getElementById('modal').classList.add('active');document.body.style.overflow='hidden';}
+function scrollTo(id){
+    console.log('scrollTo called with:', id);
+    const el=document.getElementById(id);
+    if(el){
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+    } else {
+        console.error('Element not found:', id);
+    }
+}
+function openModal(id){
+    console.log('openModal called with:', id);
+    const p=products[id];
+    if(!p){console.error('Product not found:', id); return;}
+    const body=document.getElementById('modal-body');
+    body.innerHTML='<h2>'+p.title+'</h2><p style="color:#94a3b8;margin-bottom:15px">'+p.desc+'</p><ul class="features">'+p.features.map(f=>'<li>'+f+'</li>').join('')+'</ul><p style="color:#6366f1;font-weight:700;margin-top:15px;font-size:1em">💰 价格：'+p.price+'</p><a href="tel:15684394135" class="cta" style="text-align:center;display:block;text-decoration:none">📞 立即咨询：15684394135</a>';
+    document.getElementById('modal').classList.add('active');
+    document.body.style.overflow='hidden';
+}
 function closeModal(){document.getElementById('modal').classList.remove('active');document.body.style.overflow='';}
 function startSubject(subj){state.subject=subj;const names={physics:'物理',chemistry:'化学',math:'数学',chinese:'语文',english:'英语',history:'历史',geo:'地理',bio:'生物'};document.getElementById('chat-title').textContent='🤖 '+names[subj]+'导师';document.getElementById('chat-subtitle').textContent='苏格拉底式引导，先思考再提问';document.querySelectorAll('.subject-card').forEach(c=>c.classList.remove('active'));const el=document.getElementById('subj-'+subj);if(el)el.style.borderColor='#6366f1';addMessage('ai','你好！我是'+names[subj]+'AI导师。关于'+names[subj]+'你有什么问题？我会用提问的方式引导你思考，不会直接给答案哦！💡');}
 function addMessage(role,text){const div=document.createElement('div');div.className='message message-'+role;const time=new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'});div.innerHTML=text+'<div style="font-size:0.65em;color:#94a3b8;margin-top:4px">'+time+'</div>';document.getElementById('chat-messages').appendChild(div);document.getElementById('chat-messages').scrollTop=document.getElementById('chat-messages').scrollHeight;state.messages.push({role,text,time});}
@@ -1021,6 +1037,9 @@ function showHint(show,text){const section=document.getElementById('hint-section
 function toggleFaq(el){el.classList.toggle('active');}
 updateStats();
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Page loaded, all buttons should be working');
+});
 const sections=['elem','mid','high','contest','why','platform','faq','contact'];
 window.addEventListener('scroll',()=>{let current='';sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<150)current=id;});document.querySelectorAll('.nav-links a').forEach(a=>{a.classList.remove('active');if(a.getAttribute('onclick')&&a.getAttribute('onclick').includes(current))a.classList.add('active');});});
 </script>
