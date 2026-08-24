@@ -20,7 +20,7 @@ body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background
 .nav-content{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:20px}
 .nav a{color:#e2e8f0;text-decoration:none;font-weight:500;padding:8px 16px;border-radius:8px;transition:all 0.3s}
 .nav a:hover{color:var(--primary);background:rgba(99,102,241,0.1)}
-.container{max-width:1000px;margin:0 auto;padding:40px 20px}
+.container{max-width:1200px;margin:0 auto;padding:40px 20px}
 .section{margin-bottom:40px}
 .card{background:linear-gradient(145deg,rgba(30,27,75,0.9),rgba(49,46,129,0.7));border-radius:18px;padding:30px;border:1px solid rgba(99,102,241,0.25);margin-bottom:25px}
 .card h2{font-size:1.4em;margin-bottom:18px;color:var(--accent);display:flex;align-items:center;gap:10px}
@@ -29,6 +29,9 @@ body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background
 .card ul{list-style:none;padding:0}
 .card li{padding:8px 0 8px 25px;color:#cbd5e1;border-bottom:1px solid rgba(99,102,241,0.1);position:relative}
 .card li:before{content:"✓";position:absolute;left:0;color:var(--success);font-weight:bold}
+.level-card{background:rgba(15,23,42,0.8);border-radius:12px;padding:20px;margin:15px 0;border:1px solid rgba(99,102,241,0.15)}
+.level-card h3{color:var(--primary);font-size:1.2em;margin-bottom:15px;display:flex;align-items:center;gap:8px}
+.level-card ul li{padding:10px 0 10px 30px;font-size:0.95em}
 .price-section{text-align:center;padding:40px;background:linear-gradient(135deg,#1e1b4b,#4c1d95);border-radius:20px;margin-top:30px}
 .price-section .price{font-size:3em;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:15px 0}
 .price-section .desc{color:#94a3b8;margin-bottom:25px}
@@ -46,7 +49,7 @@ body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background
 
 <div class="header">
 <h1>🔬 AI物理虚拟实验</h1>
-<div class="subtitle">初中/高中物理全模块虚拟实验平台</div>
+<div class="subtitle">初中/高中/竞赛三级物理实验平台</div>
 </div>
 
 <div class="nav">
@@ -68,9 +71,78 @@ body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background
 
 <div class="section">
 <div class="card">
+<h2>📚 课程大纲</h2>
+<p>覆盖小学/初中/高中/竞赛全学段完整课程体系</p>
+</div>
+<div class="card">
+<h2>📖 完整课程大纲</h2>
+
+<div class="level-card">
+<h3>📚 初中阶段</h3>
+<ul>
+<li>力学基础：长度时间测量、速度计算、密度实验、压强探究</li>
+<li>声学光学：声音的产生与传播、光的反射折射、平面镜成像</li>
+<li>电学基础：电路连接、欧姆定律、电功率测量、安全用电</li>
+<li>热学入门：温度测量、熔化凝固、沸腾实验、物态变化</li>
+<li>实验技能：基本仪器使用、数据记录分析、误差处理</li>
+<li>中考实验：必考实验逐项训练、实验报告撰写指导</li>
+
+</ul>
+</div>
+
+<div class="level-card">
+<h3>🎓 高中阶段</h3>
+<ul>
+<li>力学深化：牛顿定律验证、动能定理、动量守恒、简谐振动</li>
+<li>电磁学：电场磁场、电磁感应、交变电流、电路分析</li>
+<li>光学进阶：光的干涉衍射、偏振现象、原子物理基础</li>
+<li>热学进阶：气体状态方程、热力学定律、分子动理论</li>
+<li>近代物理：光电效应、原子结构、核反应、波粒二象性</li>
+<li>高考实验：设计性实验训练、数据处理技巧、误差分析</li>
+
+</ul>
+</div>
+
+<div class="level-card">
+<h3>🏆 竞赛阶段</h3>
+<ul>
+<li>力学竞赛：抛体运动、相对运动、非惯性系、刚体平衡</li>
+<li>电磁竞赛：复杂电路、磁场中的带电粒子、电磁感应深化</li>
+<li>光学竞赛：几何光学成像、波动光学、激光原理</li>
+<li>近代物理：狭义相对论、量子力学初步、粒子物理</li>
+<li>实验设计：自主设计实验方案、数据处理进阶、误差估算</li>
+<li>CPhO专项：历年真题解析、模拟竞赛训练</li>
+
+</ul>
+</div>
+
+<div class="level-card">
+<h3>🚀 趣味拓展</h3>
+<ul>
+<li>物理趣味实验：伯努利原理、静电现象、磁悬浮演示</li>
+<li>生活中的物理：汽车原理、家电使用、能源与环保</li>
+<li>物理史话：牛顿与苹果、爱因斯坦相对论、量子革命</li>
+<li>前沿科技：量子计算、可控核聚变、暗物质探索</li>
+<li>物理竞赛科普：杨振宁、丁肇中、朱棣文的故事</li>
+<li>STEM融合：物理+编程+机械的综合项目</li>
+
+</ul>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<div class="card">
 <h2>📚 核心功能</h2>
 <ul>
-<li>30+经典实验仿真演示，欧姆定律/牛顿定律/凸透镜成像等</li><li>虚拟电路连接实时动画，直观理解电流变化规律</li><li>实验数据自动记录分析，培养科学探究能力</li><li>中考物理实验专项训练，历年真题模拟演练</li><li>支持PC端和移动端交互，随时随地学习</li><li>实验误差分析AI辅助，理解科学探究方法</li>
+<li>30+经典实验仿真演示，欧姆定律/牛顿定律/凸透镜成像等</li>
+<li>虚拟电路连接实时动画，直观理解电流变化规律</li>
+<li>实验数据自动记录分析，培养科学探究能力</li>
+<li>中考物理实验专项训练，历年真题模拟演练</li>
+<li>支持PC端和移动端交互，随时随地学习</li>
+<li>实验误差分析AI辅助，理解科学探究方法</li>
+
 </ul>
 </div>
 </div>
@@ -78,7 +150,7 @@ body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background
 <div class="section">
 <div class="card">
 <h2>🎯 适用对象</h2>
-<p>初中7-9年级、高中10-12年级学生，以及参加CPhO物理竞赛的学生</p>
+<p>{data['target']}</p>
 </div>
 </div>
 
@@ -86,7 +158,7 @@ body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background
 <div class="card">
 <h2>📊 学习效果</h2>
 <ul>
-<li>系统掌握物理核心知识点</li>
+<li>系统掌握本学科全学段核心知识点</li>
 <li>提升解题能力与应试技巧</li>
 <li>培养学科思维与创新能力</li>
 <li>AI辅助个性化学习路径</li>
@@ -96,19 +168,17 @@ body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background
 </div>
 
 <div class="price-section">
-<h2 style="color:#fff;font-size:1.5em;margin-bottom:10px">🔬 AI物理虚拟实验</h2>
-<div class="price">¥199起</div>
-<p class="desc">初中版¥199/年 | 高中版¥399/年 | 竞赛版¥399/年</p>
-<a href="tel:15684394135" class="btn">📞 立即咨询报名</a>
-<p style="color:#94a3b8;margin-top:20px;font-size:0.9em">联系电话：15684394135（微信同号）</p>
+<h2 style="color:#fff;font-size:1.5em;margin-bottom:10px">{data['icon']} {data['title']}</h2>
+<div class="price">¥{data['price']}起</div>
+<div class="desc">全学段完整课程体系，AI驱动个性化学习</div>
+<a href="tel:15684394135" class="btn">📞 立即报名咨询</a>
 </div>
 
 </div>
 
 <div class="footer">
-<p>© 2026 李彦明 · 全学段AI课程开发者</p>
-<p>联系方式：15684394135（微信同号）</p>
-<p style="font-size:0.78em;margin-top:8px">覆盖小学、初中、高中13学科 | 32+AI课程产品</p>
+<p>© 2026 李彦明 AI课程 | 联系电话：15684394135</p>
+<p>覆盖小学、初中、高中全学段AI课程开发</p>
 </div>
 
 </body>
