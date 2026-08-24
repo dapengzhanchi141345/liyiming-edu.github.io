@@ -169,6 +169,17 @@ body{font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;background
 <meta http-equiv="Expires" content="0">
 
 <!-- Version: 2026-08-24-10-50 -->
+
+<script>
+console.log('=== 页面加载调试信息 ===');
+console.log('window.scrollTo:', typeof window.scrollTo);
+console.log('window.openModal:', typeof window.openModal);
+console.log('window.products:', typeof window.products);
+if(typeof window.products !== 'undefined') {
+    console.log('products keys:', Object.keys(window.products).slice(0,5));
+}
+console.log('=== 调试结束 ===');
+</script>
 <script>
 // 强制刷新缓存
 if(window.location.hash !== '#v=202608241050') {
@@ -1010,7 +1021,7 @@ let state = {subject:null,messages:[],wrongAnswers:[],streak:parseInt(localStora
 
 function saveState(){localStorage.setItem('streak',state.streak);localStorage.setItem('points',state.points);localStorage.setItem('correct',state.correctCount);localStorage.setItem('total',state.totalAnswers);updateStats();}
 function updateStats(){document.getElementById('total-lessons').textContent=state.totalAnswers;document.getElementById('correct-answers').textContent=state.correctCount;document.getElementById('streak').textContent=state.streak+'天';document.getElementById('points').textContent=state.points;document.getElementById('streak-small').textContent=state.streak+'天';document.getElementById('points-small').textContent=state.points;const acc=state.totalAnswers>0?Math.round(state.correctCount/state.totalAnswers*100):0;document.getElementById('accuracy').textContent=acc+'%';}
-function scrollTo(id){
+window.scrollTo = function(id){
     console.log('scrollTo called with:', id);
     const el=document.getElementById(id);
     if(el){
@@ -1019,7 +1030,7 @@ function scrollTo(id){
         console.error('Element not found:', id);
         alert('找不到元素: ' + id);
     }
-}
+};
 function openModal(id){
     console.log('openModal called with:', id);
     const p=products[id];
