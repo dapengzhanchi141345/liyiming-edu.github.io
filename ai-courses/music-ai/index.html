@@ -3,163 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>音律工坊AI音乐课程 - 李彦明全学段AI课程</title>
-<meta name="description" content="李彦明AI音乐课程：音乐素养启蒙、AI辅助作曲、音乐欣赏、乐器入门">
+<title>AI音乐素养启蒙 - 李彦明全学段AI课程</title>
+<meta name="description" content="李彦明AI音乐素养启蒙课程，覆盖小学/初中全学段音乐课程，乐理基础讲解、钢琴入门教学、AI作曲辅助创作">
+<meta name="keywords" content="AI音乐,乐理基础,钢琴入门,AI作曲,小学音乐,初中音乐">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0a0a0f;color:#e8e8f0;min-height:100vh}
-.header{background:linear-gradient(135deg,#1a1a2e 0%,#3d1c3d 100%);padding:40px 20px;text-align:center;border-bottom:3px solid #ff69b4}
-.header h1{font-size:2.5em;color:#ff69b4;margin-bottom:10px}
-.header p{color:#a0a0b0;font-size:1.1em}
-.nav{background:#12121a;padding:15px;text-align:center}
-.nav a{color:#ff69b4;text-decoration:none;margin:0 15px;font-weight:bold}
-.container{max-width:1200px;margin:0 auto;padding:20px}
-.section{margin:30px 0}
-.section h2{color:#ff69b4;font-size:1.8em;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #1e1e3a}
-.course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.course-card{background:linear-gradient(145deg,#1a1a2e,#3d1c3d);border-radius:12px;padding:25px;border:1px solid #2a2a4a;transition:all 0.3s}
-.course-card:hover{transform:translateY(-5px);border-color:#ff69b4;box-shadow:0 10px 30px rgba(255,105,180,0.2)}
-.course-card h3{color:#ff88cc;font-size:1.3em;margin-bottom:15px}
-.level-badge{display:inline-block;background:#ff69b4;color:#fff;padding:4px 12px;border-radius:20px;font-size:0.85em;margin-right:8px}
-.level-badge.primary{background:#4ecca3;color:#000}
-.level-badge.junior{background:#ffd93d}
-.level-badge.senior{background:#6c5ce7}
-.feature-list{list-style:none;padding:0}
-.feature-list li{padding:8px 0;color:#b0b0c0;border-bottom:1px solid #1e1e3a}
-.feature-list li:before{content:"✓ ";color:#4ecca3;font-weight:bold}
-.pricing{background:#1e1e3a;padding:15px;border-radius:8px;margin-top:15px;display:flex;justify-content:space-between;align-items:center}
-.price{font-size:1.5em;color:#ff69b4;font-weight:bold}
-.btn{background:#ff69b4;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:bold}
-.btn:hover{background:#e055a0}
-.expert-badge{background:linear-gradient(135deg,#ff69b4,#cc4488);color:#fff;padding:15px;border-radius:10px;margin-bottom:25px;text-align:center}
-.expert-badge h3{font-size:1.5em}
-.footer{background:#0a0a0f;text-align:center;padding:30px;border-top:1px solid #1e1e3a;margin-top:50px}
+:root{--primary:#6366f1;--secondary:#8b5cf6;--accent:#06b6d4;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--dark:#0f172a}
+body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:#020617;color:#e2e8f0;min-height:100vh;line-height:1.6}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:rgba(15,23,42,0.5)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px}
+.header{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#4c1d95 100%);padding:60px 20px;text-align:center}
+.header h1{font-size:2.5em;font-weight:900;margin-bottom:15px;background:linear-gradient(135deg,#fff,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header .subtitle{color:#a5b4fc;font-size:1.1em;margin-bottom:20px}
+.nav{background:rgba(15,23,42,0.98);padding:14px 20px;border-bottom:1px solid rgba(99,102,241,0.2)}
+.nav-content{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:20px}
+.nav a{color:#e2e8f0;text-decoration:none;font-weight:500;padding:8px 16px;border-radius:8px;transition:all 0.3s}
+.nav a:hover{color:var(--primary);background:rgba(99,102,241,0.1)}
+.container{max-width:1200px;margin:0 auto;padding:40px 20px}
+.section{margin-bottom:40px}
+.card{background:linear-gradient(145deg,rgba(30,27,75,0.9),rgba(49,46,129,0.7));border-radius:18px;padding:30px;border:1px solid rgba(99,102,241,0.25);margin-bottom:25px}
+.card h2{font-size:1.4em;margin-bottom:18px;color:var(--accent);display:flex;align-items:center;gap:10px}
+.card h3{font-size:1.1em;margin:15px 0 10px;color:#fff}
+.card p{color:#94a3b8;line-height:1.8;margin:8px 0}
+.card ul{list-style:none;padding:0}
+.card li{padding:8px 0 8px 25px;color:#cbd5e1;border-bottom:1px solid rgba(99,102,241,0.1);position:relative}
+.card li:before{content:"✓";position:absolute;left:0;color:var(--success);font-weight:bold}
+.level-card{background:rgba(15,23,42,0.8);border-radius:12px;padding:20px;margin:15px 0;border:1px solid rgba(99,102,241,0.15)}
+.level-card h3{color:var(--primary);font-size:1.2em;margin-bottom:15px;display:flex;align-items:center;gap:8px}
+.level-card ul li{padding:10px 0 10px 30px;font-size:0.95em}
+.price-section{text-align:center;padding:40px;background:linear-gradient(135deg,#1e1b4b,#4c1d95);border-radius:20px;margin-top:30px}
+.price-section .price{font-size:3em;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:15px 0}
+.price-section .desc{color:#94a3b8;margin-bottom:25px}
+.btn{display:inline-block;padding:14px 35px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:50px;color:#fff;font-weight:700;text-decoration:none;font-size:1.1em;transition:all 0.3s}
+.btn:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(99,102,241,0.4)}
+.footer{background:rgba(15,23,42,0.98);text-align:center;padding:30px 20px;border-top:1px solid rgba(99,102,241,0.2)}
+.footer p{color:#64748b;margin:6px 0;font-size:0.9em}
+@media(max-width:768px){
+.header h1{font-size:1.8em}
+.nav-content{flex-direction:column;gap:10px}
+}
 </style>
 </head>
 <body>
+
 <div class="header">
-<h1>🎵 音律工坊AI音乐课程</h1>
-<p>李彦明全学段AI课程 | 专家：音律工坊团队</p>
+<h1>🎵 AI音乐素养启蒙</h1>
+<div class="subtitle">乐理基础 + 钢琴入门 + AI作曲辅助</div>
 </div>
 
 <div class="nav">
+<div class="nav-content">
 <a href="/">首页</a>
 <a href="/ai-courses/">全部课程</a>
-<a href="javascript:history.back()">返回</a>
+<a href="tel:15684394135">📞 联系报名</a>
+</div>
 </div>
 
 <div class="container">
-<div class="expert-badge">
-<h3>🎓 专家团队：音律工坊AI音乐创作团队</h3>
-<p>词曲创作 | 编曲配乐 | AI演唱 | 混音母带 | 乐理教学</p>
-</div>
 
 <div class="section">
-<h2>📖 音乐素养启蒙</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge primary">启蒙</span>
-<h3>AI乐理入门</h3>
-<ul class="feature-list">
-<li>音符节奏AI演示</li>
-<li>音程关系AI讲解</li>
-<li>和弦构成AI可视化</li>
-<li>基础乐理AI测试</li>
-</ul>
-<div class="pricing">
-<span>免费体验</span>
-<a href="tel:15684394135" class="btn">立即体验</a>
-</div>
-</div>
-<div class="course-card">
-<span class="level-badge primary">启蒙</span>
-<h3>AI音乐欣赏</h3>
-<ul class="feature-list">
-<li>古典名曲AI赏析</li>
-<li>音乐风格AI讲解</li>
-<li>作曲家故事AI呈现</li>
-<li>音乐元素AI分析</li>
-</ul>
-<div class="pricing">
-<span>免费体验</span>
-<a href="tel:15684394135" class="btn">立即体验</a>
-</div>
-</div>
+<div class="card">
+<h2>📋 课程简介</h2>
+<p>李彦明AI音乐素养启蒙课程，覆盖小学/初中全学段音乐课程，乐理基础讲解、钢琴入门教学、AI作曲辅助创作</p>
 </div>
 </div>
 
 <div class="section">
-<h2>🎹 AI音乐创作</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge junior">入门</span>
-<h3>AI辅助作曲</h3>
-<ul class="feature-list">
-<li>旋律生成AI辅助</li>
-<li>和声进行AI推荐</li>
-<li>曲式结构AI指导</li>
-<li>作品完善AI建议</li>
+<div class="card">
+<h2>📚 课程大纲</h2>
+<p>覆盖小学/初中/高中/竞赛全学段完整课程体系</p>
+</div>
+<div class="card">
+<h2>📖 完整课程大纲</h2>
+
+<div class="level-card">
+<h3>🎒 小学阶段</h3>
+<ul>
+<li>1-2年级：认识音符、节奏游戏、音乐欣赏</li>
+<li>3-4年级：五线谱入门、基础乐理、简易钢琴</li>
+<li>5-6年级：和弦基础、视唱练耳、音乐创作</li>
+<li>音乐欣赏：中外名曲赏析、音乐风格辨识</li>
+<li>节奏训练：节拍游戏、打击乐器体验</li>
+<li>歌唱基础：呼吸方法、音准训练、合唱体验</li>
+
 </ul>
-<div class="pricing">
-<span class="price">¥299/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
 </div>
-</div>
-<div class="course-card">
-<span class="level-badge junior">进阶</span>
-<h3>AI编曲配乐</h3>
-<ul class="feature-list">
-<li>配器法AI指导</li>
-<li>音色选择AI推荐</li>
-<li>编曲结构AI设计</li>
-<li>混音基础AI教学</li>
+
+<div class="level-card">
+<h3>📚 初中阶段</h3>
+<ul>
+<li>乐理深化：调式调性、和声基础、曲式结构</li>
+<li>钢琴进阶：音阶琶音、练习曲、乐曲演奏</li>
+<li>视唱练耳：音程听辨、和弦听辨、旋律记谱</li>
+<li>音乐鉴赏：中国民族音乐、西方古典音乐</li>
+<li>AI作曲入门：旋律生成、和声配置、编曲基础</li>
+<li>中考音乐：乐理知识、音乐常识、鉴赏分析</li>
+
 </ul>
-<div class="pricing">
-<span class="price">¥399/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
 </div>
+
+<div class="level-card">
+<h3>🎹 拓展提升</h3>
+<ul>
+<li>作曲基础：旋律创作、和声编写、曲式分析</li>
+<li>编曲进阶：配器原理、MIDI制作、混音基础</li>
+<li>音乐制作：数字音频工作站入门、音频编辑</li>
+<li>AI辅助创作：风格模仿、自动伴奏、智能编曲</li>
+<li>音乐史：中国音乐史、西方音乐史、音乐流派</li>
+<li>器乐入门：吉他/尤克里里/电子琴基础</li>
+
+</ul>
 </div>
+
+<div class="level-card">
+<h3>🏆 素养竞赛</h3>
+<ul>
+<li>音乐素养比赛：乐理考试、视唱练耳、音乐常识</li>
+<li>钢琴等级考试：考级曲目指导、技巧训练</li>
+<li>音乐创作：原创歌曲创作、AI辅助编曲</li>
+<li>音乐表演：舞台表演技巧、音乐表达</li>
+<li>音乐理论：和声学、曲式学、复调基础</li>
+<li>竞赛培训：各类音乐素养竞赛专项训练</li>
+
+</ul>
+</div>
+
 </div>
 </div>
 
 <div class="section">
-<h2>🎤 AI音乐应用</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge senior">应用</span>
-<h3>AI歌曲翻唱</h3>
-<ul class="feature-list">
-<li>AI换声部训练</li>
-<li>和声编写AI辅助</li>
-<li>演唱技巧AI指导</li>
-<li>作品录制AI帮助</li>
+<div class="card">
+<h2>📚 核心功能</h2>
+<ul>
+<li>乐理基础动画讲解，直观理解音乐概念</li>
+<li>AI钢琴陪练，实时反馈音准与节奏</li>
+<li>音乐欣赏引导，提升审美能力</li>
+<li>AI作曲辅助，激发创作灵感</li>
+<li>视唱练耳训练，提升音乐听力</li>
+<li>小学/初中/高中知识图谱，系统学习</li>
+
 </ul>
-<div class="pricing">
-<span class="price">¥299/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
 </div>
 </div>
-<div class="course-card">
-<span class="level-badge senior">应用</span>
-<h3>AI音乐制作</h3>
-<ul class="feature-list">
-<li>DAW使用AI教学</li>
-<li>录音剪辑AI指导</li>
-<li>混音母带AI处理</li>
-<li>作品发布AI建议</li>
+
+<div class="section">
+<div class="card">
+<h2>🎯 适用对象</h2>
+<p>{data['target']}</p>
+</div>
+</div>
+
+<div class="section">
+<div class="card">
+<h2>📊 学习效果</h2>
+<ul>
+<li>系统掌握本学科全学段核心知识点</li>
+<li>提升解题能力与应试技巧</li>
+<li>培养学科思维与创新能力</li>
+<li>AI辅助个性化学习路径</li>
+<li>学习进度实时追踪反馈</li>
 </ul>
-<div class="pricing">
-<span class="price">¥499/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
 </div>
 </div>
+
+<div class="price-section">
+<h2 style="color:#fff;font-size:1.5em;margin-bottom:10px">{data['icon']} {data['title']}</h2>
+<div class="price">¥{data['price']}起</div>
+<div class="desc">全学段完整课程体系，AI驱动个性化学习</div>
+<a href="tel:15684394135" class="btn">📞 立即报名咨询</a>
 </div>
-</div>
+
 </div>
 
 <div class="footer">
-<p>📞 联系我们：李彦明 15684394135</p>
-<p>© 2026 李彦明 · 全学段AI课程开发者</p>
+<p>© 2026 李彦明 AI课程 | 联系电话：15684394135</p>
+<p>覆盖小学、初中、高中全学段AI课程开发</p>
 </div>
+
 </body>
 </html>
