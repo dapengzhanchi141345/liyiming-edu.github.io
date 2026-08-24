@@ -3,170 +3,184 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>炼金士AI化学课程 - 李彦明全学段AI课程</title>
-<meta name="description" content="李彦明AI化学课程：小学科学启蒙、初中方程式配平、高中高考题库、竞赛化学训练">
+<title>AI化学趣味实验 - 李彦明全学段AI课程</title>
+<meta name="description" content="李彦明AI化学趣味实验，覆盖初中/高中全学段化学课程，虚拟化学实验仿真，分子结构3D展示，中考高考化学专项训练">
+<meta name="keywords" content="AI化学,化学趣味实验,分子结构3D,初中化学,高中化学">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#0a0a0f;color:#e8e8f0;min-height:100vh}
-.header{background:linear-gradient(135deg,#1a1a2e 0%,#2d1b4e 100%);padding:40px 20px;text-align:center;border-bottom:3px solid #bf00ff}
-.header h1{font-size:2.5em;color:#bf00ff;margin-bottom:10px}
-.header p{color:#a0a0b0;font-size:1.1em}
-.nav{background:#12121a;padding:15px;text-align:center}
-.nav a{color:#bf00ff;text-decoration:none;margin:0 15px;font-weight:bold}
-.container{max-width:1200px;margin:0 auto;padding:20px}
-.section{margin:30px 0}
-.section h2{color:#bf00ff;font-size:1.8em;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #1e1e3a}
-.course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.course-card{background:linear-gradient(145deg,#1a1a2e,#2d1b4e);border-radius:12px;padding:25px;border:1px solid #2a2a4a;transition:all 0.3s}
-.course-card:hover{transform:translateY(-5px);border-color:#bf00ff;box-shadow:0 10px 30px rgba(191,0,255,0.2)}
-.course-card h3{color:#d066ff;font-size:1.3em;margin-bottom:15px}
-.level-badge{display:inline-block;background:#bf00ff;color:#fff;padding:4px 12px;border-radius:20px;font-size:0.85em;margin-right:8px}
-.level-badge.primary{background:#4ecca3;color:#000}
-.level-badge.junior{background:#ffd93d}
-.level-badge.senior{background:#6c5ce7}
-.level-badge.contest{background:#e94560}
-.feature-list{list-style:none;padding:0}
-.feature-list li{padding:8px 0;color:#b0b0c0;border-bottom:1px solid #1e1e3a}
-.feature-list li:before{content:"✓ ";color:#4ecca3;font-weight:bold}
-.pricing{background:#1e1e3a;padding:15px;border-radius:8px;margin-top:15px;display:flex;justify-content:space-between;align-items:center}
-.price{font-size:1.5em;color:#bf00ff;font-weight:bold}
-.btn{background:#bf00ff;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:bold}
-.btn:hover{background:#9900cc}
-.expert-badge{background:linear-gradient(135deg,#bf00ff,#7700cc);color:#fff;padding:15px;border-radius:10px;margin-bottom:25px;text-align:center}
-.expert-badge h3{font-size:1.5em}
-.footer{background:#0a0a0f;text-align:center;padding:30px;border-top:1px solid #1e1e3a;margin-top:50px}
+:root{--primary:#6366f1;--secondary:#8b5cf6;--accent:#06b6d4;--success:#10b981;--warning:#f59e0b;--danger:#ef4444;--dark:#0f172a}
+body{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:#020617;color:#e2e8f0;min-height:100vh;line-height:1.6}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:rgba(15,23,42,0.5)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px}
+.header{background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#4c1d95 100%);padding:60px 20px;text-align:center}
+.header h1{font-size:2.5em;font-weight:900;margin-bottom:15px;background:linear-gradient(135deg,#fff,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header .subtitle{color:#a5b4fc;font-size:1.1em;margin-bottom:20px}
+.nav{background:rgba(15,23,42,0.98);padding:14px 20px;border-bottom:1px solid rgba(99,102,241,0.2)}
+.nav-content{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:20px}
+.nav a{color:#e2e8f0;text-decoration:none;font-weight:500;padding:8px 16px;border-radius:8px;transition:all 0.3s}
+.nav a:hover{color:var(--primary);background:rgba(99,102,241,0.1)}
+.container{max-width:1200px;margin:0 auto;padding:40px 20px}
+.section{margin-bottom:40px}
+.card{background:linear-gradient(145deg,rgba(30,27,75,0.9),rgba(49,46,129,0.7));border-radius:18px;padding:30px;border:1px solid rgba(99,102,241,0.25);margin-bottom:25px}
+.card h2{font-size:1.4em;margin-bottom:18px;color:var(--accent);display:flex;align-items:center;gap:10px}
+.card h3{font-size:1.1em;margin:15px 0 10px;color:#fff}
+.card p{color:#94a3b8;line-height:1.8;margin:8px 0}
+.card ul{list-style:none;padding:0}
+.card li{padding:8px 0 8px 25px;color:#cbd5e1;border-bottom:1px solid rgba(99,102,241,0.1);position:relative}
+.card li:before{content:"✓";position:absolute;left:0;color:var(--success);font-weight:bold}
+.level-card{background:rgba(15,23,42,0.8);border-radius:12px;padding:20px;margin:15px 0;border:1px solid rgba(99,102,241,0.15)}
+.level-card h3{color:var(--primary);font-size:1.2em;margin-bottom:15px;display:flex;align-items:center;gap:8px}
+.level-card ul li{padding:10px 0 10px 30px;font-size:0.95em}
+.price-section{text-align:center;padding:40px;background:linear-gradient(135deg,#1e1b4b,#4c1d95);border-radius:20px;margin-top:30px}
+.price-section .price{font-size:3em;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:15px 0}
+.price-section .desc{color:#94a3b8;margin-bottom:25px}
+.btn{display:inline-block;padding:14px 35px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:50px;color:#fff;font-weight:700;text-decoration:none;font-size:1.1em;transition:all 0.3s}
+.btn:hover{transform:scale(1.05);box-shadow:0 10px 30px rgba(99,102,241,0.4)}
+.footer{background:rgba(15,23,42,0.98);text-align:center;padding:30px 20px;border-top:1px solid rgba(99,102,241,0.2)}
+.footer p{color:#64748b;margin:6px 0;font-size:0.9em}
+@media(max-width:768px){
+.header h1{font-size:1.8em}
+.nav-content{flex-direction:column;gap:10px}
+}
 </style>
 </head>
 <body>
+
 <div class="header">
-<h1>⚗️ 炼金士AI化学课程</h1>
-<p>李彦明全学段AI课程 | 专家：炼金士(金融会)团队</p>
+<h1>⚗️ AI化学趣味实验</h1>
+<div class="subtitle">虚拟化学实验 + 分子结构3D + 中考高考专项</div>
 </div>
 
 <div class="nav">
+<div class="nav-content">
 <a href="/">首页</a>
 <a href="/ai-courses/">全部课程</a>
-<a href="javascript:history.back()">返回</a>
+<a href="tel:15684394135">📞 联系报名</a>
+</div>
 </div>
 
 <div class="container">
-<div class="expert-badge">
-<h3>🎓 专家团队：炼金士(金融会)化学教学专家团</h3>
-<p>团队成员：金初燃(初中) | 金粹华(高中) | 金析微(本科) | 金极研(竞赛) | 化阅核(阅卷评分)</p>
-</div>
 
 <div class="section">
-<h2>📖 小学科学AI课程</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge primary">小学</span>
-<h3>AI化学小实验</h3>
-<ul class="feature-list">
-<li>安全化学实验AI演示</li>
-<li>物质变化AI讲解</li>
-<li>日常生活化学AI联系</li>
-<li>科学探究AI启蒙</li>
-</ul>
-<div class="pricing">
-<span>免费体验</span>
-<a href="tel:15684394135" class="btn">立即体验</a>
-</div>
-</div>
+<div class="card">
+<h2>📋 课程简介</h2>
+<p>李彦明AI化学趣味实验，覆盖初中/高中全学段化学课程，虚拟化学实验仿真，分子结构3D展示，中考高考化学专项训练</p>
 </div>
 </div>
 
 <div class="section">
-<h2>📝 初中化学AI课程</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge junior">初中</span>
-<h3>AI方程式配平助手</h3>
-<ul class="feature-list">
-<li>AI智能配平方程式</li>
-<li>配平步骤AI讲解</li>
-<li>常见方程式AI汇总</li>
-<li>中考化学专项训练</li>
+<div class="card">
+<h2>📚 课程大纲</h2>
+<p>覆盖小学/初中/高中/竞赛全学段完整课程体系</p>
+</div>
+<div class="card">
+<h2>📖 完整课程大纲</h2>
+
+<div class="level-card">
+<h3>📚 初中阶段</h3>
+<ul>
+<li>化学入门：物质的变化与性质、走进化学实验室</li>
+<li>空气氧气：空气组成、氧气性质与制取</li>
+<li>水与溶液：水的组成、溶液概念、溶解度</li>
+<li>碳元素：碳单质、二氧化碳、碳酸钙</li>
+<li>金属与金属矿物：金属性质、金属材料、金属资源保护</li>
+<li>酸碱盐：酸碱性、常见酸碱盐、复分解反应</li>
+<li>中考专项：实验探究、计算题、推断题训练</li>
+
 </ul>
-<div class="pricing">
-<span class="price">¥149/年</span>
-<a href="tel:15684394135" class="btn">立即订阅</a>
 </div>
-</div>
-<div class="course-card">
-<span class="level-badge junior">初中</span>
-<h3>AI物质推断题</h3>
-<ul class="feature-list">
-<li>推断题AI解题思路</li>
-<li>物质的性质AI总结</li>
-<li>反应规律AI归纳</li>
-<li>中考推断题专项训练</li>
+
+<div class="level-card">
+<h3>🎓 高中阶段</h3>
+<ul>
+<li>必修一：化学物质及其变化、钠镁铝铁铜、氧化还原</li>
+<li>必修二：物质结构元素周期律、化学反应速率与限度</li>
+<li>选择性必修：化学反应原理、有机化学基础、材料科学</li>
+<li>电化学：原电池、电解池、金属腐蚀与防护</li>
+<li>有机化学：烃类、烃的衍生物、高分子材料</li>
+<li>高考专项：实验综合、有机推断、化学计算</li>
+
 </ul>
-<div class="pricing">
-<span class="price">¥149/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
 </div>
+
+<div class="level-card">
+<h3>🏆 竞赛阶段</h3>
+<ul>
+<li>CChO培训：竞赛大纲详解、重难点突破</li>
+<li>结构化学：原子结构、分子结构、晶体结构</li>
+<li>物理化学：化学热力学、化学动力学、电化学</li>
+<li>分析化学：定量分析、仪器分析、光谱技术</li>
+<li>有机竞赛：反应机理、合成设计、谱图解析</li>
+<li>历年真题：历年CChO真题解析、模拟竞赛训练</li>
+
+</ul>
 </div>
+
+<div class="level-card">
+<h3>🚀 趣味拓展</h3>
+<ul>
+<li>趣味实验：焰色反应、化学反应变色、大象牙膏</li>
+<li>化学与生活：食品添加剂、洗涤剂、化妆品化学</li>
+<li>化学与环境：空气污染、水污染、垃圾处理</li>
+<li>化学史话：门捷列夫、居里夫人、侯德榜</li>
+<li>前沿化学：纳米材料、绿色化学、超导材料</li>
+<li>化学魔术：会游泳的鸡蛋、黑面包实验</li>
+
+</ul>
+</div>
+
 </div>
 </div>
 
 <div class="section">
-<h2>📚 高中化学AI课程</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge senior">高中</span>
-<h3>AI高考化学题库</h3>
-<ul class="feature-list">
-<li>化学用语AI精解</li>
-<li>化学反应原理AI梳理</li>
-<li>有机化学AI归纳</li>
-<li>高考真题AI训练</li>
+<div class="card">
+<h2>📚 核心功能</h2>
+<ul>
+<li>虚拟化学实验仿真，安全无风险操作</li>
+<li>分子结构3D展示，直观理解空间构型</li>
+<li>反应方程式智能配平，理解化学反应本质</li>
+<li>中考化学专项训练，实验题/计算题强化</li>
+<li>趣味化学实验，激发学习兴趣</li>
+<li>初中/高中/竞赛知识图谱，系统学习</li>
+
 </ul>
-<div class="pricing">
-<span class="price">¥299/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
-</div>
-</div>
-<div class="course-card">
-<span class="level-badge senior">高中</span>
-<h3>AI有机推断助手</h3>
-<ul class="feature-list">
-<li>有机反应AI推导</li>
-<li>官能团AI识别</li>
-<li>合成路线AI设计</li>
-<li>高考有机专项训练</li>
-</ul>
-<div class="pricing">
-<span class="price">¥249/年</span>
-<a href="tel:15684394135" class="btn">订阅课程</a>
-</div>
-</div>
 </div>
 </div>
 
 <div class="section">
-<h2>🏆 化学竞赛AI课程</h2>
-<div class="course-grid">
-<div class="course-card">
-<span class="level-badge contest">竞赛</span>
-<h3>AI化学奥林匹克</h3>
-<ul class="feature-list">
-<li>竞赛真题AI解析</li>
-<li>无机推断AI训练</li>
-<li>有机合成AI设计</li>
-<li>竞赛技巧AI指导</li>
+<div class="card">
+<h2>🎯 适用对象</h2>
+<p>{data['target']}</p>
+</div>
+</div>
+
+<div class="section">
+<div class="card">
+<h2>📊 学习效果</h2>
+<ul>
+<li>系统掌握本学科全学段核心知识点</li>
+<li>提升解题能力与应试技巧</li>
+<li>培养学科思维与创新能力</li>
+<li>AI辅助个性化学习路径</li>
+<li>学习进度实时追踪反馈</li>
 </ul>
-<div class="pricing">
-<span class="price">¥399/年</span>
-<a href="tel:15684394135" class="btn">竞赛冲刺</a>
 </div>
 </div>
+
+<div class="price-section">
+<h2 style="color:#fff;font-size:1.5em;margin-bottom:10px">{data['icon']} {data['title']}</h2>
+<div class="price">¥{data['price']}起</div>
+<div class="desc">全学段完整课程体系，AI驱动个性化学习</div>
+<a href="tel:15684394135" class="btn">📞 立即报名咨询</a>
 </div>
-</div>
+
 </div>
 
 <div class="footer">
-<p>📞 联系我们：李彦明 15684394135</p>
-<p>© 2026 李彦明 · 全学段AI课程开发者</p>
+<p>© 2026 李彦明 AI课程 | 联系电话：15684394135</p>
+<p>覆盖小学、初中、高中全学段AI课程开发</p>
 </div>
+
 </body>
 </html>
