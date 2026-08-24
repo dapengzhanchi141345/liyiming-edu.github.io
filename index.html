@@ -1017,12 +1017,13 @@ function scrollTo(id){
         el.scrollIntoView({behavior:'smooth', block:'start'});
     } else {
         console.error('Element not found:', id);
+        alert('找不到元素: ' + id);
     }
 }
 function openModal(id){
     console.log('openModal called with:', id);
     const p=products[id];
-    if(!p){console.error('Product not found:', id); return;}
+    if(!p){console.error('Product not found:', id); alert('找不到产品: ' + id); return;}
     const body=document.getElementById('modal-body');
     body.innerHTML='<h2>'+p.title+'</h2><p style="color:#94a3b8;margin-bottom:15px">'+p.desc+'</p><ul class="features">'+p.features.map(f=>'<li>'+f+'</li>').join('')+'</ul><p style="color:#6366f1;font-weight:700;margin-top:15px;font-size:1em">💰 价格：'+p.price+'</p><a href="tel:15684394135" class="cta" style="text-align:center;display:block;text-decoration:none">📞 立即咨询：15684394135</a>';
     document.getElementById('modal').classList.add('active');
@@ -1043,5 +1044,22 @@ document.addEventListener('DOMContentLoaded', function() {
 const sections=['elem','mid','high','contest','why','platform','faq','contact'];
 window.addEventListener('scroll',()=>{let current='';sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<150)current=id;});document.querySelectorAll('.nav-links a').forEach(a=>{a.classList.remove('active');if(a.getAttribute('onclick')&&a.getAttribute('onclick').includes(current))a.classList.add('active');});});
 </script>
-</body>
+
+<script>
+// 全局错误处理
+window.onerror = function(msg, url, line) {
+    console.error('Page error:', msg, 'at line', line);
+    return false;
+};
+// 按钮点击测试
+window.testButtons = function() {
+    console.log('Testing buttons...');
+    const scrollBtn = document.querySelector('a[onclick*="scrollTo"]');
+    const modalBtn = document.querySelector('div[onclick*="openModal"]');
+    console.log('Scroll button found:', !!scrollBtn);
+    console.log('Modal button found:', !!modalBtn);
+    if(scrollBtn) scrollBtn.click();
+    if(modalBtn) modalBtn.click();
+};
+</script></body>
 </html>
